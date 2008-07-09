@@ -1,11 +1,11 @@
-Name: kdeplasmoids4
+Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.0.85
+Version: 4.0.98
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Release: %mkrel 1
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasmoids-%version.tar.bz2
+Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -24,6 +24,7 @@ Obsoletes: kdeplasma4 < 4.0.83
 Obsoletes: kdeplayground4-plasma
 Obsoletes: kdeplayground4-plasma-devel
 Obsoletes: extragear-plasma < 4.0.82
+Obsoletes: kdeplasmoids4 <= 4.0.98
 Requires: plasma-applet-filewatcher
 Requires: plasma-applet-notes
 Requires: plasma-applet-bluemarble
@@ -624,7 +625,7 @@ based on %name
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdeplasmoids-%version
+%setup -q
 
 %build
 %cmake_kde4 
