@@ -4,7 +4,7 @@ Version: 4.0.98
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
