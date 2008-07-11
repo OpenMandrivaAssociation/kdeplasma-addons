@@ -1,3 +1,6 @@
+%define with_lancelot 0
+%{?_with_lancelot: %{expand: %%global with_lancelot 1}}
+
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.0.98
@@ -6,6 +9,9 @@ License: GPL
 URL: http://www.kde.org
 Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
+%if %{with_lancelot}
+Patch0:    kdeplasma-addons-4.0.98-enable-lancelot.patch
+%endif # with_lancelot
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -18,6 +24,9 @@ BuildRequires: qimageblitz-devel
 BuildRequires: boost-devel
 BuildRequires: lm_sensors-devel
 BuildRequires: qimageblitz-devel
+%if %{with_lancelot}
+BuildRequires: kdenetwork4-devel
+%endif # with_lancelot
 Provides: kdeplasma
 Provides: kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
@@ -208,21 +217,45 @@ Lunar calendar applet.
 %_kde_datadir/kde4/services/plasma-applet-luna.desktop
 
 #-----------------------------------------------------------------------------
+%if %{with_lancelot}
+%package -n plasma-applet-lancelot
+Summary: Plasma lancelot applets
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
 
-#%package -n plasma-applet-lancelot
-#Summary: Plasma lancelot applets
-#Group: Graphical desktop/KDE
-#Requires: kdebase4-workspace
-#Provides: plasma-applet
-#Conflicts: extragear-plasma < 4.0.82
+%description -n plasma-applet-lancelot
+Plasma lancelot applets.
 
-#%description -n plasma-applet-lancelot
-#Plasma lancelot applets.
+%files -n plasma-applet-lancelot
+%defattr(-,root,root)
+%_kde_bindir/lancelot
+%_kde_bindir/lancelot-test
+%_kde_libdir/kde4/plasma_applet_lancelot_launcher.so
+%_kde_datadir/kde4/services/plasma-applet-lancelot-launcher.desktop
+%_kde_datadir/dbus-1/services/org.kde.lancelot.service
+%_kde_iconsdir/hicolor/*/apps/lancelot.png
 
-#%files -n plasma-applet-lancelot
-#%defattr(-,root,root)
-#%_kde_libdir/kde4/plasma_applet_lancelot.so
-#%_kde_datadir/kde4/services/plasma-applet-lancelot.desktop
+#-----------------------------------------------------------------------------
+
+%define lancelot_major 1
+%define liblancelot %mklibname lancelot %lancelot_major
+
+%package -n %liblancelot
+Summary: %name library
+Group: System/Libraries
+
+%description -n %liblancelot
+%name library.
+
+%post -n %liblancelot -p /sbin/ldconfig
+%postun -n %liblancelot -p /sbin/ldconfig
+
+%files -n %liblancelot
+%defattr(-,root,root,-)
+%_kde_libdir/liblancelot.so.%{lancelot_major}*
+%endif #with_lancelot
 
 #-----------------------------------------------------------------------------
 
@@ -626,6 +659,7 @@ based on %name
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %cmake_kde4 
