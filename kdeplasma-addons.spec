@@ -1,4 +1,4 @@
-%define with_lancelot 0
+%define with_lancelot 1
 %{?_with_lancelot: %{expand: %%global with_lancelot 1}}
 
 Name: kdeplasma-addons
@@ -239,7 +239,7 @@ Plasma lancelot applets.
 
 #-----------------------------------------------------------------------------
 
-%define lancelot_major 1
+%define lancelot_major 0
 %define liblancelot %mklibname lancelot %lancelot_major
 
 %package -n %liblancelot
