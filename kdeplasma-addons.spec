@@ -1,4 +1,4 @@
-%define with_lancelot 1
+%define with_lancelot 0
 %{?_with_lancelot: %{expand: %%global with_lancelot 1}}
 
 Name: kdeplasma-addons
