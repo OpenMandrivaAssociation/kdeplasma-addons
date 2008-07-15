@@ -659,7 +659,9 @@ based on %name
 
 %prep
 %setup -q
+%if %{with_lancelot}
 %patch0 -p0
+%endif
 
 %build
 %cmake_kde4 
