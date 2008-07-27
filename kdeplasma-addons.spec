@@ -26,6 +26,7 @@ BuildRequires: lm_sensors-devel
 BuildRequires: qimageblitz-devel
 %if %{with_lancelot}
 BuildRequires: kdenetwork4-devel
+BuildRequires: kdepim4-devel
 %endif # with_lancelot
 Provides: kdeplasma
 Provides: kdeplasma4 = %version
