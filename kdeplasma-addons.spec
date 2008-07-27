@@ -36,7 +36,7 @@ Obsoletes: extragear-plasma < 4.0.82
 Obsoletes: kdeplasmoids4 <= 4.0.98
 Requires: plasma-applet-filewatcher
 Requires: plasma-applet-notes
-Requires: plasma-applet-bluemarble
+#Requires: plasma-applet-bluemarble
 Requires: plasma-applet-showdesktop
 Requires: plasma-applet-comic
 Requires: plasma-applet-konqprofiles
@@ -104,23 +104,23 @@ Plasma notes applets.
 %_kde_datadir/kde4/services/plasma-notes-default.desktop
 
 #-----------------------------------------------------------------------------
-
-%package -n plasma-applet-bluemarble
-Summary: OpenGL world planet applet
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-applet
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-applet-bluemarble
-OpenGL world planet applet.
-
-%files -n plasma-applet-bluemarble
-%defattr(-,root,root)
-%_kde_libdir/kde4/plasma_applet_bluemarble.so
-%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
-%_kde_appsdir/plasma-bluemarble
-
+#
+#%package -n plasma-applet-bluemarble
+#Summary: OpenGL world planet applet
+#Group: Graphical desktop/KDE
+#Requires: kdebase4-workspace
+#Provides: plasma-applet
+#Conflicts: extragear-plasma < 4.0.82
+#
+#%description -n plasma-applet-bluemarble
+#OpenGL world planet applet.
+#
+#%files -n plasma-applet-bluemarble
+#%defattr(-,root,root)
+#%_kde_libdir/kde4/plasma_applet_bluemarble.so
+#%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
+#%_kde_appsdir/plasma-bluemarble
+#
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-showdesktop
