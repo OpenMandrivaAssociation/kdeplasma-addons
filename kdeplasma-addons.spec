@@ -39,7 +39,9 @@ Obsoletes: extragear-plasma < 4.0.82
 Obsoletes: kdeplasmoids4 <= 4.0.98
 Requires: plasma-applet-filewatcher
 Requires: plasma-applet-notes
-#Requires: plasma-applet-bluemarble
+%if %{with_lancelot}
+Requires: plasma-applet-lancelot
+%endif
 Requires: plasma-applet-showdesktop
 Requires: plasma-applet-comic
 Requires: plasma-applet-konqprofiles
