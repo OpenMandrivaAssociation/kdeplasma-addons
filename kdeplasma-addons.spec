@@ -30,6 +30,7 @@ BuildRequires: qimageblitz-devel
 %if %{with_lancelot}
 BuildRequires: kdenetwork4-devel
 BuildRequires: kdepim4-devel
+BuildRequires: python-devel
 %endif # with_lancelot
 Provides: kdeplasma
 Provides: kdeplasma4 = %version
