@@ -1,4 +1,4 @@
-%define with_lancelot 0
+%define with_lancelot 1
 %{?_with_lancelot: %{expand: %%global with_lancelot 1}}
 
 Name: kdeplasma-addons
@@ -7,13 +7,14 @@ Version: 4.1.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 %if %{with_lancelot}
 Patch0:    kdeplasma-addons-4.0.98-enable-lancelot.patch
 %endif # with_lancelot
 Patch100: kdeplasma-addons-post-4.1.0-rev837261.patch
 Patch101: kdeplasma-addons-post-4.1.0-rev840466.patch
+Patch102: kdeplasma-addons-trunk-lancelot.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -236,11 +237,13 @@ Plasma lancelot applets.
 %files -n plasma-applet-lancelot
 %defattr(-,root,root)
 %_kde_bindir/lancelot
-%_kde_bindir/lancelot-test
+%_kde_libdir/kde4/plasma_applet_lancelot_part.so
 %_kde_libdir/kde4/plasma_applet_lancelot_launcher.so
 %_kde_datadir/kde4/services/plasma-applet-lancelot-launcher.desktop
 %_kde_datadir/dbus-1/services/org.kde.lancelot.service
-%_kde_iconsdir/hicolor/*/apps/lancelot.png
+%_kde_iconsdir/hicolor/*/apps/lancelot*.png
+%_kde_datadir/kde4/services/plasma-applet-lancelot-part.desktop
+%_kde_datadir/mime/packages/lancelotpart-mime.xml
 
 #-----------------------------------------------------------------------------
 
@@ -669,7 +672,7 @@ based on %name
 %endif
 %patch100 -p0 -b .post410
 %patch101 -p0 -b .post410
-
+%patch102 -p0 -b .lancelot_41
 %build
 %cmake_kde4 
 %make
