@@ -1,4 +1,4 @@
-%define with_lancelot 0
+%define with_lancelot 1
 %{?_with_lancelot: %{expand: %%global with_lancelot 1}}
 
 Name: kdeplasma-addons
@@ -7,10 +7,11 @@ Version: 4.1.1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 %if %{with_lancelot}
 Patch0:    kdeplasma-addons-4.0.98-enable-lancelot.patch
+Patch1:    kdeplasma-addons-trunk-lancelot.patch
 %endif
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
@@ -667,6 +668,7 @@ based on %name
 %setup -q
 %if %{with_lancelot}
 %patch0 -p0
+%patch1 -p0
 %endif
 
 %build
