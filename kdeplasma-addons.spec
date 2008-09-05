@@ -7,7 +7,7 @@ Version: 4.1.1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 %if %{with_lancelot}
 Patch0:    kdeplasma-addons-4.0.98-enable-lancelot.patch
@@ -243,6 +243,7 @@ Plasma lancelot applets.
 %_kde_iconsdir/hicolor/*/apps/lancelot*.png
 %_kde_datadir/kde4/services/plasma-applet-lancelot-part.desktop
 %_kde_datadir/mime/packages/lancelotpart-mime.xml
+%_kde_appsdir/desktoptheme/default/lancelot
 
 #-----------------------------------------------------------------------------
 
@@ -484,7 +485,7 @@ Plasma default desktopthemes.
 
 %files -n plasma-desktoptheme-default
 %defattr(-,root,root)
-%_kde_appsdir/desktoptheme/default
+%_kde_appsdir/desktoptheme/default/widgets
 
 #-----------------------------------------------------------------------------
 
