@@ -1,6 +1,6 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.1.70
+Version: 4.1.71
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -163,17 +163,14 @@ Make your day happy with daily desktop comics applet
 %_kde_services/phdprovider.desktop
 %_kde_servicetypes/plasma_comicprovider.desktop
 %_kde_datadir/config/comic.knsrc
-%_kde_datadir/kde4/services/calvinandhobbesprovider.desktop
 %_kde_datadir/kde4/services/shithappensprovider.desktop
 %_kde_datadir/kde4/services/unshelvedprovider.desktop
 %_kde_datadir/kde4/services/plasma-packagestructure-comic.desktop
 %_kde_libdir/kde4/plasma_packagestructure_comic.so
 %_kde_datadir/kde4/services/cadprovider.desktop
-%_kde_datadir/kde4/services/doonesburyprovider.desktop
 %_kde_datadir/kde4/services/extralifeprovider.desktop
 %_kde_datadir/kde4/services/malvadosprovider.desktop
 %_kde_datadir/kde4/services/nichtlustigprovider.desktop
-%_kde_datadir/kde4/services/boondocksprovider.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -191,6 +188,132 @@ Live konqueror profile viewer.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_konqprofiles.so
 %_kde_datadir/kde4/services/plasma-applet-konqprofiles.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-rssnow
+Summary: Plasma RSS Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-rssnow
+Plasma RSS Applet
+
+%files -n plasma-applet-rssnow
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_rssnow.so
+%_kde_appsdir/desktoptheme/default/rssnow
+%_kde_datadir/kde4/services/plasma-applet-rssnow.desktop
+%_kde_appsdir/rssnow
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-previewer
+Summary: Previewer Plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-previewer
+Previewer Plasma Applet
+
+%files -n plasma-applet-previewer
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_previewer.so
+%_kde_iconsdir/hicolor/*/apps/*.png
+%_kde_datadir/kde4/services/ServiceMenus/preview.desktop
+%_kde_datadir/kde4/services/plasma-applet-previewer.desktop
+
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-bball
+Summary: bball Plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-bball
+bball Plasma Applet
+
+%files -n plasma-applet-bball
+%defattr(-,root,root)
+%_kde_iconsdir/oxygen/scalable/apps/bball.svgz
+%_kde_datadir/kde4/services/plasma-applet-bball.desktop
+%_kde_appsdir/bball
+%_kde_libdir/kde4/plasma_applet_bball.so
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-incomingmsg
+Summary: incomingmsg Plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-incomingmsg
+incomingmsg Plasma Applet
+
+%files -n plasma-applet-incomingmsg
+%defattr(-,root,root)
+%_kde_datadir/kde4/services/plasma-applet-incomingmsg.desktop
+%_kde_libdir/kde4/plasma_applet_incomingmsg.so
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-leavenote
+Summary: leavenote Plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-leavenote
+leavenote Plasma Applet
+
+%files -n plasma-applet-leavenote
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_leavenote.so
+%_kde_datadir/kde4/services/plasma-applet-leavenote.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-life
+Summary: life Plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-life
+life Plasma Applet
+
+%files -n plasma-applet-life
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_life.so
+%_kde_datadir/kde4/services/plasma-applet-life.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-pastebin
+Summary: Pastebin plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-pastebin
+plasma-applet-pastebin
+
+%files -n plasma-applet-pastebin
+%defattr(-,root,root)
+%_kde_datadir/kde4/services/plasma-applet-pastebin.desktop
+%_kde_libdir/kde4/plasma_applet_pastebin.so
 
 #-----------------------------------------------------------------------------
 
@@ -615,29 +738,11 @@ Plasma contacts runners.
 
 #-----------------------------------------------------------------------------
 
-%package -n plasma-applet-calendar
-Summary: Plasma applet calendar
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-runner
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-applet-calendar
-Plasma contacts runners.
-
-%files -n plasma-applet-calendar
-%defattr(-,root,root)
-%_kde_libdir/kde4/plasma_applet_calendar.so
-%_kde_datadir/kde4/services/plasma-applet-calendar.desktop
-
-
-#-----------------------------------------------------------------------------
-
 %package -n plasma-applet-weatherstation
 Summary: Plasma applet weatherstation
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Provides: plasma-runner
+Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-weatherstation
@@ -751,6 +856,24 @@ Plasma runner konquerorsessions
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/konquerorsessions.desktop
 %_kde_libdir/kde4/krunner_konquerorsessions.so
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-katesessions
+Summary: Plasma katesessions runner
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-runner-katesessions
+Plasma runner katesessions
+
+%files -n plasma-runner-katesessions
+%defattr(-,root,root)
+%_kde_datadir/kde4/services/katesessions.desktop
+%_kde_libdir/kde4/krunner_katesessions.so
+
 
 #-----------------------------------------------------------------------------
 
