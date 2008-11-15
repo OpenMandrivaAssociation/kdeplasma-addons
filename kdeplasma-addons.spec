@@ -1,14 +1,15 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.1.71
+Version: 4.1.73
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Patch1:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
 Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
 Patch3:    kdeplasma-addons-4.1.71-lancelot-fix-NewDocument.patch
+Patch4:    kdeplasma-addons-4.1.71-enable-lancelot.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -105,23 +106,21 @@ Plasma notes applets.
 %_kde_datadir/kde4/services/plasma-notes-default.desktop
 
 #-----------------------------------------------------------------------------
-
-%package -n plasma-applet-bluemarble
-Summary: OpenGL world planet applet
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-applet
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-applet-bluemarble
-OpenGL world planet applet.
-
-%files -n plasma-applet-bluemarble
-%defattr(-,root,root)
-%_kde_libdir/kde4/plasma_applet_bluemarble.so
-%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
-%_kde_appsdir/plasma-bluemarble
-
+#%package -n plasma-applet-bluemarble
+#Summary: OpenGL world planet applet
+#Group: Graphical desktop/KDE
+#Requires: kdebase4-workspace
+#Provides: plasma-applet
+#Conflicts: extragear-plasma < 4.0.82
+#
+#%description -n plasma-applet-bluemarble
+#OpenGL world planet applet.
+#
+#%files -n plasma-applet-bluemarble
+#%defattr(-,root,root)
+#%_kde_libdir/kde4/plasma_applet_bluemarble.so
+#%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
+#%_kde_appsdir/plasma-bluemarble
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-showdesktop
@@ -156,24 +155,10 @@ Make your day happy with daily desktop comics applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_comic.so
 %_kde_datadir/kde4/services/plasma-dataengine-comic.desktop
-%_kde_appsdir/plasma-comic
-%_kde_services/xkcdprovider.desktop
-%_kde_services/userfriendlyprovider.desktop
-%_kde_services/snoopyprovider.desktop
-%_kde_services/dilbertprovider.desktop
-%_kde_services/garfieldprovider.desktop
-%_kde_services/osnewsprovider.desktop
-%_kde_services/phdprovider.desktop
-%_kde_servicetypes/plasma_comicprovider.desktop
 %_kde_datadir/config/comic.knsrc
-%_kde_datadir/kde4/services/shithappensprovider.desktop
-%_kde_datadir/kde4/services/unshelvedprovider.desktop
 %_kde_datadir/kde4/services/plasma-packagestructure-comic.desktop
 %_kde_libdir/kde4/plasma_packagestructure_comic.so
-%_kde_datadir/kde4/services/cadprovider.desktop
-%_kde_datadir/kde4/services/extralifeprovider.desktop
-%_kde_datadir/kde4/services/malvadosprovider.desktop
-%_kde_datadir/kde4/services/nichtlustigprovider.desktop
+%_kde_datadir/kde4/servicetypes/plasma_comicprovider.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -794,11 +779,28 @@ Plasma applet charselect
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-applet-eyes
+Summary: Plasma applet paste
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-eyes
+Plasma applet eyes
+
+%files -n plasma-applet-eyes
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_eyes.so                                                                                       
+%_kde_datadir/kde4/services/plasma-applet-eyes.desktop
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-applet-paste
 Summary: Plasma applet paste
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Provides: plasma-runner
+Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-paste
@@ -806,7 +808,7 @@ Plasma applet paste
 
 %files -n plasma-applet-paste
 %defattr(-,root,root)
-%_kde_libdir/kde4/plasma_applet_paste.so
+%_kde_libdir/kde4/plasma_applet_paste.so                                                                                      
 %_kde_datadir/kde4/services/plasma-applet-paste.desktop
 
 #-----------------------------------------------------------------------------
@@ -825,23 +827,6 @@ Plasma applet timer
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_timer.so
 %_kde_datadir/kde4/services/plasma-applet-timer.desktop
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-runner-places
-Summary: Plasma applet places
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-runner
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-runner-places
-Plasma runner places
-
-%files -n plasma-runner-places
-%defattr(-,root,root)
-%_kde_libdir/kde4/krunner_placesrunner.so
-%_kde_datadir/kde4/services/plasma-runner-places.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -995,6 +980,7 @@ based on %name
 %patch1 -p0
 %patch2 -p0
 %patch3 -p0
+%patch4 -p1
 
 %build
 %cmake_kde4 
