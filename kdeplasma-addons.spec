@@ -9,7 +9,6 @@ Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.
 Patch1:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
 Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
 Patch3:    kdeplasma-addons-4.1.71-lancelot-fix-NewDocument.patch
-Patch4:    kdeplasma-addons-4.1.71-enable-lancelot.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -980,7 +979,6 @@ based on %name
 %patch1 -p0
 %patch2 -p0
 %patch3 -p0
-%patch4 -p1
 
 %build
 %cmake_kde4 
