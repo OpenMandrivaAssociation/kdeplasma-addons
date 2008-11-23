@@ -21,9 +21,8 @@ BuildRequires: qimageblitz-devel
 BuildRequires: boost-devel
 BuildRequires: lm_sensors-devel
 BuildRequires: qimageblitz-devel
-BuildRequires: kdenetwork4-devel
-BuildRequires: kdepim4-devel
 BuildRequires: python-devel
+BuildRequires: kdegraphics4-devel
 Provides: kdeplasma
 Provides: kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
