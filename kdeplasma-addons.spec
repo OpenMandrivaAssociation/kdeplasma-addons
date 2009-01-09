@@ -4,7 +4,7 @@ Version: 4.1.96
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Patch1:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
 Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
@@ -338,6 +338,7 @@ Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
+Conflicts: plasma-desktoptheme-elegance < 4.1.85-2
 
 %description -n plasma-applet-lancelot
 Plasma lancelot applets.
