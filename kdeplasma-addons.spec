@@ -104,21 +104,21 @@ Plasma notes applets.
 %_kde_datadir/kde4/services/plasma-notes-default.desktop
 
 #-----------------------------------------------------------------------------
-#%package -n plasma-applet-bluemarble
-#Summary: OpenGL world planet applet
-#Group: Graphical desktop/KDE
-#Requires: kdebase4-workspace
-#Provides: plasma-applet
-#Conflicts: extragear-plasma < 4.0.82
-#
-#%description -n plasma-applet-bluemarble
-#OpenGL world planet applet.
-#
-#%files -n plasma-applet-bluemarble
-#%defattr(-,root,root)
-#%_kde_libdir/kde4/plasma_applet_bluemarble.so
-#%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
-#%_kde_appsdir/plasma-bluemarble
+%package -n plasma-applet-bluemarble
+Summary: OpenGL world planet applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-bluemarble
+OpenGL world planet applet.
+
+%files -n plasma-applet-bluemarble
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_bluemarble.so
+%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
+%_kde_appsdir/plasma-bluemarble
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-showdesktop
@@ -358,6 +358,11 @@ Plasma lancelot applets.
 %_kde_datadir/kde4/services/plasma-applet-lancelot-part.desktop
 %_kde_datadir/mime/packages/lancelotpart-mime.xml
 %_kde_appsdir/desktoptheme/default/lancelot
+%_kde_appsdir/desktoptheme/Elegance
+%_kde_appsdir/desktoptheme/Silicon
+%_kde_appsdir/desktoptheme/slim-glow
+%_kde_appsdir/desktoptheme/Aya
+%_kde_appsdir/desktoptheme/heron
 
 #-----------------------------------------------------------------------------
 
@@ -378,6 +383,21 @@ Group: System/Libraries
 %defattr(-,root,root,-)
 %_kde_libdir/liblancelot.so.%{lancelot_major}*
 
+#-----------------------------------------------------------------------------
+
+%package -n plasma-desktoptheme-default                                       
+Summary: Plasma default desktopthemes                                         
+Group: Graphical desktop/KDE                                                  
+Requires: kdebase4-workspace                                                  
+Conflicts: extragear-plasma < 4.0.82                                          
+                                                                              
+%description -n plasma-desktoptheme-default                                   
+Plasma default desktopthemes.                                                 
+                                                                              
+%files -n plasma-desktoptheme-default                                         
+%defattr(-,root,root)                                                         
+%_kde_appsdir/desktoptheme/default/widgets                                    
+                                                                              
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-twitter
@@ -586,106 +606,6 @@ Plasma twitter dataengines.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_engine_twitter.so
 %_kde_datadir/kde4/services/plasma-dataengine-twitter.desktop
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-desktoptheme-default
-Summary: Plasma default desktopthemes
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-desktoptheme-default
-Plasma default desktopthemes.
-
-%files -n plasma-desktoptheme-default
-%defattr(-,root,root)
-%_kde_appsdir/desktoptheme/default/widgets
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-desktoptheme-heron
-Summary: Plasma heron desktopthemes
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-desktoptheme
-Requires: plasma-desktoptheme-default
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-desktoptheme-heron
-Plasma heron desktopthemes.
-
-%files -n plasma-desktoptheme-heron
-%defattr(-,root,root)
-%_kde_appsdir/desktoptheme/heron
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-desktoptheme-aya
-Summary: Plasma aya desktopthemes
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-desktoptheme
-Requires: plasma-desktoptheme-default
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-desktoptheme-aya
-Plasma aya desktopthemes.
-
-%files -n plasma-desktoptheme-aya
-%defattr(-,root,root)
-%_kde_appsdir/desktoptheme/Aya
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-desktoptheme-slim-glow
-Summary: Plasma slim-glow desktopthemes
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-desktoptheme
-Requires: plasma-desktoptheme-default
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-desktoptheme-slim-glow
-Plasma slim-glow desktopthemes.
-
-%files -n plasma-desktoptheme-slim-glow
-%defattr(-,root,root)
-%_kde_appsdir/desktoptheme/slim-glow
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-desktoptheme-silicon
-Summary: Plasma silicon desktopthemes
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-desktoptheme
-Requires: plasma-desktoptheme-default
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-desktoptheme-silicon
-Plasma silicon desktopthemes.
-
-%files -n plasma-desktoptheme-silicon
-%defattr(-,root,root)
-%_kde_appsdir/desktoptheme/Silicon
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-desktoptheme-elegance
-Summary: Plasma elegance desktopthemes
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-desktoptheme
-Requires: plasma-desktoptheme-default
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-desktoptheme-elegance
-Plasma elegance desktopthemes.
-
-%files -n plasma-desktoptheme-elegance
-%defattr(-,root,root)
-%_kde_appsdir/desktoptheme/Elegance
 
 #-----------------------------------------------------------------------------
 
