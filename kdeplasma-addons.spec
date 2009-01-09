@@ -54,11 +54,6 @@ Requires: plasma-dataengine-comic
 Requires: plasma-dataengine-twitter
 
 Requires: plasma-desktoptheme-default
-Requires: plasma-desktoptheme-heron
-Requires: plasma-desktoptheme-aya
-Requires: plasma-desktoptheme-slim-glow
-Requires: plasma-desktoptheme-silicon
-Requires: plasma-desktoptheme-elegance
 
 Requires: plasma-runner-converter
 Requires: plasma-runner-contacts
