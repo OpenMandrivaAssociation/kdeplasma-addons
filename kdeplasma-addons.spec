@@ -4,7 +4,7 @@ Version: 4.2.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Patch1:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
 Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
@@ -31,14 +31,23 @@ Obsoletes: kdeplayground4-plasma-devel
 Obsoletes: extragear-plasma < 4.0.82
 Obsoletes: kdeplasmoids4 <= 4.0.98
 
-Suggests: plasma-applet-filewatcher
+Suggests: plasma-applet-filewatcher                                                                                           
 Suggests: plasma-applet-notes
-Suggests: plasma-applet-lancelot
+Suggests: plasma-applet-bluemarble
 Suggests: plasma-applet-showdesktop
 Suggests: plasma-applet-comic
 Suggests: plasma-applet-konqprofiles
+Suggests: plasma-applet-rssnow
+Suggests: plasma-applet-previewer
+Suggests: plasma-applet-bball
+Suggests: plasma-applet-incomingmsg
+Suggests: plasma-applet-leavenote
+Suggests: plasma-applet-life
+Suggests: plasma-applet-pastebin
 Suggests: plasma-applet-konsoleprofiles
 Suggests: plasma-applet-luna
+Suggests: plasma-applet-lancelot
+Suggests: plasma-desktoptheme-default
 Suggests: plasma-applet-twitter
 Suggests: plasma-applet-nowplaying
 Suggests: plasma-applet-binaryclock
@@ -49,14 +58,21 @@ Suggests: plasma-applet-showdashboard
 Suggests: plasma-applet-calculator
 Suggests: plasma-applet-fifteenpuzzle
 Suggests: plasma-applet-kolourpicker
-
 Suggests: plasma-dataengine-comic
 Suggests: plasma-dataengine-twitter
-
-Suggests: plasma-desktoptheme-default
-
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
+Suggests: plasma-applet-weatherstation
+Suggests: plasma-applet-news
+Suggests: plasma-applet-charselect
+Suggests: plasma-applet-eyes
+Suggests: plasma-applet-paste
+Suggests: plasma-applet-timer
+Suggests: plasma-runner-konquerorsessions
+Suggests: plasma-runner-katesessions
+Suggests: plasma-runner-konsolesessions
+Suggests: plasma-runner-browserhistory
+Suggests: plasma-runner-spellchecker
 
 %description
 kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4.
