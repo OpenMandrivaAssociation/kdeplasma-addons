@@ -4,7 +4,7 @@ Version: 4.2.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Patch1:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
 Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
@@ -31,32 +31,32 @@ Obsoletes: kdeplayground4-plasma-devel
 Obsoletes: extragear-plasma < 4.0.82
 Obsoletes: kdeplasmoids4 <= 4.0.98
 
-Requires: plasma-applet-filewatcher
-Requires: plasma-applet-notes
-Requires: plasma-applet-lancelot
-Requires: plasma-applet-showdesktop
-Requires: plasma-applet-comic
-Requires: plasma-applet-konqprofiles
-Requires: plasma-applet-konsoleprofiles
-Requires: plasma-applet-luna
-Requires: plasma-applet-twitter
-Requires: plasma-applet-nowplaying
-Requires: plasma-applet-binaryclock
-Requires: plasma-applet-dict
-Requires: plasma-applet-fuzzy-clock
-Requires: plasma-applet-frame
-Requires: plasma-applet-showdashboard
-Requires: plasma-applet-calculator
-Requires: plasma-applet-fifteenpuzzle
-Requires: plasma-applet-kolourpicker
+Suggests: plasma-applet-filewatcher
+Suggests: plasma-applet-notes
+Suggests: plasma-applet-lancelot
+Suggests: plasma-applet-showdesktop
+Suggests: plasma-applet-comic
+Suggests: plasma-applet-konqprofiles
+Suggests: plasma-applet-konsoleprofiles
+Suggests: plasma-applet-luna
+Suggests: plasma-applet-twitter
+Suggests: plasma-applet-nowplaying
+Suggests: plasma-applet-binaryclock
+Suggests: plasma-applet-dict
+Suggests: plasma-applet-fuzzy-clock
+Suggests: plasma-applet-frame
+Suggests: plasma-applet-showdashboard
+Suggests: plasma-applet-calculator
+Suggests: plasma-applet-fifteenpuzzle
+Suggests: plasma-applet-kolourpicker
 
-Requires: plasma-dataengine-comic
-Requires: plasma-dataengine-twitter
+Suggests: plasma-dataengine-comic
+Suggests: plasma-dataengine-twitter
 
-Requires: plasma-desktoptheme-default
+Suggests: plasma-desktoptheme-default
 
-Requires: plasma-runner-converter
-Requires: plasma-runner-contacts
+Suggests: plasma-runner-converter
+Suggests: plasma-runner-contacts
 
 %description
 kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4.
