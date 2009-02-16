@@ -4,7 +4,7 @@ Version: 4.2.0
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
 Patch1:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
 Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
