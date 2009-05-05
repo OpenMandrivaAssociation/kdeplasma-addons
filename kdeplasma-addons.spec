@@ -10,8 +10,6 @@ URL: http://www.kde.org
 Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%version.%kderevision.tar.bz2
 Patch1:    kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2:    kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
-#Backported patches
-Patch100:  kdeplasma-addons-backport-4.3.0-rev942500.patch 
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -434,7 +432,7 @@ Summary: Microblog applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
-Requires: plasma-dataengine-twitter
+Requires: plasma-dataengine-microblog
 Conflicts: extragear-plasma < 4.0.82
 Provides: plasma-applet-twitter = %version-%release
 Obsoletes: plasma-applet-twitter < 4.2.70
