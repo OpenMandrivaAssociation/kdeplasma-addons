@@ -1,16 +1,15 @@
+%define kderevision svn961800
+
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.2.2
-Release: %mkrel 2
+Version: 4.2.71
+Release: %mkrel 0.%{kderevision}.1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%version.tar.bz2
-Patch0:    kdeplasma-addons-4.2.0-fix-qt45.patch
-Patch1:    kdeplasma-addons-4.1.71-lancelot-fix-NewDocument.patch
-Patch2:    kdeplasma-addons-4.1.71-lancelot-fix-computertab.patch
-Patch3:    kdeplasma-addons-4.1.71-lancelot-sortbyname.patch
-Patch4:    kdeplasma-addons-4.2.0-fix-lancelot-cpuUsage.patch
+Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%version.%kderevision.tar.bz2
+Patch1:    kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
+Patch2:    kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
 #Backported patches
 Patch100:  kdeplasma-addons-backport-4.3.0-rev942500.patch 
 Buildroot: %_tmppath/%name-%version-%release-root
@@ -52,7 +51,7 @@ Suggests: plasma-applet-konsoleprofiles
 Suggests: plasma-applet-luna
 Suggests: plasma-applet-lancelot
 Suggests: plasma-desktoptheme-default
-Suggests: plasma-applet-twitter
+Suggests: plasma-applet-microblog
 Suggests: plasma-applet-nowplaying
 Suggests: plasma-applet-binaryclock
 Suggests: plasma-applet-dict
@@ -62,8 +61,12 @@ Suggests: plasma-applet-showdashboard
 Suggests: plasma-applet-calculator
 Suggests: plasma-applet-fifteenpuzzle
 Suggests: plasma-applet-kolourpicker
+Suggests: plasma-applet-unitconverter
+Suggests: plasma-applet-systemloadviewer
+Suggests: plasma-applet-weather
+Suggests: plasma-applet-bubblemon
 Suggests: plasma-dataengine-comic
-Suggests: plasma-dataengine-twitter
+Suggests: plasma-dataengine-microblog
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
 Suggests: plasma-applet-weatherstation
@@ -77,6 +80,9 @@ Suggests: plasma-runner-katesessions
 Suggests: plasma-runner-konsolesessions
 Suggests: plasma-runner-browserhistory
 Suggests: plasma-runner-spellchecker
+Suggests: plasma-wallpaper-pattern
+Suggests: plasma-wallpaper-weather
+Suggests: plasma-wallpaper-virus
 
 %description
 kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4.
@@ -99,7 +105,7 @@ Monitor applet for files.
 %files -n plasma-applet-filewatcher
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_fileWatcher.so
-%_kde_datadir/kde4/services/plasma-fileWatcher-default.desktop
+%_kde_services/plasma-fileWatcher-default.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -116,7 +122,7 @@ Plasma notes applets.
 %files -n plasma-applet-notes
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_notes.so
-%_kde_datadir/kde4/services/plasma-notes-default.desktop
+%_kde_services/plasma-notes-default.desktop
 
 #-----------------------------------------------------------------------------
 %package -n plasma-applet-bluemarble
@@ -132,7 +138,7 @@ OpenGL world planet applet.
 %files -n plasma-applet-bluemarble
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_bluemarble.so
-%_kde_datadir/kde4/services/plasma-applet-bluemarble.desktop
+%_kde_services/plasma-applet-bluemarble.desktop
 %_kde_appsdir/plasma-bluemarble
 #-----------------------------------------------------------------------------
 
@@ -149,7 +155,7 @@ Show desktop contents.
 %files -n plasma-applet-showdesktop
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_showdesktop.so
-%_kde_datadir/kde4/services/plasma-applet-showdesktop.desktop
+%_kde_services/plasma-applet-showdesktop.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -167,11 +173,11 @@ Make your day happy with daily desktop comics applet
 %files -n plasma-applet-comic
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_comic.so
-%_kde_datadir/kde4/services/plasma-dataengine-comic.desktop
-%_kde_datadir/config/comic.knsrc
-%_kde_datadir/kde4/services/plasma-packagestructure-comic.desktop
+%_kde_services/plasma-dataengine-comic.desktop
+%_kde_configdir/comic.knsrc
+%_kde_services/plasma-packagestructure-comic.desktop
 %_kde_libdir/kde4/plasma_packagestructure_comic.so
-%_kde_datadir/kde4/servicetypes/plasma_comicprovider.desktop
+%_kde_servicetypes/plasma_comicprovider.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -188,7 +194,7 @@ Live konqueror profile viewer.
 %files -n plasma-applet-konqprofiles
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_konqprofiles.so
-%_kde_datadir/kde4/services/plasma-applet-konqprofiles.desktop
+%_kde_services/plasma-applet-konqprofiles.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -206,7 +212,7 @@ Plasma RSS Applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_rssnow.so
 %_kde_appsdir/desktoptheme/default/rssnow
-%_kde_datadir/kde4/services/plasma-applet-rssnow.desktop
+%_kde_services/plasma-applet-rssnow.desktop
 %_kde_appsdir/rssnow
 
 #-----------------------------------------------------------------------------
@@ -225,8 +231,8 @@ Previewer Plasma Applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_previewer.so
 %_kde_iconsdir/hicolor/*/apps/*.png
-%_kde_datadir/kde4/services/ServiceMenus/preview.desktop
-%_kde_datadir/kde4/services/plasma-applet-previewer.desktop
+%_kde_services/ServiceMenus/preview.desktop
+%_kde_services/plasma-applet-previewer.desktop
 
 
 #-----------------------------------------------------------------------------
@@ -244,7 +250,7 @@ bball Plasma Applet
 %files -n plasma-applet-bball
 %defattr(-,root,root)
 %_kde_iconsdir/oxygen/scalable/apps/bball.svgz
-%_kde_datadir/kde4/services/plasma-applet-bball.desktop
+%_kde_services/plasma-applet-bball.desktop
 %_kde_appsdir/bball
 %_kde_libdir/kde4/plasma_applet_bball.so
 
@@ -262,7 +268,7 @@ incomingmsg Plasma Applet
 
 %files -n plasma-applet-incomingmsg
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/plasma-applet-incomingmsg.desktop
+%_kde_services/plasma-applet-incomingmsg.desktop
 %_kde_libdir/kde4/plasma_applet_incomingmsg.so
 
 #-----------------------------------------------------------------------------
@@ -280,7 +286,7 @@ leavenote Plasma Applet
 %files -n plasma-applet-leavenote
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_leavenote.so
-%_kde_datadir/kde4/services/plasma-applet-leavenote.desktop
+%_kde_services/plasma-applet-leavenote.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -297,7 +303,7 @@ life Plasma Applet
 %files -n plasma-applet-life
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_life.so
-%_kde_datadir/kde4/services/plasma-applet-life.desktop
+%_kde_services/plasma-applet-life.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -313,8 +319,9 @@ plasma-applet-pastebin
 
 %files -n plasma-applet-pastebin
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/plasma-applet-pastebin.desktop
+%_kde_services/plasma-applet-pastebin.desktop
 %_kde_libdir/kde4/plasma_applet_pastebin.so
+%_kde_appsdir/plasma_pastebin
 
 #-----------------------------------------------------------------------------
 
@@ -331,7 +338,7 @@ Live konsole profile viewer.
 %files -n plasma-applet-konsoleprofiles
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_konsoleprofiles.so
-%_kde_datadir/kde4/services/plasma-applet-konsoleprofiles.desktop
+%_kde_services/plasma-applet-konsoleprofiles.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -348,7 +355,7 @@ Lunar calendar applet.
 %files -n plasma-applet-luna
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_luna.so
-%_kde_datadir/kde4/services/plasma-applet-luna.desktop
+%_kde_services/plasma-applet-luna.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -372,17 +379,19 @@ Plasma lancelot applets.
 %_kde_bindir/lancelot
 %_kde_libdir/kde4/plasma_applet_lancelot_part.so
 %_kde_libdir/kde4/plasma_applet_lancelot_launcher.so
-%_kde_datadir/kde4/services/plasma-applet-lancelot-launcher.desktop
+%_kde_services/plasma-applet-lancelot-launcher.desktop
 %_kde_datadir/dbus-1/services/org.kde.lancelot.service
 %_kde_iconsdir/hicolor/*/apps/lancelot*.png
-%_kde_datadir/kde4/services/plasma-applet-lancelot-part.desktop
+%_kde_services/plasma-applet-lancelot-part.desktop
 %_kde_datadir/mime/packages/lancelotpart-mime.xml
 %_kde_appsdir/desktoptheme/default/lancelot
+%_kde_appsdir/desktoptheme/air
 %_kde_appsdir/desktoptheme/Elegance
 %_kde_appsdir/desktoptheme/Silicon
 %_kde_appsdir/desktoptheme/slim-glow
 %_kde_appsdir/desktoptheme/Aya
 %_kde_appsdir/desktoptheme/heron
+%_kde_appsdir/lancelot
 
 #-----------------------------------------------------------------------------
 
@@ -420,21 +429,23 @@ Plasma default desktopthemes.
                                                                               
 #-----------------------------------------------------------------------------
 
-%package -n plasma-applet-twitter
-Summary: Twitter blog applet
+%package -n plasma-applet-microblog
+Summary: Microblog applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
 Requires: plasma-dataengine-twitter
 Conflicts: extragear-plasma < 4.0.82
+Provides: plasma-applet-twitter = %version-%release
+Obsoletes: plasma-applet-twitter < 4.2.70
 
-%description -n plasma-applet-twitter
-Twiter blog applet
+%description -n plasma-applet-microblog
+Microblog applet
 
-%files -n plasma-applet-twitter
+%files -n plasma-applet-microblog
 %defattr(-,root,root)
-%_kde_libdir/kde4/plasma_applet_twitter.so
-%_kde_datadir/kde4/services/plasma-twitter-default.desktop
+%_kde_libdir/kde4/plasma_applet_microblog.so
+%_kde_services/plasma-applet-microblog.desktop
 %_kde_appsdir/desktoptheme/default/stylesheets/news.css
 %_kde_appsdir/plasma/services/tweet.operations
 
@@ -453,7 +464,7 @@ Song notifier applet
 %files -n plasma-applet-nowplaying
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_nowplaying.so
-%_kde_datadir/kde4/services/plasma-applet-nowplaying.desktop
+%_kde_services/plasma-applet-nowplaying.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -470,7 +481,7 @@ Simplified way to see the hours.
 %files -n plasma-applet-binaryclock
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_binaryclock.so
-%_kde_datadir/kde4/services/plasma-applet-binaryclock.desktop
+%_kde_services/plasma-applet-binaryclock.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -487,7 +498,8 @@ A dict applets.
 %files -n plasma-applet-dict
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_dict.so
-%_kde_datadir/kde4/services/plasma-dict-default.desktop
+%_kde_services/plasma-dict-default.desktop
+%_kde_iconsdir/oxygen/scalable/apps/accessories-dictionary.svgz
 
 #-----------------------------------------------------------------------------
 
@@ -504,7 +516,7 @@ A lazy way to see the hours.
 %files -n plasma-applet-fuzzy-clock
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_fuzzy_clock.so
-%_kde_datadir/kde4/services/plasma-clock-fuzzy.desktop
+%_kde_services/plasma-clock-fuzzy.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -521,7 +533,7 @@ A basic pictures frame to desktop.
 %files -n plasma-applet-frame
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_frame.so
-%_kde_datadir/kde4/services/plasma-frame-default.desktop
+%_kde_services/plasma-frame-default.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -538,7 +550,7 @@ Plasma showdashboard applets.
 %files -n plasma-applet-showdashboard
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_showdashboard.so
-%_kde_datadir/kde4/services/plasma-applet-showdashboard.desktop
+%_kde_services/plasma-applet-showdashboard.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -555,7 +567,7 @@ Plasma calculator applets.
 %files -n plasma-applet-calculator
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_calculator.so
-%_kde_datadir/kde4/services/plasma-applet-calculator.desktop
+%_kde_services/plasma-applet-calculator.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -572,7 +584,7 @@ Plasma fifteenpuzzle applets.
 %files -n plasma-applet-fifteenpuzzle
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_fifteenPuzzle.so
-%_kde_datadir/kde4/services/plasma-applet-fifteenPuzzle.desktop
+%_kde_services/plasma-applet-fifteenPuzzle.desktop
 %_kde_iconsdir/*/*/*/fifteenpuzzle.*
 
 #-----------------------------------------------------------------------------
@@ -590,7 +602,73 @@ Basic color picker.
 %files -n plasma-applet-kolourpicker
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_kolourpicker.so
-%_kde_datadir/kde4/services/plasma-kolourpicker-default.desktop
+%_kde_services/plasma-kolourpicker-default.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-unitconverter
+Summary: Unit Converter
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-unitconverter
+Unit Converter.
+
+%files -n plasma-applet-unitconverter
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_unitconverter.so
+%_kde_services/plasma-applet-unitconverter.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-systemloadviewer
+Summary: System Load Viewer
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-systemloadviewer
+System Load Viewer.
+
+%files -n plasma-applet-systemloadviewer
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma-applet_systemloadviewer.so
+%_kde_services/plasma-applet-systemloadviewer.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-weather
+Summary: Weather Forecast
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-weather
+Weather Forecast.
+
+%files -n plasma-applet-weather
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_weather.so
+%_kde_services/plasma-applet-weather.desktop
+%_kde_appsdir/desktoptheme/default/weather/wind-arrows.svgz
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-bubblemon
+Summary: Monitor your system
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-bubblemon
+A pretty bubble that monitors your system.
+
+%files -n plasma-applet-bubblemon
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_bubblemon.so
+%_kde_services/plasma-applet-bubblemon.desktop
+%_kde_appsdir/desktoptheme/default/bubblemon/bubble.svg
 
 #-----------------------------------------------------------------------------
 
@@ -608,24 +686,25 @@ Plasma comic dataengines.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_comic*
 %_kde_libdir/kde4/plasma_engine_comic.*
-%_kde_datadir/kde4/services/plasma-comic-default.desktop
+%_kde_services/plasma-comic-default.desktop
 
 #-----------------------------------------------------------------------------
 
-%package -n plasma-dataengine-twitter
-Summary: Plasma twitter dataengines
+%package -n plasma-dataengine-microblog
+Summary: Plasma micrbolog dataengines
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
-Conflicts: extragear-plasma < 4.0.82
+Provides: plasma-dataengine-twitter = %name-%version
+Obsoletes: plasma-dataengine-twitter < 4.2.70
 
-%description -n plasma-dataengine-twitter
-Plasma twitter dataengines.
+%description -n plasma-dataengine-microblog
+Plasma microblog dataengines.
 
-%files -n plasma-dataengine-twitter
+%files -n plasma-dataengine-microblog
 %defattr(-,root,root)
-%_kde_libdir/kde4/plasma_engine_twitter.so
-%_kde_datadir/kde4/services/plasma-dataengine-twitter.desktop
+%_kde_libdir/kde4/plasma_engine_microblog.so
+%_kde_services/plasma-dataengine-microblog.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -641,7 +720,7 @@ Plasma converter runners.
 
 %files -n plasma-runner-converter
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/plasma-runner-converter.desktop
+%_kde_services/plasma-runner-converter.desktop
 %_kde_libdir/kde4/krunner_converter.so
 
 #-----------------------------------------------------------------------------
@@ -659,7 +738,7 @@ Plasma contacts runners.
 %files -n plasma-runner-contacts
 %defattr(-,root,root)
 %_kde_libdir/kde4/krunner_contacts.so
-%_kde_datadir/kde4/services/plasma-runner-contacts.desktop
+%_kde_services/plasma-runner-contacts.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -677,7 +756,7 @@ Plasma applet weatherstation
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_weatherstation.so
 %_kde_appsdir/desktoptheme/default/weatherstation
-%_kde_datadir/kde4/services/plasma-applet-weatherstation.desktop
+%_kde_services/plasma-applet-weatherstation.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -693,7 +772,7 @@ Plasma applet news
 
 %files -n plasma-applet-news
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/plasma-applet-news.desktop
+%_kde_services/plasma-applet-news.desktop
 %_kde_libdir/kde4/plasma_applet_news.so
 %_kde_appsdir/desktoptheme/default/stylesheets/news.css
 
@@ -711,7 +790,7 @@ Plasma applet charselect
 
 %files -n plasma-applet-charselect
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/plasma-applet-charselect.desktop
+%_kde_services/plasma-applet-charselect.desktop
 %_kde_libdir/kde4/plasma_applet_charselect.so
 
 #-----------------------------------------------------------------------------
@@ -729,7 +808,7 @@ Plasma applet eyes
 %files -n plasma-applet-eyes
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_eyes.so                                                                                       
-%_kde_datadir/kde4/services/plasma-applet-eyes.desktop
+%_kde_services/plasma-applet-eyes.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -746,7 +825,7 @@ Plasma applet paste
 %files -n plasma-applet-paste
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_paste.so                                                                                      
-%_kde_datadir/kde4/services/plasma-applet-paste.desktop
+%_kde_services/plasma-applet-paste.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -763,7 +842,7 @@ Plasma applet timer
 %files -n plasma-applet-timer
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_timer.so
-%_kde_datadir/kde4/services/plasma-applet-timer.desktop
+%_kde_services/plasma-applet-timer.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -779,7 +858,7 @@ Plasma runner konquerorsessions
 
 %files -n plasma-runner-konquerorsessions
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/konquerorsessions.desktop
+%_kde_services/konquerorsessions.desktop
 %_kde_libdir/kde4/krunner_konquerorsessions.so
 
 #-----------------------------------------------------------------------------
@@ -796,7 +875,7 @@ Plasma runner katesessions
 
 %files -n plasma-runner-katesessions
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/katesessions.desktop
+%_kde_services/katesessions.desktop
 %_kde_libdir/kde4/krunner_katesessions.so
 
 
@@ -814,7 +893,7 @@ Plasma runner konsolesessions
 
 %files -n plasma-runner-konsolesessions
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/konsolesessions.desktop
+%_kde_services/konsolesessions.desktop
 %_kde_libdir/kde4/krunner_konsolesessions.so
 
 #-----------------------------------------------------------------------------
@@ -832,7 +911,7 @@ Plasma runner konsolesessions
 %files -n plasma-runner-browserhistory
 %defattr(-,root,root)
 %_kde_libdir/kde4/krunner_browserhistory.so
-%_kde_datadir/kde4/services/browserhistory.desktop
+%_kde_services/browserhistory.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -848,10 +927,60 @@ Plasma runner konsolesessions
 
 %files -n plasma-runner-spellchecker
 %defattr(-,root,root)
-%_kde_datadir/kde4/services/plasma-runner-spellchecker.desktop
-%_kde_datadir/kde4/services/plasma-runner-spellchecker_config.desktop
+%_kde_services/plasma-runner-spellchecker.desktop
+%_kde_services/plasma-runner-spellchecker_config.desktop
 %_kde_libdir/kde4/krunner_spellcheckrunner.so
 %_kde_libdir/kde4/kcm_krunner_spellcheck.so
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-wallpaper-pattern
+Summary: Pattern wallpaper
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-wallpaper
+
+%description -n plasma-wallpaper-pattern
+Pattern wallpaper.
+
+%files -n plasma-wallpaper-pattern
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_wallpaper_pattern.so
+%_kde_services/plasma-wallpaper-pattern.desktop
+%_kde_appsdir/plasma_wallpaper_pattern
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-wallpaper-weather
+Summary: Weather wallpaper
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-wallpaper
+
+%description -n plasma-wallpaper-weather
+Weather wallpaper.
+
+%files -n plasma-wallpaper-weather
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_wallpaper_weather.so
+%_kde_services/plasma-wallpaper-weather.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-wallpaper-virus
+Summary: Virus wallpaper
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-wallpaper
+
+%description -n plasma-wallpaper-virus
+Virus wallpaper.
+
+%files -n plasma-wallpaper-virus
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_wallpaper_virus.so
+%_kde_services/plasma-wallpaper-virus.desktop
+%_kde_configdir/virus_wallpaper.knsrc
 
 #-----------------------------------------------------------------------------
 
@@ -874,30 +1003,50 @@ Group: System/Libraries
 
 #-----------------------------------------------------------------------------
 
-%define plasmaconverter_major 4
-%define libplasmaconverter %mklibname plasmaconverter %plasmaconverter_major
+%define conversion_major 4
+%define libconversion %mklibname conversion %conversion_major
 
-%package -n %libplasmaconverter
+%package -n %libconversion
 Summary: %name library
 Group: System/Libraries
 
-%description -n %libplasmaconverter
+%description -n %libconversion
 %name library.
 
-%post -n %libplasmaconverter -p /sbin/ldconfig
-%postun -n %libplasmaconverter -p /sbin/ldconfig
+%post -n %libconversion -p /sbin/ldconfig
+%postun -n %libconversion -p /sbin/ldconfig
 
-%files -n %libplasmaconverter
+%files -n %libconversion
 %defattr(-,root,root,-)
-%_kde_libdir/libplasmaconverter.so.%{plasmaconverter_major}*
+%_kde_libdir/libconversion.so.%{conversion_major}*
+
+#-----------------------------------------------------------------------------
+
+%define plasmaweather_major 4
+%define libplasmaweather %mklibname plasmaweather %plasmaweather_major
+
+%package -n %libplasmaweather
+Summary: %name library
+Group: System/Libraries
+
+%description -n %libplasmaweather
+%name library.
+
+%post -n %libplasmaweather -p /sbin/ldconfig
+%postun -n %libplasmaweather -p /sbin/ldconfig
+
+%files -n %libplasmaweather
+%defattr(-,root,root,-)
+%_kde_libdir/libplasmaweather.so.%{plasmaweather_major}*
 
 #-----------------------------------------------------------------------------
 
 %package devel
 Summary: Devel stuff for %name
 Group: Development/KDE and Qt
-Requires: %libplasmaconverter
-Requires: %libplasmacomicprovidercore
+Requires: %libconversion = %version
+Requires: %libplasmacomicprovidercore = %version
+Requires: %libplasmaweather = %version
 Requires: kdelibs4-devel
 Obsoletes: extragear-plasma-devel
 
@@ -909,17 +1058,16 @@ based on %name
 %defattr(-,root,root)
 %{_kde_libdir}/*.so
 %_kde_includedir/lancelot
+%_kde_includedir/conversion
+%_kde_appsdir/cmake/modules/*.cmake
 
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%patch0 -p0
+%setup -qn %name-%version.%kderevision
 %patch1 -p0
 %patch2 -p0
-%patch3 -p0
-%patch4 -p0
-%patch100 -p0
+
 %build
 %cmake_kde4 
 %make
