@@ -10,6 +10,7 @@ URL: http://www.kde.org
 Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%version.tar.bz2
 Patch1:    kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2:    kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
+Patch3:    kdeplasma-addons-4.2.85-fix-ocs-soversion.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -65,6 +66,9 @@ Suggests: plasma-applet-weather
 Suggests: plasma-applet-bubblemon
 Suggests: plasma-dataengine-comic
 Suggests: plasma-dataengine-microblog
+Suggests: plasma-dataengine-rtm
+Suggests: plasma-dataengine-ocs
+Suggests: plasma-dataengine-potd
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
 Suggests: plasma-applet-weatherstation
@@ -73,6 +77,10 @@ Suggests: plasma-applet-charselect
 Suggests: plasma-applet-eyes
 Suggests: plasma-applet-paste
 Suggests: plasma-applet-timer
+Suggests: plasma-applet-opendesktop
+Suggests: plasma-applet-magnifique
+Suggests: plasma-applet-mediaplayer
+Suggests: plasma-applet-rtm
 Suggests: plasma-runner-konquerorsessions
 Suggests: plasma-runner-katesessions
 Suggests: plasma-runner-konsolesessions
@@ -162,7 +170,7 @@ Summary: Make your day happy with daily desktop comics applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
-Requires: plasma-dataengine-comic
+Requires: plasma-dataengine-comic = %version
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-comic
@@ -432,7 +440,7 @@ Summary: Microblog applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
-Requires: plasma-dataengine-microblog
+Requires: plasma-dataengine-microblog = %version
 Conflicts: extragear-plasma < 4.0.82
 Provides: plasma-applet-twitter = %version-%release
 Obsoletes: plasma-applet-twitter < 4.2.70
@@ -706,6 +714,69 @@ Plasma microblog dataengines.
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-dataengine-rtm
+Summary: An engine to work with Remember the Milk
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+Provides: plasma-dataengine-rememberthemilk = %{version}-%{release}
+
+%description -n plasma-dataengine-rtm
+An engine to work with Remember the Milk.
+
+%files -n plasma-dataengine-rtm
+%defattr(-,root,root)
+%{_kde_libdir}/kde4/plasma_engine_rtm.so
+%{_kde_services}/plasma-engine-rtm.desktop
+%{_kde_appsdir}/plasma/services/rtmauth.operations
+%{_kde_appsdir}/plasma/services/rtmtask.operations
+%{_kde_appsdir}/plasma/services/rtmtasks.operations
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-dataengine-ocs
+Summary: Open Collaboration Services
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-ocs
+Open Collaboration Services.
+
+%files -n plasma-dataengine-ocs
+%defattr(-,root,root)
+%{_kde_libdir}/kde4/plasma_engine_ocs.so
+%{_kde_services}/plasma-dataengine-ocs.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-dataengine-potd
+Summary: Picture of the Day
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-potd
+Data Engine for getting various online Pictures of The Day.
+
+%files -n plasma-dataengine-potd
+%defattr(-,root,root)
+%{_kde_libdir}/kde4/plasma_potd_apodprovider.so
+%{_kde_libdir}/kde4/plasma_potd_epodprovider.so
+%{_kde_libdir}/kde4/plasma_potd_flickrprovider.so
+%{_kde_libdir}/kde4/plasma_potd_oseiprovider.so
+%{_kde_libdir}/kde4/plasma_potd_wcpotdprovider.so
+%{_kde_libdir}/kde4/plasma_engine_potd.so
+%{_kde_services}/plasma-dataengine-potd.desktop
+%{_kde_services}/apodprovider.desktop
+%{_kde_services}/epodprovider.desktop
+%{_kde_services}/flickrprovider.desktop
+%{_kde_services}/oseiprovider.desktop
+%{_kde_services}/wcpotdprovider.desktop
+%{_kde_servicetypes}/plasma_potdprovider.desktop
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-runner-converter
 Summary: Plasma converter runners
 Group: Graphical desktop/KDE
@@ -831,7 +902,7 @@ Plasma applet paste
 Summary: Plasma applet timer
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Provides: plasma-runner
+Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-timer
@@ -841,6 +912,73 @@ Plasma applet timer
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_timer.so
 %_kde_services/plasma-applet-timer.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-opendesktop
+Summary: Communicate using the Social Desktop
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-opendesktop
+Communicate using the Social Desktop.
+
+%files -n plasma-applet-opendesktop
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_opendesktop.so
+%_kde_services/plasma-applet-opendesktop.desktop
+%_kde_appsdir/plasma-applet-opendesktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-magnifique
+Summary: A magnification glass for Plasma canvas
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-magnifique
+A magnification glass for Plasma canvas.
+
+%files -n plasma-applet-magnifique
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_magnifique.so
+%_kde_services/plasma-applet-magnifique.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-mediaplayer
+Summary: Widget that can play video and sound
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-mediaplayer
+Widget that can play video and sound.
+
+%files -n plasma-applet-mediaplayer
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_mediaplayer.so
+%_kde_services/plasma-applet-mediaplayer.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-rtm
+Summary: Remember The Milk Todo list applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Provides: plasma-applet-rememberthemilk = %{version}-%{release}
+Requires: plasma-dataengine-rtm = %{version}
+
+%description -n plasma-applet-rtm
+Remember The Milk Todo list applet.
+
+%files -n plasma-applet-rtm
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_rtm.so
+%_kde_services/plasma-applet-rememberthemilk.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1039,12 +1177,72 @@ Group: System/Libraries
 
 #-----------------------------------------------------------------------------
 
+%define rtm_major 4
+%define librtm %mklibname rtm %rtm_major
+
+%package -n %librtm
+Summary: %name library
+Group: System/Libraries
+
+%description -n %librtm
+%name library.
+
+%post -n %librtm -p /sbin/ldconfig
+%postun -n %librtm -p /sbin/ldconfig
+
+%files -n %librtm
+%defattr(-,root,root,-)
+%_kde_libdir/librtm.so.%{rtm_major}*
+
+#-----------------------------------------------------------------------------
+
+%define plasmapotdprovidercore_major 1
+%define libplasmapotdprovidercore %mklibname plasmapotdprovidercore %plasmapotdprovidercore_major
+
+%package -n %libplasmapotdprovidercore
+Summary: %name library
+Group: System/Libraries
+
+%description -n %libplasmapotdprovidercore
+%name library.
+
+%post -n %libplasmapotdprovidercore -p /sbin/ldconfig
+%postun -n %libplasmapotdprovidercore -p /sbin/ldconfig
+
+%files -n %libplasmapotdprovidercore
+%defattr(-,root,root,-)
+%_kde_libdir/libplasmapotdprovidercore.so.%{plasmapotdprovidercore_major}*
+
+#-----------------------------------------------------------------------------
+
+%define ocsclient_major 4
+%define libocsclient %mklibname ocsclient %ocsclient_major
+
+%package -n %libocsclient
+Summary: %name library
+Group: System/Libraries
+
+%description -n %libocsclient
+%name library.
+
+%post -n %libocsclient -p /sbin/ldconfig
+%postun -n %libocsclient -p /sbin/ldconfig
+
+%files -n %libocsclient
+%defattr(-,root,root,-)
+%_kde_libdir/libocsclient.so.%{ocsclient_major}*
+
+#-----------------------------------------------------------------------------
+
 %package devel
 Summary: Devel stuff for %name
 Group: Development/KDE and Qt
 Requires: %libconversion = %version
 Requires: %libplasmacomicprovidercore = %version
 Requires: %libplasmaweather = %version
+Requires: %librtm = %version
+Requires: %libplasmapotdprovidercore = %version
+Requires: %libocsclient = %version
 Requires: kdelibs4-devel
 Obsoletes: extragear-plasma-devel
 
@@ -1065,6 +1263,7 @@ based on %name
 %setup -qn %name-%version
 %patch1 -p0
 %patch2 -p0
+%patch3 -p0
 
 %build
 %cmake_kde4 
