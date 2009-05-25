@@ -8,7 +8,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.2.87
-Release: %mkrel 1
+Release: %mkrel 3
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -26,15 +26,17 @@ BuildRequires: X11-devel
 BuildRequires: kdebase4-devel >= 4.0.83
 BuildRequires: kdepimlibs4-devel >= 4.0.83
 BuildRequires: kdebase4-workspace-devel >= 4.0.83
-#BuildRequires: libzip-devel
 BuildRequires: qimageblitz-devel 
 BuildRequires: boost-devel
 BuildRequires: lm_sensors-devel
 BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
-Provides: kdeplasma
-Provides: kdeplasma4 = %version
+BuildRequires: eigen2
+#(nl) enable back when headers will be available
+#BuildRequires: kdeedu4-devel
+Provides:  kdeplasma
+Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
 Obsoletes: kdeplayground4-plasma
 Obsoletes: kdeplayground4-plasma-devel
@@ -1128,6 +1130,22 @@ Virus wallpaper.
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-wallpaper-mandelbrot
+Summary: Virus wallpaper
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-wallpaper
+
+%description -n plasma-wallpaper-mandelbrot
+mandelbrot wallpaper.
+
+%files -n plasma-wallpaper-mandelbrot
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_wallpaper_mandelbrot.so
+%_kde_services/plasma-wallpaper-mandelbrot.desktop
+
+#-----------------------------------------------------------------------------
+
 %define plasmacomicprovidercore_major 1
 %define libplasmacomicprovidercore %mklibname plasmacomicprovidercore %plasmacomicprovidercore_major
 
@@ -1275,7 +1293,6 @@ based on %name
 %endif
 %patch1 -p0
 %patch2 -p0
-
 %build
 %cmake_kde4 
 %make
