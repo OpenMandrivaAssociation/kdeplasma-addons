@@ -99,6 +99,7 @@ Suggests: plasma-runner-spellchecker
 Suggests: plasma-wallpaper-pattern
 Suggests: plasma-wallpaper-weather
 Suggests: plasma-wallpaper-virus
+Suggests: plasma-wallpaper-mandelbrot
 
 %description
 kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4.
@@ -1131,13 +1132,13 @@ Virus wallpaper.
 #-----------------------------------------------------------------------------
 
 %package -n plasma-wallpaper-mandelbrot
-Summary: Virus wallpaper
+Summary: Mandelbrot wallpaper
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-wallpaper
 
 %description -n plasma-wallpaper-mandelbrot
-mandelbrot wallpaper.
+Mandelbrot wallpaper.
 
 %files -n plasma-wallpaper-mandelbrot
 %defattr(-,root,root)
