@@ -8,7 +8,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.2.87
-Release: %mkrel 3
+Release: %mkrel 4
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -33,8 +33,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
-#(nl) enable back when headers will be available
-#BuildRequires: kdeedu4-devel
+BuildRequires: kdeedu4-devel
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
@@ -42,6 +41,8 @@ Obsoletes: kdeplayground4-plasma
 Obsoletes: kdeplayground4-plasma-devel
 Obsoletes: extragear-plasma < 4.0.82
 Obsoletes: kdeplasmoids4 <= 4.0.98
+
+Suggests: plasma-desktoptheme-default
 
 Suggests: plasma-applet-filewatcher                                                                                           
 Suggests: plasma-applet-notes
@@ -59,7 +60,6 @@ Suggests: plasma-applet-pastebin
 Suggests: plasma-applet-konsoleprofiles
 Suggests: plasma-applet-luna
 Suggests: plasma-applet-lancelot
-Suggests: plasma-desktoptheme-default
 Suggests: plasma-applet-microblog
 Suggests: plasma-applet-nowplaying
 Suggests: plasma-applet-binaryclock
@@ -74,13 +74,6 @@ Suggests: plasma-applet-unitconverter
 Suggests: plasma-applet-systemloadviewer
 Suggests: plasma-applet-weather
 Suggests: plasma-applet-bubblemon
-Suggests: plasma-dataengine-comic
-Suggests: plasma-dataengine-microblog
-Suggests: plasma-dataengine-rtm
-Suggests: plasma-dataengine-ocs
-Suggests: plasma-dataengine-potd
-Suggests: plasma-runner-converter
-Suggests: plasma-runner-contacts
 Suggests: plasma-applet-weatherstation
 Suggests: plasma-applet-news
 Suggests: plasma-applet-charselect
@@ -91,15 +84,26 @@ Suggests: plasma-applet-opendesktop
 Suggests: plasma-applet-magnifique
 Suggests: plasma-applet-mediaplayer
 Suggests: plasma-applet-rtm
+
+Suggests: plasma-dataengine-comic
+Suggests: plasma-dataengine-microblog
+Suggests: plasma-dataengine-rtm
+Suggests: plasma-dataengine-ocs
+Suggests: plasma-dataengine-potd
+
+Suggests: plasma-runner-converter
+Suggests: plasma-runner-contacts
 Suggests: plasma-runner-konquerorsessions
 Suggests: plasma-runner-katesessions
 Suggests: plasma-runner-konsolesessions
 Suggests: plasma-runner-browserhistory
 Suggests: plasma-runner-spellchecker
+
 Suggests: plasma-wallpaper-pattern
 Suggests: plasma-wallpaper-weather
 Suggests: plasma-wallpaper-virus
 Suggests: plasma-wallpaper-mandelbrot
+Suggests: plasma-wallpaper-marble
 
 %description
 kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4.
@@ -1128,6 +1132,22 @@ Virus wallpaper.
 %_kde_libdir/kde4/plasma_wallpaper_virus.so
 %_kde_services/plasma-wallpaper-virus.desktop
 %_kde_configdir/virus_wallpaper.knsrc
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-wallpaper-marble
+Summary: Marble wallpaper
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-wallpaper
+
+%description -n plasma-wallpaper-marble
++Marble wallpaper.
+
+%files -n plasma-wallpaper-marble
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_wallpaper_marble.so
+%_kde_services/plasma-wallpaper-marble.desktop
 
 #-----------------------------------------------------------------------------
 
