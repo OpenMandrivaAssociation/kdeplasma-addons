@@ -606,6 +606,7 @@ Plasma fifteenpuzzle applets.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_fifteenPuzzle.so
 %_kde_services/plasma-applet-fifteenPuzzle.desktop
+%_kde_appsdir/desktoptheme/default/fifteenPuzzle
 %_kde_iconsdir/*/*/*/fifteenpuzzle.*
 
 #-----------------------------------------------------------------------------
