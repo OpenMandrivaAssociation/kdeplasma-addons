@@ -8,7 +8,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.2.88
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -251,7 +251,7 @@ Previewer Plasma Applet
 %files -n plasma-applet-previewer
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_previewer.so
-%_kde_iconsdir/hicolor/*/apps/*.png
+%_kde_iconsdir/hicolor/*/apps/previewer.png
 %_kde_services/ServiceMenus/preview.desktop
 %_kde_services/plasma-applet-previewer.desktop
 
