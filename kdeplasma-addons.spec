@@ -1,4 +1,4 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
@@ -7,8 +7,8 @@
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.2.88
-Release: %mkrel 2
+Version: 4.2.90
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
