@@ -7,7 +7,7 @@
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.2.90
+Version: 4.2.95
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -46,7 +46,6 @@ Suggests: plasma-desktoptheme-default
 
 Suggests: plasma-applet-filewatcher                                                                                           
 Suggests: plasma-applet-notes
-Suggests: plasma-applet-bluemarble
 Suggests: plasma-applet-showdesktop
 Suggests: plasma-applet-comic
 Suggests: plasma-applet-konqprofiles
@@ -145,22 +144,6 @@ Plasma notes applets.
 %_kde_libdir/kde4/plasma_applet_notes.so
 %_kde_services/plasma-notes-default.desktop
 
-#-----------------------------------------------------------------------------
-%package -n plasma-applet-bluemarble
-Summary: OpenGL world planet applet
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-applet
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-applet-bluemarble
-OpenGL world planet applet.
-
-%files -n plasma-applet-bluemarble
-%defattr(-,root,root)
-%_kde_libdir/kde4/plasma_applet_bluemarble.so
-%_kde_services/plasma-applet-bluemarble.desktop
-%_kde_appsdir/plasma-bluemarble
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-showdesktop
