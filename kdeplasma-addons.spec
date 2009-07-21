@@ -33,7 +33,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
-BuildRequires: kdeedu4-devel
+BuildRequires: kdeedu4-devel >= %{version}
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
