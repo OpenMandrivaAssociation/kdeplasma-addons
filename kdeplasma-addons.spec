@@ -1,31 +1,20 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kderevision svn973768
-%endif
-
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.2.96
+Version: 4.2.98
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-%if %branch
-Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}%{kderevision}.tar.bz2
-%else
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}.tar.bz2
-%endif
-Patch1:    kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
-Patch2:    kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
+Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
+Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
 BuildRequires: X11-devel
-BuildRequires: kdebase4-devel >= 4.0.83
-BuildRequires: kdepimlibs4-devel >= 4.0.83
-BuildRequires: kdebase4-workspace-devel >= 4.0.83
+BuildRequires: kdebase4-devel >= 1:4.2.98
+BuildRequires: kdepimlibs4-devel >= 4.2.98
+BuildRequires: kdebase4-workspace-devel >= 2:4.2.98
 BuildRequires: qimageblitz-devel 
 BuildRequires: boost-devel
 BuildRequires: lm_sensors-devel
@@ -33,7 +22,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
-BuildRequires: kdeedu4-devel >= %{version}
+BuildRequires: kdeedu4-devel >= 4.2.98
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
@@ -253,7 +242,7 @@ bball Plasma Applet
 
 %files -n plasma-applet-bball
 %defattr(-,root,root)
-%_kde_iconsdir/oxygen/scalable/apps/bball.svgz
+%_kde_iconsdir/*/*/*/bball*
 %_kde_services/plasma-applet-bball.desktop
 %_kde_appsdir/bball
 %_kde_libdir/kde4/plasma_applet_bball.so
@@ -1291,13 +1280,10 @@ based on %name
 #-----------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -qn %name-%{version}%{kderevision}
-%else
 %setup -qn %name-%{version}
-%endif
 %patch1 -p0
 %patch2 -p0
+
 %build
 %cmake_kde4 
 %make
