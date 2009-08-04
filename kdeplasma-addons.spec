@@ -23,6 +23,7 @@ BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
 BuildRequires: kdeedu4-devel >= 4.2.98
+BuildRequires: qt4-qtdbus
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
