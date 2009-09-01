@@ -1,6 +1,6 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.3.0
+Version: 4.3.1
 Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -440,7 +440,6 @@ Microblog applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_microblog.so
 %_kde_services/plasma-applet-microblog.desktop
-%_kde_appsdir/desktoptheme/default/stylesheets/news.css
 %_kde_appsdir/plasma/services/tweet.operations
 
 #-----------------------------------------------------------------------------
