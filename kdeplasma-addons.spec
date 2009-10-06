@@ -492,7 +492,7 @@ A dict applets.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_dict.so
 %_kde_services/plasma-dict-default.desktop
-%_kde_iconsdir/oxygen/scalable/apps/accessories-dictionary.svgz
+%_kde_iconsdir/hicolor/scalable/apps/accessories-dict*
 
 #-----------------------------------------------------------------------------
 
@@ -527,6 +527,7 @@ A basic pictures frame to desktop.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_frame.so
 %_kde_services/plasma-frame-default.desktop
+%_kde_appsdir/plasma-applet-frame
 
 #-----------------------------------------------------------------------------
 
