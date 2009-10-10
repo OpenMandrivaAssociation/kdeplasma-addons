@@ -1,7 +1,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.3.2
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -1113,6 +1113,7 @@ Virus wallpaper.
 Summary: Marble wallpaper
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
+Requires: marble-common
 Provides: plasma-wallpaper
 
 %description -n plasma-wallpaper-marble
