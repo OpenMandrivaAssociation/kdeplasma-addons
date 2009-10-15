@@ -1,7 +1,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.3.2
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -824,6 +824,7 @@ Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-runner
 Conflicts: extragear-plasma < 4.0.82
+Conflicts: plasma-applet-twitter < 4.3.0
 
 %description -n plasma-applet-news
 Plasma applet news
