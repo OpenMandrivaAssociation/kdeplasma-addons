@@ -8,6 +8,8 @@ URL: http://www.kde.org
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}.tar.bz2
 Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
+Patch100: kdeplasma-addons-4.3.2-b1034000-RTM-fix-url.patch
+Patch101: kdeplasma-addons-4.3.2-b1035265-RTM-adapt-new-api.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -1286,6 +1288,8 @@ based on %name
 %setup -qn %name-%{version}
 %patch1 -p0
 %patch2 -p0
+%patch100 -p0
+%patch101 -p0
 
 %build
 %cmake_kde4 
