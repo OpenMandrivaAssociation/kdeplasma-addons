@@ -29,6 +29,7 @@ BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
 BuildRequires: kdeedu4-devel >= 4.3.73
 BuildRequires: qt4-qtdbus
+BuildRequires: qalculate-devel
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
@@ -1026,6 +1027,7 @@ A magnification glass for Plasma canvas.
 Summary: A Qalculate plasma applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
+Requires: qalculate
 Provides: plasma-applet
 
 %description -n plasma-applet-qalculate
