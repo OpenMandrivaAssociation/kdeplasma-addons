@@ -1,15 +1,18 @@
+%define kde_snapshot svn1040395
+
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.3.2
-Release: %mkrel 3
+Version: 4.3.73
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}%kde_snapshot.tar.bz2
 Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
-Patch100: kdeplasma-addons-4.3.2-b1034000-RTM-fix-url.patch
-Patch101: kdeplasma-addons-4.3.2-b1035265-RTM-adapt-new-api.patch
+Patch3: kdeplasma-addons-4.3.73-fix-lancelot-major.patch 
+Patch4: kdeplasma-addons-4.3.73-fix-typo-runner.patch
+Patch5: kdeplasma-addons-4.3.73-remove-kunitconverter-check.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -24,7 +27,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
-BuildRequires: kdeedu4-devel >= 4.2.98
+BuildRequires: kdeedu4-devel >= 4.3.73
 BuildRequires: qt4-qtdbus
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
@@ -75,12 +78,17 @@ Suggests: plasma-applet-opendesktop
 Suggests: plasma-applet-magnifique
 Suggests: plasma-applet-mediaplayer
 Suggests: plasma-applet-rtm
+Suggests: plasma-applet-knowledgebase
+Suggests: plasma-applet-blackboard
+Suggests: plasma-applet-plasmaboard
+Suggests: plasma-applet-qalculate
 
 Suggests: plasma-dataengine-comic
 Suggests: plasma-dataengine-microblog
 Suggests: plasma-dataengine-rtm
 Suggests: plasma-dataengine-ocs
 Suggests: plasma-dataengine-potd
+Suggests: plasma-dataengine-pastebin
 
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
@@ -303,6 +311,22 @@ life Plasma Applet
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-dataengine-pastebin
+Summary: Engine of the pastebin plasma applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-pastebin
+Engine of the pastebin plasma applet
+
+%files -n plasma-dataengine-pastebin
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_engine_pastebin.so
+%_kde_services/plasma-engine-pastebin.desktop
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-applet-pastebin
 Summary: Pastebin plasma Applet
 Group: Graphical desktop/KDE
@@ -317,7 +341,61 @@ plasma-applet-pastebin
 %defattr(-,root,root)
 %_kde_services/plasma-applet-pastebin.desktop
 %_kde_libdir/kde4/plasma_applet_pastebin.so
+%_kde_appsdir/plasma/services/pastebin.operations
 %_kde_appsdir/plasma_pastebin
+
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-knowledgebase
+Summary: Widget that can query the knowledgebase of opendesktop.org
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-knowledgebase
+Widget that can query the knowledgebase of opendesktop.org
+
+%files -n plasma-applet-knowledgebase
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_knowledgebase.so
+%_kde_services/plasma-applet-knowledgebase.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-blackboard
+Summary: A blackboard plasma applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-blackboard
+A blackboard plasma applet
+
+%files -n plasma-applet-blackboard
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_blackboard.so
+%_kde_services/plasma-applet-blackboard.desktop
+
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-plasmaboard
+Summary: A plasmaboard plasma applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-plasmaboard
+A plasmaboard plasma applet
+
+%files -n plasma-applet-plasmaboard
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_plasmaboard.so
+%_kde_services/plasma_applet_plasmaboard.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -391,7 +469,7 @@ Plasma lancelot applets.
 
 #-----------------------------------------------------------------------------
 
-%define lancelot_major 0
+%define lancelot_major 1
 %define liblancelot %mklibname lancelot %lancelot_major
 
 %package -n %liblancelot
@@ -920,6 +998,10 @@ Communicate using the Social Desktop.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_opendesktop.so
 %_kde_services/plasma-applet-opendesktop.desktop
+%_kde_libdir/kde4/plasma_applet_opendesktop_activities.so
+%_kde_appsdir/plasma-applet-opendesktop-activities/plasma-applet-opendesktop-activities.notifyrc
+%_kde_appsdir/plasma/services/ocsPerson.operations
+%_kde_datadir/kde4/services/plasma-applet-opendesktop-activities.desktop
 %_kde_appsdir/plasma-applet-opendesktop
 
 #-----------------------------------------------------------------------------
@@ -937,6 +1019,23 @@ A magnification glass for Plasma canvas.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_magnifique.so
 %_kde_services/plasma-applet-magnifique.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-qalculate
+Summary: A Qalculate plasma applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-qalculate
+A Qalculate plasma applet
+
+%files -n plasma-applet-qalculate
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_qalculate.so
+%_kde_datadir/kde4/services/plasma-applet-qalculate.desktop
+%_kde_iconsdir/oxygen/*/apps/qalculate-applet.png
 
 #-----------------------------------------------------------------------------
 
@@ -1092,6 +1191,7 @@ Weather wallpaper.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_wallpaper_weather.so
 %_kde_services/plasma-wallpaper-weather.desktop
+%_kde_datadir/config/plasmaweather.knsrc
 
 #-----------------------------------------------------------------------------
 
@@ -1161,25 +1261,6 @@ Group: System/Libraries
 %files -n %libplasmacomicprovidercore
 %defattr(-,root,root,-)
 %_kde_libdir/libplasmacomicprovidercore.so.%{plasmacomicprovidercore_major}*
-
-#-----------------------------------------------------------------------------
-
-%define conversion_major 4
-%define libconversion %mklibname conversion %conversion_major
-
-%package -n %libconversion
-Summary: %name library
-Group: System/Libraries
-
-%description -n %libconversion
-%name library.
-
-%post -n %libconversion -p /sbin/ldconfig
-%postun -n %libconversion -p /sbin/ldconfig
-
-%files -n %libconversion
-%defattr(-,root,root,-)
-%_kde_libdir/libconversion.so.%{conversion_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -1262,7 +1343,6 @@ Group: System/Libraries
 %package devel
 Summary: Devel stuff for %name
 Group: Development/KDE and Qt
-Requires: %libconversion = %version
 Requires: %libplasmacomicprovidercore = %version
 Requires: %libplasmaweather = %version
 Requires: %librtm = %version
@@ -1279,17 +1359,16 @@ based on %name
 %defattr(-,root,root)
 %{_kde_libdir}/*.so
 %_kde_includedir/lancelot
-%_kde_includedir/conversion
-%_kde_appsdir/cmake/modules/*.cmake
 
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -qn %name-%{version}
+%setup -qn %name-%{version}%kde_snapshot
 %patch1 -p0
 %patch2 -p0
-%patch100 -p0
-%patch101 -p0
+%patch3 -p0
+%patch4 -p0
+%patch5 -p0
 
 %build
 %cmake_kde4 
