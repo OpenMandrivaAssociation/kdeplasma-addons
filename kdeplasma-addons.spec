@@ -1,4 +1,4 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 
@@ -8,7 +8,7 @@
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.3.77
+Version: 4.3.80
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -91,6 +91,8 @@ Suggests: plasma-applet-knowledgebase
 Suggests: plasma-applet-blackboard
 Suggests: plasma-applet-plasmaboard
 Suggests: plasma-applet-qalculate
+Suggests: plasma-applet-webslice
+Suggests: plasma-applet-spellcheck
 
 Suggests: plasma-dataengine-comic
 Suggests: plasma-dataengine-microblog
@@ -106,6 +108,9 @@ Suggests: plasma-runner-katesessions
 Suggests: plasma-runner-konsolesessions
 Suggests: plasma-runner-browserhistory
 Suggests: plasma-runner-spellchecker
+Suggests: plasma-runner-audioplayercontrol
+Suggests: plasma-runner-mediawiki
+Suggests: plasma-runner-kopete
 
 Suggests: plasma-wallpaper-pattern
 Suggests: plasma-wallpaper-weather
@@ -1065,6 +1070,38 @@ Widget that can play video and sound.
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-applet-spellcheck
+Summary:  Fast spell checking applet
+Group:    Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-spellcheck
+Fast spell checking applet
+
+%files -n plasma-applet-spellcheck
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_spellcheck.so
+%_kde_services/plasma-applet-spellcheck.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-webslice
+Summary:  Applet that show a part of a webpage
+Group:    Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-webslice
+Applet that show a part of a webpage
+
+%files -n plasma-applet-webslice
+%defattr(-,root,root)
+%_kde_services/plasma-applet-webslice.desktop
+%_kde_libdir/kde4/plasma_applet_webslice.so
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-applet-rtm
 Summary: Remember The Milk Todo list applet
 Group: Graphical desktop/KDE
@@ -1168,6 +1205,58 @@ Plasma runner konsolesessions
 %_kde_services/plasma-runner-spellchecker_config.desktop
 %_kde_libdir/kde4/krunner_spellcheckrunner.so
 %_kde_libdir/kde4/kcm_krunner_spellcheck.so
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-audioplayercontrol
+Summary: Plasma runner audioplayercontrol
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-audioplayercontrol
+Plasma runner audioplayercontrol
+
+%files -n plasma-runner-audioplayercontrol
+%defattr(-,root,root)
+%_kde_libdir/kde4/kcm_krunner_audioplayercontrol.so
+%_kde_libdir/kde4/krunner_audioplayercontrol.so
+%_kde_datadir/kde4/services/plasma-runner-audioplayercontrol.desktop
+%_kde_datadir/kde4/services/plasma-runner-audioplayercontrol_config.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-kopete
+Summary: Plasma runner kopete
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-kopete
+Plasma runner kopete
+
+%files -n plasma-runner-kopete
+%defattr(-,root,root)
+%_kde_libdir/kde4/krunner_kopete.so
+%_kde_datadir/kde4/services/plasma-runner-kopete.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-mediawiki
+Summary: Plasma runner mediawiki
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-mediawiki
+Plasma runner mediawiki
+
+%files -n plasma-runner-mediawiki
+%defattr(-,root,root)
+%_kde_libdir/kde4/krunner_mediawiki.so
+%_kde_datadir/kde4/services/plasma-runner-techbase.desktop
+%_kde_datadir/kde4/services/plasma-runner-wikipedia.desktop
+%_kde_datadir/kde4/services/plasma-runner-wikitravel.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1346,7 +1435,7 @@ Group: System/Libraries
 
 %files -n %libocsclient
 %defattr(-,root,root,-)
-%_kde_libdir/libocsclient.so.%{ocsclient_major}*
+#%_kde_libdir/libocsclient.so.%{ocsclient_major}*
 
 #-----------------------------------------------------------------------------
 
