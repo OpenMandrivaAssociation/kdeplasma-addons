@@ -9,7 +9,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.3.80
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -1420,25 +1420,6 @@ Group: System/Libraries
 
 #-----------------------------------------------------------------------------
 
-%define ocsclient_major 4
-%define libocsclient %mklibname ocsclient %ocsclient_major
-
-%package -n %libocsclient
-Summary: %name library
-Group: System/Libraries
-
-%description -n %libocsclient
-%name library.
-
-%post -n %libocsclient -p /sbin/ldconfig
-%postun -n %libocsclient -p /sbin/ldconfig
-
-%files -n %libocsclient
-%defattr(-,root,root,-)
-#%_kde_libdir/libocsclient.so.%{ocsclient_major}*
-
-#-----------------------------------------------------------------------------
-
 %package devel
 Summary: Devel stuff for %name
 Group: Development/KDE and Qt
@@ -1446,7 +1427,6 @@ Requires: %libplasmacomicprovidercore = %version
 Requires: %libplasmaweather = %version
 Requires: %librtm = %version
 Requires: %libplasmapotdprovidercore = %version
-Requires: %libocsclient = %version
 Requires: kdelibs4-devel
 Obsoletes: extragear-plasma-devel
 
