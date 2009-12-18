@@ -1040,7 +1040,6 @@ A magnification glass for Plasma canvas.
 Summary: A Qalculate plasma applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Requires: qalculate
 Provides: plasma-applet
 
 %description -n plasma-applet-qalculate
