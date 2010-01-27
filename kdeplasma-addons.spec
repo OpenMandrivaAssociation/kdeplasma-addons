@@ -345,6 +345,7 @@ Engine of the pastebin plasma applet
 Summary: Pastebin plasma Applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
+Requires: plasma-dataengine-pastebin
 Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
