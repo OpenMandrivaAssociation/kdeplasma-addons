@@ -9,7 +9,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.3.98
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -93,13 +93,6 @@ Suggests: plasma-applet-plasmaboard
 Suggests: plasma-applet-qalculate
 Suggests: plasma-applet-webslice
 Suggests: plasma-applet-spellcheck
-
-Suggests: plasma-dataengine-comic
-Suggests: plasma-dataengine-microblog
-Suggests: plasma-dataengine-rtm
-Suggests: plasma-dataengine-ocs
-Suggests: plasma-dataengine-potd
-Suggests: plasma-dataengine-pastebin
 
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
@@ -326,10 +319,11 @@ life Plasma Applet
 #-----------------------------------------------------------------------------
 
 %package -n plasma-dataengine-pastebin
-Summary: Engine of the pastebin plasma applet
-Group: Graphical desktop/KDE
+Summary:  Engine of the pastebin plasma applet
+Group:    Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
+Requires: plasma-dataengine-pastebin = %version-%release
 
 %description -n plasma-dataengine-pastebin
 Engine of the pastebin plasma applet
@@ -804,6 +798,7 @@ Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
 Provides: plasma-dataengine-rememberthemilk = %{version}-%{release}
+Requires: plasma-dataengine-rtm = %version-%release
 
 %description -n plasma-dataengine-rtm
 An engine to work with Remember the Milk.
@@ -823,6 +818,7 @@ Summary: Open Collaboration Services
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
+Requires: plasma-dataengine-ocs = %version-%release
 
 %description -n plasma-dataengine-ocs
 Open Collaboration Services.
@@ -839,6 +835,7 @@ Summary: Picture of the Day
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
+Requires: plasma-dataengine-potd = %version-%release
 
 %description -n plasma-dataengine-potd
 Data Engine for getting various online Pictures of The Day.
