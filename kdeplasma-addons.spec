@@ -9,7 +9,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.4.2
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -38,6 +38,8 @@ BuildRequires: eigen2
 BuildRequires: kdeedu4-devel >= 4.3.73
 BuildRequires: qt4-qtdbus
 BuildRequires: qalculate-devel
+BuildRequires: scim-devel
+
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
 Obsoletes: kdeplasma4 < 4.0.83
@@ -93,7 +95,7 @@ Suggests: plasma-applet-plasmaboard
 Suggests: plasma-applet-qalculate
 Suggests: plasma-applet-webslice
 Suggests: plasma-applet-spellcheck
-
+Suggests: plasma-applet-kimpanel
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
 Suggests: plasma-runner-konquerorsessions
@@ -1114,6 +1116,27 @@ Remember The Milk Todo list applet.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_rtm.so
 %_kde_services/plasma-applet-rememberthemilk.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-kimpanel
+Summary: KDE Input method panel (applet) 
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-kimpanel
+KDE Input method panel (applet)
+
+%files -n plasma-applet-kimpanel
+%defattr(-,root,root)
+%_kde_bindir/kimpanel
+%_kde_libdir/kde4/plasma_applet_kimpanel.so
+%_kde_libdir/libkimpanelruntime.so.0
+%_kde_libdir/scim-1.0/scim-panel-dbus
+%_kde_datadir/config.kcfg/kimpanelconfig.kcfg
+%_kde_datadir/dbus-1/interfaces/org.kde.impanel.xml
+%_kde_services/plasma-applet-kimpanel.desktop
 
 #-----------------------------------------------------------------------------
 
