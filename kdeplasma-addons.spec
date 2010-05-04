@@ -1447,6 +1447,8 @@ Requires: %libplasmacomicprovidercore = %version
 Requires: %libplasmaweather = %version
 Requires: %librtm = %version
 Requires: %libplasmapotdprovidercore = %version
+Requires: %liblancelot = %version
+Requires: plasma-applet-kimpanel = %version
 Requires: kdelibs4-devel
 Obsoletes: extragear-plasma-devel
 
