@@ -8,7 +8,7 @@
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.4.2
+Version: 4.4.3
 Release: %mkrel 2
 Group: Graphical desktop/KDE
 License: GPL
