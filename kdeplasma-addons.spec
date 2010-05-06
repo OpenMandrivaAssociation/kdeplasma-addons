@@ -1122,6 +1122,7 @@ Remember The Milk Todo list applet.
 %package -n plasma-applet-kimpanel
 Summary: KDE Input method panel (applet) 
 Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
 Provides: plasma-applet
 Suggests: plasma-applet-kimpanel-backend
 
