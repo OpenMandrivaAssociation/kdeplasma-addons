@@ -1123,6 +1123,7 @@ Remember The Milk Todo list applet.
 Summary: KDE Input method panel (applet) 
 Group: Graphical desktop/KDE
 Provides: plasma-applet
+Suggests: plasma-applet-kimpanel-backend
 
 %description -n plasma-applet-kimpanel
 KDE Input method panel (applet)
@@ -1145,7 +1146,7 @@ Requires: plasma-applet-kimpanel = %{version}
 Requires: scim-client = %{scim_api}
 Conflicts: plasma-applet-kimpanel < 4.4.3
 Provides: scim-panel = %{scim_api}
-Provides: plasma-applet-kimpanel-inputmethod
+Provides: plasma-applet-kimpanel-backend
 
 %description -n plasma-applet-kimpanel-backend-scim
 KDE Input method panel (applet) for scim.
