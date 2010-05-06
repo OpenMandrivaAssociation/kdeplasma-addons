@@ -1122,7 +1122,6 @@ Remember The Milk Todo list applet.
 %package -n plasma-applet-kimpanel
 Summary: KDE Input method panel (applet) 
 Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
 Provides: plasma-applet
 
 %description -n plasma-applet-kimpanel
@@ -1133,10 +1132,27 @@ KDE Input method panel (applet)
 %_kde_bindir/kimpanel
 %_kde_libdir/kde4/plasma_applet_kimpanel.so
 %_kde_libdir/libkimpanelruntime.so.0
-%_kde_libdir/scim-1.0/scim-panel-dbus
 %_kde_datadir/config.kcfg/kimpanelconfig.kcfg
 %_kde_datadir/dbus-1/interfaces/org.kde.impanel.xml
 %_kde_services/plasma-applet-kimpanel.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-kimpanel-backend-scim
+Summary: KDE Input method panel for scim
+Group: Graphical desktop/KDE
+Requires: plasma-applet-kimpanel = %{version}
+Requires: scim-client = %{scim_api}
+Conflicts: plasma-applet-kimpanel < 4.4.3
+Provides: scim-panel = %{scim_api}
+Provides: plasma-applet-kimpanel-inputmethod
+
+%description -n plasma-applet-kimpanel-backend-scim
+KDE Input method panel (applet) for scim.
+
+%files -n plasma-applet-kimpanel-backend-scim
+%defattr(-,root,root)
+%_libexecdir/scim-1.0/scim-panel-dbus
 
 #-----------------------------------------------------------------------------
 
