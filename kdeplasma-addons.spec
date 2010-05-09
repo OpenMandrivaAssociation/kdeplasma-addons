@@ -9,7 +9,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.4.3
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -363,6 +363,7 @@ Summary: Widget that can query the knowledgebase of opendesktop.org
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
+Requires: plasma-dataengine-ocs
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-knowledgebase
@@ -1003,6 +1004,7 @@ Plasma applet timer
 Summary: Communicate using the Social Desktop
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
+Requires: plasma-dataengine-ocs
 Provides: plasma-applet
 
 %description -n plasma-applet-opendesktop
