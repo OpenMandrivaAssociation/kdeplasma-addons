@@ -21,7 +21,7 @@ Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{versi
 Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
 Patch3: kdeplasma-addons-4.3.73-fix-lancelot-major.patch
-Patch4: kdeplasma-addons-4.4.3-fix-audioplayercontrol-icon.patch
+Patch4: kdeplasma-addons-4.4.3-b1138691-fix-audioplayercontrol-icon.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
