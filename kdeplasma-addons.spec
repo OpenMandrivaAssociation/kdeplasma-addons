@@ -9,7 +9,7 @@
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.4.3
-Release: %mkrel 3
+Release: %mkrel 4
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -20,7 +20,8 @@ Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{versi
 %endif
 Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
-Patch3: kdeplasma-addons-4.3.73-fix-lancelot-major.patch 
+Patch3: kdeplasma-addons-4.3.73-fix-lancelot-major.patch
+Patch4: kdeplasma-addons-4.4.3-fix-audioplayercontrol-icon.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -1492,6 +1493,7 @@ based on %name
 %patch1 -p0
 %patch2 -p0
 %patch3 -p0
+%patch4 -p1 -b .icon
 
 %build
 %cmake_kde4 
