@@ -3,13 +3,13 @@
 
 
 %if %branch
-%define kde_snapshot svn1053190
+%define kde_snapshot svn1138650
 %endif
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.4.3
-Release: %mkrel 4
+Version: 4.4.92
+Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
@@ -21,7 +21,6 @@ Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{versi
 Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
 Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
 Patch3: kdeplasma-addons-4.3.73-fix-lancelot-major.patch
-Patch4: kdeplasma-addons-4.4.3-b1138691-fix-audioplayercontrol-icon.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -97,6 +96,8 @@ Suggests: plasma-applet-qalculate
 Suggests: plasma-applet-webslice
 Suggests: plasma-applet-spellcheck
 Suggests: plasma-applet-kimpanel
+Suggests: plasma-applet-bookmarks
+
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
 Suggests: plasma-runner-konquerorsessions
@@ -107,6 +108,8 @@ Suggests: plasma-runner-spellchecker
 Suggests: plasma-runner-audioplayercontrol
 Suggests: plasma-runner-mediawiki
 Suggests: plasma-runner-kopete
+Suggests: plasma-runner-charrunner
+Suggests: plasma-runner-datetime
 
 Suggests: plasma-wallpaper-pattern
 Suggests: plasma-wallpaper-weather
@@ -136,6 +139,22 @@ Monitor applet for files.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_fileWatcher.so
 %_kde_services/plasma-fileWatcher-default.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-bookmarks
+Summary: Bookmark applet for KDE
+Group: Graphical desktop/KDE
+Requires: kdebase4-runtime
+Provides: plasma-applet
+
+%description -n plasma-applet-bookmarks
+Monitor applet for files.
+
+%files -n plasma-applet-bookmarks
+%defattr(-,root,root)
+%_kde_services/plasma-applet-bookmarks.desktop
+%_kde_libdir/kde4/plasma_applet_bookmarks.so
 
 #-----------------------------------------------------------------------------
 
@@ -248,7 +267,6 @@ Previewer Plasma Applet
 %_kde_services/ServiceMenus/preview.desktop
 %_kde_services/plasma-applet-previewer.desktop
 
-
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-bball
@@ -326,7 +344,6 @@ Summary:  Engine of the pastebin plasma applet
 Group:    Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
-Requires: plasma-dataengine-pastebin = %version-%release
 
 %description -n plasma-dataengine-pastebin
 Engine of the pastebin plasma applet
@@ -335,6 +352,24 @@ Engine of the pastebin plasma applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_engine_pastebin.so
 %_kde_services/plasma-engine-pastebin.desktop
+
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-dataengine-kdeobservatory
+Summary:  Engine of the pastebin plasma applet
+Group:    Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-kdeobservatory
+Engine of the kdeobservatory plasma applet
+
+%files -n plasma-dataengine-kdeobservatory
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_engine_kdeobservatory.so
+%_kde_appsdir/plasma/services/kdeobservatory.operations
+%_kde_services/plasma-engine-kdeobservatory.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -392,7 +427,6 @@ A blackboard plasma applet
 %_kde_libdir/kde4/plasma_applet_blackboard.so
 %_kde_services/plasma-applet-blackboard.desktop
 
-
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-plasmaboard
@@ -409,6 +443,7 @@ A plasmaboard plasma applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_plasmaboard.so
 %_kde_services/plasma_applet_plasmaboard.desktop
+%_kde_appsdir/plasmaboard
 
 #-----------------------------------------------------------------------------
 
@@ -469,6 +504,7 @@ Plasma lancelot applets.
 %_kde_services/plasma-applet-lancelot-launcher.desktop
 %_kde_datadir/dbus-1/services/org.kde.lancelot.service
 %_kde_iconsdir/hicolor/*/apps/lancelot*.png
+%_kde_iconsdir/hicolor/*/apps/plasmaapplet-shelf.png
 %_kde_services/plasma-applet-lancelot-part.desktop
 %_kde_datadir/mime/packages/lancelotpart-mime.xml
 %_kde_appsdir/desktoptheme/default/lancelot
@@ -879,6 +915,42 @@ Plasma converter runners.
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-runner-charrunner
+Summary: Plasma charrunner runners
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-runner-charrunner
+Plasma charrunner runners.
+
+%files -n plasma-runner-charrunner
+%defattr(-,root,root)
+%_kde_libdir/kde4/kcm_krunner_charrunner.so
+%_kde_libdir/kde4/krunner_charrunner.so
+%_kde_services/CharRunner_config.desktop
+%_kde_services/CharacterRunner.desktop
+
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-datetime
+Summary: Plasma charrunner runners
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-datetime
+Plasma datetime runners.
+
+%files -n plasma-runner-datetime
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_runner_datetime.so
+%_kde_services/plasma-runner-datetime.desktop
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-runner-contacts
 Summary: Plasma contacts runners
 Group: Graphical desktop/KDE
@@ -1052,7 +1124,7 @@ A Qalculate plasma applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_qalculate.so
 %_kde_datadir/kde4/services/plasma-applet-qalculate.desktop
-%_kde_iconsdir/oxygen/*/apps/qalculate-applet.png
+%_kde_iconsdir/hicolor/*/apps/qalculate-applet.png
 
 #-----------------------------------------------------------------------------
 
@@ -1395,9 +1467,6 @@ Group: System/Libraries
 %description -n %libplasmacomicprovidercore
 %name library.
 
-%post -n %libplasmacomicprovidercore -p /sbin/ldconfig
-%postun -n %libplasmacomicprovidercore -p /sbin/ldconfig
-
 %files -n %libplasmacomicprovidercore
 %defattr(-,root,root,-)
 %_kde_libdir/libplasmacomicprovidercore.so.%{plasmacomicprovidercore_major}*
@@ -1413,9 +1482,6 @@ Group: System/Libraries
 
 %description -n %libplasmaweather
 %name library.
-
-%post -n %libplasmaweather -p /sbin/ldconfig
-%postun -n %libplasmaweather -p /sbin/ldconfig
 
 %files -n %libplasmaweather
 %defattr(-,root,root,-)
@@ -1433,9 +1499,6 @@ Group: System/Libraries
 %description -n %librtm
 %name library.
 
-%post -n %librtm -p /sbin/ldconfig
-%postun -n %librtm -p /sbin/ldconfig
-
 %files -n %librtm
 %defattr(-,root,root,-)
 %_kde_libdir/librtm.so.%{rtm_major}*
@@ -1452,12 +1515,26 @@ Group: System/Libraries
 %description -n %libplasmapotdprovidercore
 %name library.
 
-%post -n %libplasmapotdprovidercore -p /sbin/ldconfig
-%postun -n %libplasmapotdprovidercore -p /sbin/ldconfig
-
 %files -n %libplasmapotdprovidercore
 %defattr(-,root,root,-)
 %_kde_libdir/libplasmapotdprovidercore.so.%{plasmapotdprovidercore_major}*
+
+#-----------------------------------------------------------------------------
+
+%define lancelot_datamodels_major 0
+%define liblancelot_datamodels %mklibname lancelot-datamodels %lancelot_datamodels_major
+
+%package -n %liblancelot_datamodels
+Summary: %name library
+Group: System/Libraries
+
+%description -n %liblancelot_datamodels
+%name library.
+
+%files -n %liblancelot_datamodels
+%defattr(-,root,root,-)
+%_kde_libdir/liblancelot-datamodels.so.0
+%_kde_libdir/liblancelot-datamodels.so.1.7.0
 
 #-----------------------------------------------------------------------------
 
@@ -1481,6 +1558,10 @@ based on %name
 %defattr(-,root,root)
 %{_kde_libdir}/*.so
 %_kde_includedir/lancelot
+%_kde_includedir/KDE/Lancelot
+%_kde_includedir/lancelot-datamodels
+%_kde_appsdir/cmake/modules/FindLancelot-Datamodels.cmake
+%_kde_appsdir/cmake/modules/FindLancelot.cmake
 
 #-----------------------------------------------------------------------------
 
@@ -1490,10 +1571,9 @@ based on %name
 %else
 %setup -qn %name-%{version}
 %endif
-%patch1 -p0
-%patch2 -p0
-%patch3 -p0
-%patch4 -p1 -b .icon
+######%patch1 -p0
+######%patch2 -p0
+######%patch3 -p0
 
 %build
 %cmake_kde4 
