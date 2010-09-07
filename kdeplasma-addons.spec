@@ -58,7 +58,6 @@ Suggests: plasma-applet-bball
 Suggests: plasma-applet-incomingmsg
 Suggests: plasma-applet-leavenote
 Suggests: plasma-applet-life
-Suggests: plasma-applet-pastebin
 Suggests: plasma-applet-konsoleprofiles
 Suggests: plasma-applet-luna
 Suggests: plasma-applet-lancelot
@@ -350,27 +349,6 @@ Engine of the kdeobservatory plasma applet
 %_kde_libdir/kde4/plasma_engine_kdeobservatory.so
 %_kde_appsdir/plasma/services/kdeobservatory.operations
 %_kde_services/plasma-engine-kdeobservatory.desktop
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-applet-pastebin
-Summary: Pastebin plasma Applet
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Requires: plasma-dataengine-pastebin
-Provides: plasma-applet
-Conflicts: extragear-plasma < 4.0.82
-
-%description -n plasma-applet-pastebin
-plasma-applet-pastebin
-
-%files -n plasma-applet-pastebin
-%defattr(-,root,root)
-%_kde_services/plasma-applet-pastebin.desktop
-%_kde_libdir/kde4/plasma_applet_pastebin.so
-%_kde_appsdir/plasma/services/pastebin.operations
-%_kde_appsdir/plasma_pastebin
-
 
 #-----------------------------------------------------------------------------
 
