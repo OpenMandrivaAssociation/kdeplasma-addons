@@ -1508,7 +1508,7 @@ Group: System/Libraries
 
 %files -n %libplasma_containments_grouping
 %defattr(-,root,root,-)
-%_kde_libdir/libplasma_groupingcontainment.so.%plasma_containments_grouping_major*
+%_kde_libdir/libplasma_groupingcontainment.so.%{plasma_containments_grouping_major}*
 
 #------------------------------------------------------------------------------
 
