@@ -1496,6 +1496,42 @@ Group: System/Libraries
 
 #-----------------------------------------------------------------------------
 
+%define plasma_containments_grouping_major 4
+%define libplasma_containments_grouping %mklibname plasmacontainmentsgrouping %plasma_containments_grouping_major
+
+%package -n %libplasma_containments_grouping
+Summary: %name library
+Group: System/Libraries
+
+%description -n %libplasma_containments_grouping
+%name library.
+
+%files -n %libplasma_containments_grouping
+%defattr(-,root,root,-)
+%_kde_libdir/libplasma_groupingcontainment.so.%plasma_containments_grouping_major*
+
+#------------------------------------------------------------------------------
+
+%package -n plasma-containments-grouping
+Summary: Containments that do widget grouping and gridding
+Group: Graphical desktop/KDE
+%description -n plasma-containments-grouping
+This little project will provide the user the ability to layout his
+applets in a more advanced way: He will be able to group them inside
+special QGraphicsWidgets called Groups, in a way that depends on the
+specific group.
+
+
+%files -n plasma-containments-grouping
+%defattr(-,root,root,-)
+%_kde_libdir/kde4/plasma_containment_groupingdesktop.so
+%_kde_libdir/kde4/plasma_containment_groupingpanel.so
+%_kde_services/plasma-containment-groupingdesktop.desktop
+%_kde_services/plasma-containment-groupingpanel.desktop
+
+
+#-----------------------------------------------------------------------------
+
 %package devel
 Summary: Devel stuff for %name
 Group: Development/KDE and Qt
