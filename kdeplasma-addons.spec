@@ -336,23 +336,6 @@ life Plasma Applet
 
 #-----------------------------------------------------------------------------
 
-%package -n plasma-dataengine-pastebin
-Summary:  Engine of the pastebin plasma applet
-Group:    Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-dataengine
-
-%description -n plasma-dataengine-pastebin
-Engine of the pastebin plasma applet
-
-%files -n plasma-dataengine-pastebin
-%defattr(-,root,root)
-%_kde_libdir/kde4/plasma_engine_pastebin.so
-%_kde_services/plasma-engine-pastebin.desktop
-
-
-#-----------------------------------------------------------------------------
-
 %package -n plasma-dataengine-kdeobservatory
 Summary:  Engine of the pastebin plasma applet
 Group:    Graphical desktop/KDE
