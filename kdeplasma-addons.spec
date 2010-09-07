@@ -1,14 +1,14 @@
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
 
 %if %branch
-%define kde_snapshot svn1138650
+%define kde_snapshot svn1170578
 %endif
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.5.0
+Version: 4.5.67
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -18,9 +18,6 @@ Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{versi
 %else
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}.tar.bz2
 %endif
-Patch1: kdeplasma-addons-4.2.71-lancelot-fix-NewDocument.patch
-Patch2: kdeplasma-addons-4.2.71-lancelot-fix-computertab.patch
-Patch3: kdeplasma-addons-4.3.73-fix-lancelot-major.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel
 BuildRequires: kde4-macros
@@ -1571,9 +1568,6 @@ based on %name
 %else
 %setup -qn %name-%{version}
 %endif
-######%patch1 -p0
-######%patch2 -p0
-######%patch3 -p0
 
 %build
 %cmake_kde4 
