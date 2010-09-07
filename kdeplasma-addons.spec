@@ -352,6 +352,25 @@ Engine of the kdeobservatory plasma applet
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-applet-pastebin
+Summary: Pastebin plasma Applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Requires: plasma-dataengine-pastebin
+Provides: plasma-applet
+Conflicts: extragear-plasma < 4.0.82
+
+%description -n plasma-applet-pastebin
+plasma-applet-pastebin
+
+%files -n plasma-applet-pastebin
+%defattr(-,root,root)
+%_kde_services/plasma-applet-pastebin.desktop
+%_kde_libdir/kde4/plasma_applet_pastebin.so
+%_kde_appsdir/plasma_pastebin
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-applet-knowledgebase
 Summary: Widget that can query the knowledgebase of opendesktop.org
 Group: Graphical desktop/KDE
