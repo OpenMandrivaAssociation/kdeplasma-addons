@@ -102,6 +102,7 @@ Suggests: plasma-runner-mediawiki
 Suggests: plasma-runner-kopete
 Suggests: plasma-runner-charrunner
 Suggests: plasma-runner-datetime
+Suggests: plasma-runner-events
 
 Suggests: plasma-wallpaper-pattern
 Suggests: plasma-wallpaper-weather
@@ -941,6 +942,22 @@ Plasma contacts runners.
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-runner-events
+Summary: Plasma events runners
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-events
+Plasma events runners.
+
+%files -n plasma-runner-events
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_runner_events.so
+%_kde_services/plasma-runner-events.desktop
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-applet-weatherstation
 Summary: Plasma applet weatherstation
 Group: Graphical desktop/KDE
@@ -963,7 +980,7 @@ Plasma applet weatherstation
 Summary: Plasma applet news
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Provides: plasma-runner
+Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 Conflicts: plasma-applet-twitter < 4.3.0
 
@@ -982,7 +999,7 @@ Plasma applet news
 Summary: Plasma applet charselect
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Provides: plasma-runner
+Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-charselect
