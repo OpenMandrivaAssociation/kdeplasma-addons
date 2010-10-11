@@ -2,12 +2,12 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1183825
 %endif
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.5.68
+Version: 4.5.71
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -28,7 +28,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
 BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
-BuildRequires: kdeedu4-devel >= 4.3.73
+BuildRequires: kdeedu4-devel >= 4.5.71
 BuildRequires: qt4-qtdbus
 BuildRequires: qalculate-devel
 BuildRequires: scim-devel
@@ -954,6 +954,8 @@ Plasma events runners.
 %files -n plasma-runner-events
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_runner_events.so
+%_kde_libdir/kde4/kcm_plasma_runner_events.so
+%_kde_services/plasma-runner-events_config.desktop
 %_kde_services/plasma-runner-events.desktop
 
 #-----------------------------------------------------------------------------
@@ -1547,6 +1549,7 @@ Group: System/Libraries
 %package -n plasma-containments-grouping
 Summary: Containments that do widget grouping and gridding
 Group: Graphical desktop/KDE
+
 %description -n plasma-containments-grouping
 This little project will provide the user the ability to layout his
 applets in a more advanced way: He will be able to group them inside
@@ -1558,9 +1561,10 @@ specific group.
 %defattr(-,root,root,-)
 %_kde_libdir/kde4/plasma_containment_groupingdesktop.so
 %_kde_libdir/kde4/plasma_containment_groupingpanel.so
+%_kde_libdir/kde4/plasma_containment_griddesktop.so
+%_kde_services/plasma-containment-griddesktop.desktop
 %_kde_services/plasma-containment-groupingdesktop.desktop
 %_kde_services/plasma-containment-groupingpanel.desktop
-
 
 #-----------------------------------------------------------------------------
 
