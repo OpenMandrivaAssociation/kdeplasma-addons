@@ -2,12 +2,12 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1183825
+%define kde_snapshot svn1190490
 %endif
 
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
-Version: 4.5.71
+Version: 4.5.74
 Release: %mkrel 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -1513,7 +1513,7 @@ Group: System/Libraries
 
 #-----------------------------------------------------------------------------
 
-%define lancelot_datamodels_major 0
+%define lancelot_datamodels_major 1
 %define liblancelot_datamodels %mklibname lancelot-datamodels %lancelot_datamodels_major
 
 %package -n %liblancelot_datamodels
