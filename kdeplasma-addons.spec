@@ -1519,14 +1519,15 @@ Group: System/Libraries
 %package -n %liblancelot_datamodels
 Summary: %name library
 Group: System/Libraries
+Obsoletes: %{_lib}lancelot-datamodels0 < %version
 
 %description -n %liblancelot_datamodels
 %name library.
 
 %files -n %liblancelot_datamodels
 %defattr(-,root,root,-)
-%_kde_libdir/liblancelot-datamodels.so.0
-%_kde_libdir/liblancelot-datamodels.so.1.7.0
+%_kde_libdir/liblancelot-datamodels.so.%{lancelot_datamodels_major}
+%_kde_libdir/liblancelot-datamodels.so.%{lancelot_datamodels_major}.*
 
 #-----------------------------------------------------------------------------
 
