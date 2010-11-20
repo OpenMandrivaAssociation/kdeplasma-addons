@@ -366,6 +366,7 @@ plasma-applet-pastebin
 %_kde_services/plasma-applet-pastebin.desktop
 %_kde_libdir/kde4/plasma_applet_pastebin.so
 %_kde_appsdir/plasma_pastebin
+%_kde_datadir/config/pastebin.knsrc
 
 #-----------------------------------------------------------------------------
 
@@ -493,12 +494,13 @@ Plasma lancelot applets.
 
 #-----------------------------------------------------------------------------
 
-%define lancelot_major 1
+%define lancelot_major 2
 %define liblancelot %mklibname lancelot %lancelot_major
 
 %package -n %liblancelot
 Summary: %name library
 Group: System/Libraries
+Obsoletes: %{_lib}lancelot1
 
 %description -n %liblancelot
 %name library.
@@ -508,7 +510,7 @@ Group: System/Libraries
 
 %files -n %liblancelot
 %defattr(-,root,root,-)
-%_kde_libdir/liblancelot.so.%{lancelot_major}*
+%_kde_libdir/liblancelot.so.*
 
 #-----------------------------------------------------------------------------
 
