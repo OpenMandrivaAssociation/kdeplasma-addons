@@ -330,6 +330,7 @@ life Plasma Applet
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_life.so
 %_kde_services/plasma-applet-life.desktop
+%_kde_iconsdir/hicolor/*/apps/lifegame.*
 
 #-----------------------------------------------------------------------------
 
@@ -454,6 +455,7 @@ Lunar calendar applet.
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_luna.so
 %_kde_services/plasma-applet-luna.desktop
+%_kde_iconsdir/hicolor/*/apps/luna.png
 
 #-----------------------------------------------------------------------------
 
@@ -1031,6 +1033,7 @@ Plasma applet eyes
 %defattr(-,root,root)
 %_kde_libdir/kde4/plasma_applet_eyes.so                                                                                       
 %_kde_services/plasma-applet-eyes.desktop
+%_kde_iconsdir/hicolor/*/apps/eyes.*
 
 #-----------------------------------------------------------------------------
 
