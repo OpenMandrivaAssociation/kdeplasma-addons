@@ -69,6 +69,7 @@ Suggests: plasma-applet-calculator
 Suggests: plasma-applet-fifteenpuzzle
 Suggests: plasma-applet-kolourpicker
 Suggests: plasma-applet-unitconverter
+Suggests: plasma-applet-kdeobservatory
 Suggests: plasma-applet-systemloadviewer
 Suggests: plasma-applet-weather
 Suggests: plasma-applet-bubblemon
@@ -335,7 +336,7 @@ life Plasma Applet
 #-----------------------------------------------------------------------------
 
 %package -n plasma-dataengine-kdeobservatory
-Summary:  Engine of the pastebin plasma applet
+Summary:  Engine of the kdeobservatory plasma applet
 Group:    Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
@@ -348,6 +349,24 @@ Engine of the kdeobservatory plasma applet
 %_kde_libdir/kde4/plasma_engine_kdeobservatory.so
 %_kde_appsdir/plasma/services/kdeobservatory.operations
 %_kde_services/plasma-engine-kdeobservatory.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-applet-kdeobservatory
+Summary:  Engine of the kdeobservatory plasma applet
+Group:    Graphical desktop/KDE
+Requires: kdebase4-workspace
+Requires: plasma-dataengine-kdeobservatory
+Provides: plasma-applet
+
+%description -n plasma-applet-kdeobservatory
+Engine of the kdeobservatory plasma applet
+
+%files -n plasma-applet-kdeobservatory
+%defattr(-,root,root)
+%_kde_libdir/kde4/plasma_applet_kdeobservatory.so
+%_kde_iconsdir/hicolor/*/apps/kdeobservatory.*
+%_kde_services/plasma-applet-kdeobservatory.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -480,18 +499,12 @@ Plasma lancelot applets.
 %_kde_libdir/kde4/plasma_applet_lancelot_part.so
 %_kde_libdir/kde4/plasma_applet_lancelot_launcher.so
 %_kde_services/plasma-applet-lancelot-launcher.desktop
-%_kde_datadir/dbus-1/services/org.kde.lancelot.service
 %_kde_iconsdir/hicolor/*/apps/lancelot*.png
 %_kde_iconsdir/hicolor/*/apps/plasmaapplet-shelf.png
 %_kde_services/plasma-applet-lancelot-part.desktop
+%_kde_services/lancelot.desktop
 %_kde_datadir/mime/packages/lancelotpart-mime.xml
-%_kde_appsdir/desktoptheme/default/lancelot
-%_kde_appsdir/desktoptheme/oxygen/lancelot
-%_kde_appsdir/desktoptheme/Elegance
-%_kde_appsdir/desktoptheme/Silicon
-%_kde_appsdir/desktoptheme/slim-glow
-%_kde_appsdir/desktoptheme/Aya
-%_kde_appsdir/desktoptheme/heron
+%_kde_appsdir/desktoptheme/*/lancelot
 %_kde_appsdir/lancelot
 
 #-----------------------------------------------------------------------------
