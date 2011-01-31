@@ -792,7 +792,7 @@ Summary: Plasma micrbolog dataengines
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-dataengine
-Provides: plasma-dataengine-twitter = %name-%version
+Provides: plasma-dataengine-twitter = %version-%release
 Obsoletes: plasma-dataengine-twitter < 4.2.70
 
 %description -n plasma-dataengine-microblog
