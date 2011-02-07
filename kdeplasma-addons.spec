@@ -15,7 +15,7 @@ URL: http://www.kde.org
 Release: %mkrel -c %kde_snapshot 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}%kde_snapshot.tar.bz2
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%{version}.tar.bz2
 %endif
 Buildroot: %_tmppath/%name-%version-%release-root
@@ -143,7 +143,7 @@ Requires: kdebase4-runtime
 Provides: plasma-applet
 
 %description -n plasma-applet-bookmarks
-Monitor applet for files.
+This applet provides access to KDE's bookmark
 
 %files -n plasma-applet-bookmarks
 %defattr(-,root,root)
@@ -300,14 +300,14 @@ incomingmsg Plasma Applet
 #-----------------------------------------------------------------------------
 
 %package -n plasma-applet-leavenote
-Summary: leavenote Plasma Applet
+Summary: Leave A Note
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-leavenote
-leavenote Plasma Applet
+Leave notes for users while they are away
 
 %files -n plasma-applet-leavenote
 %defattr(-,root,root)
@@ -355,12 +355,11 @@ Engine of the kdeobservatory plasma applet
 Summary: Pastebin plasma Applet
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
-Requires: plasma-dataengine-pastebin
 Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-pastebin
-plasma-applet-pastebin
+Paste text/images to a remote server
 
 %files -n plasma-applet-pastebin
 %defattr(-,root,root)
@@ -414,7 +413,7 @@ Provides: plasma-applet
 Conflicts: extragear-plasma < 4.0.82
 
 %description -n plasma-applet-plasmaboard
-A plasmaboard plasma applet
+A virtual, on-screen keyboard
 
 %files -n plasma-applet-plasmaboard
 %defattr(-,root,root)
@@ -536,7 +535,7 @@ Provides: plasma-applet-twitter = %version-%release
 Obsoletes: plasma-applet-twitter < 4.2.70
 
 %description -n plasma-applet-microblog
-Microblog applet
+Update and view your microblog status
 
 %files -n plasma-applet-microblog
 %defattr(-,root,root)
