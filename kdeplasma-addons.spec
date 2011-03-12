@@ -15,9 +15,10 @@ URL: http://www.kde.org
 Release: %mkrel -c %kde_snapshot 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}%kde_snapshot.tar.bz2
 %else
-Release: %mkrel 2
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%{version}.tar.bz2
 %endif
+Patch0: kdeplasma-addons-4.6.1-enable-kimpanel.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: kdebase4-devel >= 1:4.2.98
 BuildRequires: kdepimlibs4-devel >= 4.2.98
@@ -1582,6 +1583,7 @@ based on %name
 %else
 %setup -qn %name-%{version}
 %endif
+%patch0 -p0 -b .kimpanel
 
 %build
 %cmake_kde4 
