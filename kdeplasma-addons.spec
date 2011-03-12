@@ -32,7 +32,6 @@ BuildRequires: eigen2
 BuildRequires: kdeedu4-devel >= 4.5.71
 BuildRequires: qt4-qtdbus
 BuildRequires: qalculate-devel
-BuildRequires: scim-devel
 
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
@@ -1190,7 +1189,7 @@ Summary: KDE Input method panel (applet)
 Group: Graphical desktop/KDE
 Requires: kdebase4-workspace
 Provides: plasma-applet
-Suggests: plasma-applet-kimpanel-backend
+#Suggests: plasma-applet-kimpanel-backend
 
 %description -n plasma-applet-kimpanel
 KDE Input method panel (applet)
@@ -1203,24 +1202,6 @@ KDE Input method panel (applet)
 %_kde_datadir/config.kcfg/kimpanelconfig.kcfg
 %_kde_datadir/dbus-1/interfaces/org.kde.impanel.xml
 %_kde_services/plasma-applet-kimpanel.desktop
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-applet-kimpanel-backend-scim
-Summary: KDE Input method panel for scim
-Group: Graphical desktop/KDE
-Requires: plasma-applet-kimpanel = %{version}
-Requires: scim-client = %{scim_api}
-Conflicts: plasma-applet-kimpanel < 4.4.3
-Provides: scim-panel = %{scim_api}
-Provides: plasma-applet-kimpanel-backend
-
-%description -n plasma-applet-kimpanel-backend-scim
-KDE Input method panel (applet) for scim.
-
-%files -n plasma-applet-kimpanel-backend-scim
-%defattr(-,root,root)
-%_libexecdir/scim-1.0/scim-panel-dbus
 
 #-----------------------------------------------------------------------------
 
