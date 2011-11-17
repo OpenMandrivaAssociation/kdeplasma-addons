@@ -17,6 +17,7 @@ BuildRequires: python-devel
 BuildRequires: eigen2
 BuildRequires: qt4-qtdbus
 BuildRequires: qalculate-devel
+BuildRequires: marble-devel
 
 Provides:  kdeplasma
 Provides:  kdeplasma4 = %version
@@ -72,7 +73,6 @@ Suggests: plasma-applet-plasmaboard
 Suggests: plasma-applet-qalculate
 Suggests: plasma-applet-webslice
 Suggests: plasma-applet-spellcheck
-Suggests: plasma-applet-kimpanel
 Suggests: plasma-applet-bookmarks
 
 Suggests: plasma-runner-converter
@@ -1166,27 +1166,6 @@ Remember The Milk Todo list applet.
 
 %_kde_libdir/kde4/plasma_applet_rtm.so
 %_kde_services/plasma-applet-rememberthemilk.desktop
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-applet-kimpanel
-Summary: KDE Input method panel (applet) 
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-applet
-#Suggests: plasma-applet-kimpanel-backend
-
-%description -n plasma-applet-kimpanel
-KDE Input method panel (applet)
-
-%files -n plasma-applet-kimpanel
-
-%_kde_bindir/kimpanel
-%_kde_libdir/kde4/plasma_applet_kimpanel.so
-%_kde_libdir/libkimpanelruntime.so.0
-%_kde_datadir/config.kcfg/kimpanelconfig.kcfg
-%_kde_datadir/dbus-1/interfaces/org.kde.impanel.xml
-%_kde_services/plasma-applet-kimpanel.desktop
 
 #-----------------------------------------------------------------------------
 
