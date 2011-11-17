@@ -118,7 +118,7 @@ Conflicts: extragear-plasma < 4.0.82
 Monitor applet for files.
 
 %files -n plasma-applet-filewatcher
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_fileWatcher.so
 %_kde_services/plasma-fileWatcher-default.desktop
 
@@ -134,7 +134,7 @@ Provides: plasma-applet
 This applet provides access to KDE's bookmark
 
 %files -n plasma-applet-bookmarks
-%defattr(-,root,root)
+
 %_kde_services/plasma-applet-bookmarks.desktop
 %_kde_libdir/kde4/plasma_applet_bookmarks.so
 
@@ -151,7 +151,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma notes applets.
 
 %files -n plasma-applet-notes
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_notes.so
 %_kde_services/plasma-notes-default.desktop
 
@@ -168,7 +168,7 @@ Conflicts: extragear-plasma < 4.0.82
 Show desktop contents.
 
 %files -n plasma-applet-showdesktop
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_showdesktop.so
 %_kde_services/plasma-applet-showdesktop.desktop
 
@@ -186,7 +186,7 @@ Conflicts: extragear-plasma < 4.0.82
 Make your day happy with daily desktop comics applet
 
 %files -n plasma-applet-comic
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_comic.so
 %_kde_services/plasma-dataengine-comic.desktop
 %_kde_configdir/comic.knsrc
@@ -207,7 +207,7 @@ Conflicts: extragear-plasma < 4.0.82
 Live konqueror profile viewer.
 
 %files -n plasma-applet-konqprofiles
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_konqprofiles.so
 %_kde_services/plasma-applet-konqprofiles.desktop
 
@@ -224,7 +224,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma RSS Applet
 
 %files -n plasma-applet-rssnow
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_rssnow.so
 %_kde_appsdir/desktoptheme/default/rssnow
 %_kde_services/plasma-applet-rssnow.desktop
@@ -243,7 +243,7 @@ Conflicts: extragear-plasma < 4.0.82
 Previewer Plasma Applet
 
 %files -n plasma-applet-previewer
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_previewer.so
 %_kde_iconsdir/hicolor/*/apps/previewer.png
 %_kde_services/ServiceMenus/preview.desktop
@@ -262,7 +262,7 @@ Conflicts: extragear-plasma < 4.0.82
 bball Plasma Applet
 
 %files -n plasma-applet-bball
-%defattr(-,root,root)
+
 %_kde_iconsdir/*/*/*/bball*
 %_kde_services/plasma-applet-bball.desktop
 %_kde_appsdir/bball
@@ -281,7 +281,7 @@ Conflicts: extragear-plasma < 4.0.82
 incomingmsg Plasma Applet
 
 %files -n plasma-applet-incomingmsg
-%defattr(-,root,root)
+
 %_kde_services/plasma-applet-incomingmsg.desktop
 %_kde_libdir/kde4/plasma_applet_incomingmsg.so
 
@@ -298,7 +298,7 @@ Conflicts: extragear-plasma < 4.0.82
 Leave notes for users while they are away
 
 %files -n plasma-applet-leavenote
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_leavenote.so
 %_kde_services/plasma-applet-leavenote.desktop
 
@@ -315,7 +315,7 @@ Conflicts: extragear-plasma < 4.0.82
 life Plasma Applet
 
 %files -n plasma-applet-life
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_life.so
 %_kde_services/plasma-applet-life.desktop
 %_kde_iconsdir/hicolor/*/apps/lifegame.*
@@ -332,7 +332,7 @@ Provides: plasma-dataengine
 Engine of the kdeobservatory plasma applet
 
 %files -n plasma-dataengine-kdeobservatory
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_engine_kdeobservatory.so
 %_kde_appsdir/plasma/services/kdeobservatory.operations
 %_kde_services/plasma-engine-kdeobservatory.desktop
@@ -350,7 +350,7 @@ Conflicts: extragear-plasma < 4.0.82
 Paste text/images to a remote server
 
 %files -n plasma-applet-pastebin
-%defattr(-,root,root)
+
 %_kde_services/plasma-applet-pastebin.desktop
 %_kde_libdir/kde4/plasma_applet_pastebin.so
 %_kde_appsdir/plasma_pastebin
@@ -370,7 +370,7 @@ Conflicts: extragear-plasma < 4.0.82
 Widget that can query the knowledgebase of opendesktop.org
 
 %files -n plasma-applet-knowledgebase
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_knowledgebase.so
 %_kde_services/plasma-applet-knowledgebase.desktop
 
@@ -387,7 +387,7 @@ Conflicts: extragear-plasma < 4.0.82
 A blackboard plasma applet
 
 %files -n plasma-applet-blackboard
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_blackboard.so
 %_kde_services/plasma-applet-blackboard.desktop
 
@@ -404,7 +404,7 @@ Conflicts: extragear-plasma < 4.0.82
 A virtual, on-screen keyboard
 
 %files -n plasma-applet-plasmaboard
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_plasmaboard.so
 %_kde_services/plasma_applet_plasmaboard.desktop
 %_kde_appsdir/plasmaboard
@@ -422,7 +422,7 @@ Conflicts: extragear-plasma < 4.0.82
 Live konsole profile viewer.
 
 %files -n plasma-applet-konsoleprofiles
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_konsoleprofiles.so
 %_kde_services/plasma-applet-konsoleprofiles.desktop
 
@@ -439,7 +439,7 @@ Conflicts: extragear-plasma < 4.0.82
 Lunar calendar applet.
 
 %files -n plasma-applet-luna
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_luna.so
 %_kde_services/plasma-applet-luna.desktop
 %_kde_iconsdir/hicolor/*/apps/luna.png
@@ -462,7 +462,7 @@ Conflicts: plasma-desktoptheme-heron < 4.1.85-2
 Plasma lancelot applets.
 
 %files -n plasma-applet-lancelot
-%defattr(-,root,root)
+
 %_kde_bindir/lancelot
 %_kde_libdir/kde4/plasma_applet_lancelot_part.so
 %_kde_libdir/kde4/plasma_applet_lancelot_launcher.so
@@ -507,7 +507,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma default desktopthemes.                                                 
                                                                               
 %files -n plasma-desktoptheme-default                                         
-%defattr(-,root,root)                                                         
+                                                         
 %_kde_appsdir/desktoptheme/default/widgets                                    
                                                                               
 #-----------------------------------------------------------------------------
@@ -526,7 +526,7 @@ Obsoletes: plasma-applet-twitter < 4.2.70
 Update and view your microblog status
 
 %files -n plasma-applet-microblog
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_microblog.so
 %_kde_services/plasma-applet-microblog.desktop
 %_kde_appsdir/plasma/services/tweet.operations
@@ -544,7 +544,7 @@ Conflicts: extragear-plasma < 4.0.82
 Song notifier applet
 
 %files -n plasma-applet-nowplaying
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_nowplaying.so
 %_kde_services/plasma-applet-nowplaying.desktop
 
@@ -561,7 +561,7 @@ Conflicts: extragear-plasma < 4.0.82
 Simplified way to see the hours.
 
 %files -n plasma-applet-binaryclock
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_binaryclock.so
 %_kde_services/plasma-applet-binaryclock.desktop
 
@@ -578,7 +578,7 @@ Conflicts: extragear-plasma < 4.0.82
 A dict applets.
 
 %files -n plasma-applet-dict
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_dict.so
 %_kde_services/plasma-dict-default.desktop
 %_kde_iconsdir/hicolor/scalable/apps/accessories-dict*
@@ -596,7 +596,7 @@ Conflicts: extragear-plasma < 4.0.82
 A lazy way to see the hours.
 
 %files -n plasma-applet-fuzzy-clock
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_fuzzy_clock.so
 %_kde_services/plasma-clock-fuzzy.desktop
 
@@ -613,7 +613,7 @@ Conflicts: extragear-plasma < 4.0.82
 A basic pictures frame to desktop.
 
 %files -n plasma-applet-frame
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_frame.so
 %_kde_services/plasma-frame-default.desktop
 %_kde_appsdir/plasma-applet-frame
@@ -631,7 +631,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma showdashboard applets.
 
 %files -n plasma-applet-showdashboard
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_showdashboard.so
 %_kde_services/plasma-applet-showdashboard.desktop
 
@@ -648,7 +648,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma calculator applets.
 
 %files -n plasma-applet-calculator
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_calculator.so
 %_kde_services/plasma-applet-calculator.desktop
 
@@ -665,7 +665,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma fifteenpuzzle applets.
 
 %files -n plasma-applet-fifteenpuzzle
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_fifteenPuzzle.so
 %_kde_services/plasma-applet-fifteenPuzzle.desktop
 %_kde_appsdir/desktoptheme/default/fifteenPuzzle
@@ -684,7 +684,7 @@ Conflicts: extragear-plasma < 4.0.82
 Basic color picker.
 
 %files -n plasma-applet-kolourpicker
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_kolourpicker.so
 %_kde_services/plasma-kolourpicker-default.desktop
 
@@ -700,7 +700,7 @@ Provides: plasma-applet
 Unit Converter.
 
 %files -n plasma-applet-unitconverter
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_unitconverter.so
 %_kde_services/plasma-applet-unitconverter.desktop
 
@@ -716,7 +716,7 @@ Provides: plasma-applet
 System Load Viewer.
 
 %files -n plasma-applet-systemloadviewer
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma-applet_systemloadviewer.so
 %_kde_services/plasma-applet-systemloadviewer.desktop
 
@@ -732,7 +732,7 @@ Provides: plasma-applet
 Weather Forecast.
 
 %files -n plasma-applet-weather
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_weather.so
 %_kde_services/plasma-applet-weather.desktop
 %_kde_appsdir/desktoptheme/default/weather/wind-arrows.svgz
@@ -749,7 +749,7 @@ Provides: plasma-applet
 A pretty bubble that monitors your system.
 
 %files -n plasma-applet-bubblemon
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_bubblemon.so
 %_kde_services/plasma-applet-bubblemon.desktop
 %_kde_appsdir/desktoptheme/default/bubblemon/bubble.svg
@@ -767,7 +767,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma comic dataengines.
 
 %files -n plasma-dataengine-comic
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_comic*
 %_kde_libdir/kde4/plasma_engine_comic.*
 %_kde_services/plasma-comic-default.desktop
@@ -786,7 +786,7 @@ Obsoletes: plasma-dataengine-twitter < 4.2.70
 Plasma microblog dataengines.
 
 %files -n plasma-dataengine-microblog
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_engine_microblog.so
 %_kde_services/plasma-dataengine-microblog.desktop
 
@@ -804,7 +804,7 @@ Requires: plasma-dataengine-rtm = %version-%release
 An engine to work with Remember the Milk.
 
 %files -n plasma-dataengine-rtm
-%defattr(-,root,root)
+
 %{_kde_libdir}/kde4/plasma_engine_rtm.so
 %{_kde_services}/plasma-engine-rtm.desktop
 %{_kde_appsdir}/plasma/services/rtmauth.operations
@@ -824,7 +824,7 @@ Requires: plasma-dataengine-ocs = %version-%release
 Open Collaboration Services.
 
 %files -n plasma-dataengine-ocs
-%defattr(-,root,root)
+
 %{_kde_libdir}/kde4/plasma_engine_ocs.so
 %{_kde_services}/plasma-dataengine-ocs.desktop
 
@@ -841,7 +841,7 @@ Requires: plasma-dataengine-potd = %version-%release
 Data Engine for getting various online Pictures of The Day.
 
 %files -n plasma-dataengine-potd
-%defattr(-,root,root)
+
 %{_kde_libdir}/kde4/plasma_potd_apodprovider.so
 %{_kde_libdir}/kde4/plasma_potd_epodprovider.so
 %{_kde_libdir}/kde4/plasma_potd_flickrprovider.so
@@ -869,7 +869,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma converter runners.
 
 %files -n plasma-runner-converter
-%defattr(-,root,root)
+
 %_kde_services/plasma-runner-converter.desktop
 %_kde_libdir/kde4/krunner_converter.so
 
@@ -886,7 +886,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma charrunner runners.
 
 %files -n plasma-runner-charrunner
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/kcm_krunner_charrunner.so
 %_kde_libdir/kde4/krunner_charrunner.so
 %_kde_services/CharRunner_config.desktop
@@ -905,7 +905,7 @@ Provides: plasma-runner
 Plasma datetime runners.
 
 %files -n plasma-runner-datetime
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_runner_datetime.so
 %_kde_services/plasma-runner-datetime.desktop
 
@@ -922,7 +922,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma contacts runners.
 
 %files -n plasma-runner-contacts
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/krunner_contacts.so
 %_kde_services/plasma-runner-contacts.desktop
 
@@ -938,7 +938,7 @@ Provides: plasma-runner
 Plasma events runners.
 
 %files -n plasma-runner-events
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_runner_events.so
 %_kde_libdir/kde4/kcm_plasma_runner_events.so
 %_kde_services/plasma-runner-events_config.desktop
@@ -957,7 +957,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma applet weatherstation
 
 %files -n plasma-applet-weatherstation
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_weatherstation.so
 %_kde_appsdir/desktoptheme/default/weatherstation
 %_kde_services/plasma-applet-weatherstation.desktop
@@ -976,7 +976,7 @@ Conflicts: plasma-applet-twitter < 4.3.0
 Plasma applet news
 
 %files -n plasma-applet-news
-%defattr(-,root,root)
+
 %_kde_services/plasma-applet-news.desktop
 %_kde_libdir/kde4/plasma_applet_news.so
 %_kde_appsdir/desktoptheme/default/stylesheets/news.css
@@ -994,7 +994,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma applet charselect
 
 %files -n plasma-applet-charselect
-%defattr(-,root,root)
+
 %_kde_services/plasma-applet-charselect.desktop
 %_kde_libdir/kde4/plasma_applet_charselect.so
 
@@ -1011,7 +1011,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma applet eyes
 
 %files -n plasma-applet-eyes
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_eyes.so                                                                                       
 %_kde_services/plasma-applet-eyes.desktop
 %_kde_iconsdir/hicolor/*/apps/eyes.*
@@ -1029,7 +1029,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma applet paste
 
 %files -n plasma-applet-paste
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_paste.so                                                                                      
 %_kde_services/plasma-applet-paste.desktop
 
@@ -1046,7 +1046,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma applet timer
 
 %files -n plasma-applet-timer
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_timer.so
 %_kde_services/plasma-applet-timer.desktop
 
@@ -1063,7 +1063,7 @@ Provides: plasma-applet
 Communicate using the Social Desktop.
 
 %files -n plasma-applet-opendesktop
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_opendesktop.so
 %_kde_services/plasma-applet-opendesktop.desktop
 %_kde_libdir/kde4/plasma_applet_opendesktop_activities.so
@@ -1084,7 +1084,7 @@ Provides: plasma-applet
 A magnification glass for Plasma canvas.
 
 %files -n plasma-applet-magnifique
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_magnifique.so
 %_kde_services/plasma-applet-magnifique.desktop
 
@@ -1100,7 +1100,7 @@ Provides: plasma-applet
 A Qalculate plasma applet
 
 %files -n plasma-applet-qalculate
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_qalculate.so
 %_kde_datadir/kde4/services/plasma-applet-qalculate.desktop
 %_kde_iconsdir/hicolor/*/apps/qalculate-applet.png
@@ -1117,7 +1117,7 @@ Provides: plasma-applet
 Widget that can play video and sound.
 
 %files -n plasma-applet-mediaplayer
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_mediaplayer.so
 %_kde_services/plasma-applet-mediaplayer.desktop
 
@@ -1133,7 +1133,7 @@ Provides: plasma-applet
 Fast spell checking applet
 
 %files -n plasma-applet-spellcheck
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_spellcheck.so
 %_kde_services/plasma-applet-spellcheck.desktop
 
@@ -1149,7 +1149,7 @@ Provides: plasma-applet
 Applet that show a part of a webpage
 
 %files -n plasma-applet-webslice
-%defattr(-,root,root)
+
 %_kde_services/plasma-applet-webslice.desktop
 %_kde_libdir/kde4/plasma_applet_webslice.so
 
@@ -1167,7 +1167,7 @@ Requires: plasma-dataengine-rtm = %{version}
 Remember The Milk Todo list applet.
 
 %files -n plasma-applet-rtm
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_applet_rtm.so
 %_kde_services/plasma-applet-rememberthemilk.desktop
 
@@ -1184,7 +1184,7 @@ Provides: plasma-applet
 KDE Input method panel (applet)
 
 %files -n plasma-applet-kimpanel
-%defattr(-,root,root)
+
 %_kde_bindir/kimpanel
 %_kde_libdir/kde4/plasma_applet_kimpanel.so
 %_kde_libdir/libkimpanelruntime.so.0
@@ -1205,7 +1205,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma runner konquerorsessions
 
 %files -n plasma-runner-konquerorsessions
-%defattr(-,root,root)
+
 %_kde_services/konquerorsessions.desktop
 %_kde_libdir/kde4/krunner_konquerorsessions.so
 
@@ -1222,7 +1222,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma runner katesessions
 
 %files -n plasma-runner-katesessions
-%defattr(-,root,root)
+
 %_kde_services/katesessions.desktop
 %_kde_libdir/kde4/krunner_katesessions.so
 
@@ -1240,7 +1240,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma runner konsolesessions
 
 %files -n plasma-runner-konsolesessions
-%defattr(-,root,root)
+
 %_kde_services/konsolesessions.desktop
 %_kde_libdir/kde4/krunner_konsolesessions.so
 
@@ -1257,7 +1257,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma runner konsolesessions
 
 %files -n plasma-runner-browserhistory
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/krunner_browserhistory.so
 %_kde_services/browserhistory.desktop
 
@@ -1274,7 +1274,7 @@ Conflicts: extragear-plasma < 4.0.82
 Plasma runner konsolesessions
 
 %files -n plasma-runner-spellchecker
-%defattr(-,root,root)
+
 %_kde_services/plasma-runner-spellchecker.desktop
 %_kde_services/plasma-runner-spellchecker_config.desktop
 %_kde_libdir/kde4/krunner_spellcheckrunner.so
@@ -1292,7 +1292,7 @@ Provides: plasma-runner
 Plasma runner audioplayercontrol
 
 %files -n plasma-runner-audioplayercontrol
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/kcm_krunner_audioplayercontrol.so
 %_kde_libdir/kde4/krunner_audioplayercontrol.so
 %_kde_datadir/kde4/services/plasma-runner-audioplayercontrol.desktop
@@ -1310,7 +1310,7 @@ Provides: plasma-runner
 Plasma runner kopete
 
 %files -n plasma-runner-kopete
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/krunner_kopete.so
 %_kde_datadir/kde4/services/plasma-runner-kopete.desktop
 
@@ -1326,7 +1326,7 @@ Provides: plasma-runner
 Plasma runner mediawiki
 
 %files -n plasma-runner-mediawiki
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/krunner_mediawiki.so
 %_kde_datadir/kde4/services/plasma-runner-techbase.desktop
 %_kde_datadir/kde4/services/plasma-runner-wikipedia.desktop
@@ -1344,7 +1344,7 @@ Provides: plasma-wallpaper
 Pattern wallpaper.
 
 %files -n plasma-wallpaper-pattern
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_wallpaper_pattern.so
 %_kde_services/plasma-wallpaper-pattern.desktop
 %_kde_appsdir/plasma_wallpaper_pattern
@@ -1361,7 +1361,7 @@ Provides: plasma-wallpaper
 Weather wallpaper.
 
 %files -n plasma-wallpaper-weather
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_wallpaper_weather.so
 %_kde_services/plasma-wallpaper-weather.desktop
 %_kde_datadir/config/plasmaweather.knsrc
@@ -1378,7 +1378,7 @@ Provides: plasma-wallpaper
 Virus wallpaper.
 
 %files -n plasma-wallpaper-virus
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_wallpaper_virus.so
 %_kde_services/plasma-wallpaper-virus.desktop
 %_kde_configdir/virus_wallpaper.knsrc
@@ -1396,7 +1396,7 @@ Provides: plasma-wallpaper
 +Marble wallpaper.
 
 %files -n plasma-wallpaper-marble
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_wallpaper_marble.so
 %_kde_services/plasma-wallpaper-marble.desktop
 
@@ -1412,7 +1412,7 @@ Provides: plasma-wallpaper
 Mandelbrot wallpaper.
 
 %files -n plasma-wallpaper-mandelbrot
-%defattr(-,root,root)
+
 %_kde_libdir/kde4/plasma_wallpaper_mandelbrot.so
 %_kde_services/plasma-wallpaper-mandelbrot.desktop
 
@@ -1555,7 +1555,7 @@ This package contains header files needed if you wish to build applications
 based on %name
 
 %files devel
-%defattr(-,root,root)
+
 %{_kde_libdir}/*.so
 %_kde_includedir/lancelot
 %_kde_includedir/KDE/Lancelot
@@ -1574,10 +1574,5 @@ based on %name
 %make
 
 %install
-rm -fr %buildroot
-
 %makeinstall_std -C build
-
-%clean
-rm -fr %buildroot
 
