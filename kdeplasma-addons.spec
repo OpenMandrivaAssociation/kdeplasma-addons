@@ -14,7 +14,6 @@ BuildRequires: boost-devel
 BuildRequires: lm_sensors-devel
 BuildRequires: qimageblitz-devel
 BuildRequires: python-devel
-BuildRequires: kdegraphics4-devel
 BuildRequires: eigen2
 BuildRequires: qt4-qtdbus
 BuildRequires: qalculate-devel
