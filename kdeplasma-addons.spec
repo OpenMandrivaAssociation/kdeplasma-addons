@@ -1,23 +1,11 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kde_snapshot svn1198704
-%endif
-
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.6.4
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-%if %branch
-Release: 0.%kde_snapshot.1
-Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdeplasma-addons-%{version}%kde_snapshot.tar.bz2
-%else
 Release: 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%{version}.tar.bz2
-%endif
 Patch0: kdeplasma-addons-4.6.1-enable-kimpanel.patch
 Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: kdebase4-devel >= 1:4.2.98
@@ -1578,11 +1566,7 @@ based on %name
 #-----------------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -qn %name-%{version}%kde_snapshot
-%else
 %setup -qn %name-%{version}
-%endif
 %patch0 -p0 -b .kimpanel
 
 %build
