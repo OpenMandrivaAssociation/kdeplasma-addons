@@ -1472,8 +1472,6 @@ Group: System/Libraries
 %name library.
 
 %files -n %libplasmapotdprovidercore
-%defattr(-,root,root,-)
-%files -n %libplasmapotdprovidercore
 %_kde_libdir/libplasmapotdprovidercore.so.%{plasmapotdprovidercore_major}*
 
 #-----------------------------------------------------------------------------
