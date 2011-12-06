@@ -119,6 +119,7 @@ Plasma icontasks applet.
 %_kde_libdir/kde4/plasma_applet_icontasks.so
 %_kde_services/plasma-applet-icontasks.desktop
 %_kde_appsdir/kdeplasma-addons/mediabuttonsrc
+%_kde_appsdir/desktoptheme/default/icontasks
 
 #-----------------------------------------------------------------------------
 
