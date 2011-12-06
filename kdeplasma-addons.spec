@@ -74,6 +74,8 @@ Suggests: plasma-applet-qalculate
 Suggests: plasma-applet-webslice
 Suggests: plasma-applet-spellcheck
 Suggests: plasma-applet-bookmarks
+Suggests: plasma-applet-kimpanel
+Suggests: plasma-applet-icontasks
 
 Suggests: plasma-runner-converter
 Suggests: plasma-runner-contacts
@@ -94,6 +96,7 @@ Suggests: plasma-wallpaper-weather
 Suggests: plasma-wallpaper-virus
 Suggests: plasma-wallpaper-mandelbrot
 Suggests: plasma-wallpaper-marble
+Suggests: plasma-wallpaper-potd
 
 %description
 kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4.
@@ -102,6 +105,23 @@ kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for k
 %doc COPYING
 
 #-----------------------------------------------------------------------------
+
+%package -n plasma-applet-icontasks
+Summary: Plasma icontasks applet
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+
+%description -n plasma-applet-icontasks
+Plasma icontasks applet.
+
+%files -n plasma-applet-icontasks
+%_kde_libdir/kde4/plasma_applet_icontasks.so
+%_kde_services/plasma-applet-icontasks.desktop
+%_kde_appsdir/kdeplasma-addons/mediabuttonsrc
+
+#-----------------------------------------------------------------------------
+
 
 %package -n plasma-applet-filewatcher
 Summary: Monitor applet for files
@@ -1453,6 +1473,7 @@ Group: System/Libraries
 
 %files -n %libplasmapotdprovidercore
 %defattr(-,root,root,-)
+%files -n plasma-applet-icontask
 %_kde_libdir/libplasmapotdprovidercore.so.%{plasmapotdprovidercore_major}*
 
 #-----------------------------------------------------------------------------
@@ -1490,6 +1511,54 @@ Group: System/Libraries
 %_kde_libdir/libplasma_groupingcontainment.so.%{plasma_containments_grouping_major}*
 
 #------------------------------------------------------------------------------
+
+%package -n plasma-applet-kimpanel
+Summary: KDE Input method panel (applet) 
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-applet
+Requires: plasma-dataengine-kimpanel
+
+%description -n plasma-applet-kimpanel
+KDE Input method panel (applet)
+
+%files -n plasma-applet-kimpanel
+%_kde_libdir/kde4/plasma_applet_kimpanel.so
+%_kde_datadir/config.kcfg/kimpanelconfig.kcfg
+%_kde_services/plasma-applet-kimpanel.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-dataengine-kimpanel
+Summary:  Engine of the kimpanel plasma applet
+Group:    Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-kimpanel
+Engine of the kimpanel plasma applet
+
+%files -n plasma-dataengine-kimpanel
+%_kde_libdir/kde4/plasma_engine_kimpanel.so
+%_kde_appsdir/plasma/services/kimpanel.operations
+%_kde_services/plasma-dataengine-kimpanel.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-wallpaper-potd   
+Summary: Potd wallpaper
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-wallpaper
+
+%description -n plasma-wallpaper-potd     
+Potd wallpaper.   
+
+%files -n plasma-wallpaper-potd
+%_kde_libdir/kde4/plasma_wallpaper_potd.so
+%_kde_services/plasma-wallpaper-potd.desktop
+
+#-----------------------------------------------------------------------------
 
 %package -n plasma-containments-grouping
 Summary: Containments that do widget grouping and gridding
