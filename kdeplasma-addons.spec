@@ -1473,7 +1473,7 @@ Group: System/Libraries
 
 %files -n %libplasmapotdprovidercore
 %defattr(-,root,root,-)
-%files -n plasma-applet-icontask
+%files -n %libplasmapotdprovidercore
 %_kde_libdir/libplasmapotdprovidercore.so.%{plasmapotdprovidercore_major}*
 
 #-----------------------------------------------------------------------------
