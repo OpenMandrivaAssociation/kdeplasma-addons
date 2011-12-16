@@ -1,3 +1,6 @@
+# workaround bug in rpm unpackaged subdir check
+%define _unpackaged_subdirs_terminate_build 0
+
 Name: kdeplasma-addons
 Summary: kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for kde4
 Version: 4.7.90
