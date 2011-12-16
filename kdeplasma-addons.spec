@@ -7,7 +7,7 @@ Version: 4.7.90
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: 1
+Release: 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%{version}.tar.bz2
 BuildRequires: kdebase4-devel >= 1:4.2.98
 BuildRequires: kdepimlibs4-devel >= 4.2.98
