@@ -22,6 +22,7 @@ BuildRequires:	eigen2
 BuildRequires:	qt4-qtdbus
 BuildRequires:	qalculate-devel
 BuildRequires:	marble-devel
+BuildRequires:	pkgconfig(xi)
 
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
