@@ -8,7 +8,7 @@ Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
 Release:	2
-Source:		ftp://ftp.kde.org/pub/kde/stable/%version/src/kdeplasma-addons-%{version}.tar.bz2
+Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.bz2
 BuildRequires:	kdebase4-devel >= 1:4.2.98
 BuildRequires:	kdepimlibs4-devel >= 4.2.98
 BuildRequires:	kdebase4-workspace-devel >= 2:4.2.98
@@ -103,7 +103,7 @@ Suggests:	plasma-wallpaper-marble
 Suggests:	plasma-wallpaper-potd
 
 %description
-kdeplasma is a compilation of plasma items ( runners, applets, plasmoids ) for KDE4.
+A compilation of plasma items (runners, applets, plasmoids) for KDE4.
 
 %files
 %doc COPYING
