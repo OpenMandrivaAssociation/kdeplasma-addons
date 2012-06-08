@@ -3,7 +3,7 @@
 
 Name:		kdeplasma-addons
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
-Version: 4.8.3
+Version: 4.8.4
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
