@@ -224,7 +224,6 @@ Conflicts:	extragear-plasma < 4.0.82
 Live konqueror profile viewer.
 
 %files -n plasma-applet-konqprofiles
-%{_kde_libdir}/kde4/plasma_applet_konqprofiles.so
 %{_kde_services}/plasma-applet-konqprofiles.desktop
 
 #-----------------------------------------------------------------------------
