@@ -219,6 +219,7 @@ Make your day happy with daily desktop comics applet
 Summary:	Live konqueror profile viewer
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
+Requires:	plasma-dataengine-konqprofiles >= %{version}
 Provides:	plasma-applet
 Conflicts:	extragear-plasma < 4.0.82
 
@@ -226,6 +227,7 @@ Conflicts:	extragear-plasma < 4.0.82
 Live konqueror profile viewer.
 
 %files -n plasma-applet-konqprofiles
+%{_kde_appsdir}/plasma/plasmoids/konqprofiles
 %{_kde_services}/plasma-applet-konqprofiles.desktop
 
 #-----------------------------------------------------------------------------
@@ -421,6 +423,7 @@ A virtual, on-screen keyboard
 Summary:	Live konsole profile viewer
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
+Requires:	plasma-dataengine-konsoleprofiles >= %{version}
 Provides:	plasma-applet
 Conflicts:	extragear-plasma < 4.0.82
 
@@ -428,6 +431,7 @@ Conflicts:	extragear-plasma < 4.0.82
 Live konsole profile viewer.
 
 %files -n plasma-applet-konsoleprofiles
+%{_kde_appsdir}/plasma/plasmoids/konsoleprofiles
 %{_kde_services}/plasma-applet-konsoleprofiles.desktop
 
 #-----------------------------------------------------------------------------
