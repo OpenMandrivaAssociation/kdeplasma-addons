@@ -541,7 +541,6 @@ Conflicts:	extragear-plasma < 4.0.82
 Song notifier applet
 
 %files -n plasma-applet-nowplaying
-%{_kde_libdir}/kde4/plasma_applet_nowplaying.so
 %{_kde_services}/plasma-applet-nowplaying.desktop
 
 #-----------------------------------------------------------------------------
