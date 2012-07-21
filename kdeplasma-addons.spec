@@ -527,7 +527,6 @@ Update and view your microblog status
 %files -n plasma-applet-microblog
 %{_kde_libdir}/kde4/plasma_applet_microblog.so
 %{_kde_services}/plasma-applet-microblog.desktop
-%{_kde_appsdir}/plasma/services/tweet.operations
 
 #-----------------------------------------------------------------------------
 
