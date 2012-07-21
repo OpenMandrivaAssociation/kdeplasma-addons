@@ -23,6 +23,8 @@ BuildRequires:	qt4-qtdbus
 BuildRequires:	qalculate-devel
 BuildRequires:	marble-devel
 BuildRequires:	pkgconfig(xi)
+BuildRequires:	qjson-devel
+BuildRequires:	qoauth-devel
 
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
