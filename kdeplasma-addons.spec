@@ -543,6 +543,7 @@ Conflicts:	extragear-plasma < 4.0.82
 Song notifier applet
 
 %files -n plasma-applet-nowplaying
+%{_kde_appsdir}/plasma/plasmoids/nowplaying
 %{_kde_services}/plasma-applet-nowplaying.desktop
 
 #-----------------------------------------------------------------------------
@@ -756,6 +757,38 @@ Plasma comic dataengines.
 %{_kde_libdir}/kde4/plasma_engine_comic.*
 %{_kde_services}/plasma-comic-default.desktop
 
+#------------------------------------------------------------------------------
+
+%package -n plasma-dataengine-konsoleprofiles
+Summary: List and launch Konsole profiles
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-konsoleprofiles
+List and launch Konsole profiles.
+
+%files -n plasma-dataengine-konsoleprofiles
+%_kde_libdir/kde4/plasma_engine_konsoleprofiles.so
+%_kde_appsdir/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
+%_kde_services/plasma-dataengine-konsoleprofiles.desktop
+
+#------------------------------------------------------------------------------
+
+%package -n plasma-dataengine-konqprofiles
+Summary: List and launch Konqueror profiles
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-dataengine
+
+%description -n plasma-dataengine-konqprofiles
+List and launch Konqueror profiles.
+
+%files -n plasma-dataengine-konqprofiles
+%_kde_libdir/kde4/plasma_engine_konqprofiles.so
+%_kde_appsdir/plasma/services/org.kde.plasma.dataengine.konqprofiles.operations
+%_kde_services/plasma-dataengine-konqprofiles.desktop
+
 #-----------------------------------------------------------------------------
 
 %package -n plasma-dataengine-microblog
@@ -772,6 +805,7 @@ Plasma microblog dataengines.
 %files -n plasma-dataengine-microblog
 %{_kde_libdir}/kde4/plasma_engine_microblog.so
 %{_kde_services}/plasma-dataengine-microblog.desktop
+%{_kde_appsdir}/plasma/services/tweet.operations
 
 #-----------------------------------------------------------------------------
 
@@ -835,6 +869,54 @@ Data Engine for getting various online Pictures of The Day.
 %{_kde_services}/oseiprovider.desktop
 %{_kde_services}/wcpotdprovider.desktop
 %{_kde_servicetypes}/plasma_potdprovider.desktop
+
+#------------------------------------------------------------------------------
+
+%package -n plasma-runner-youtube
+Summary: Matches YouTube queries
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+Conflicts: kipi-plugins-youtube < 2.0.2-2
+
+%description -n plasma-runner-youtube
+Matches YouTube queries.
+
+%files -n plasma-runner-youtube
+%_kde_libdir/kde4/krunner_youtube.so
+%_kde_iconsdir/hicolor/*/actions/*
+%_kde_services/plasma-runner-youtube.desktop
+
+#------------------------------------------------------------------------------
+
+%package -n plasma-runner-bing
+Summary: Matches Bing queries
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-bing
+Matches Bing queries.
+
+%files -n plasma-runner-bing
+%_kde_libdir/kde4/krunner_bing.so
+%_kde_services/plasma-runner-bing.desktop
+
+#------------------------------------------------------------------------------
+
+%package -n plasma-runner-duckduckgo
+Summary: Matches DuckDuckGo queries
+Group: Graphical desktop/KDE
+Requires: kdebase4-workspace
+Provides: plasma-runner
+
+%description -n plasma-runner-duckduckgo
+Matches DuckDuckGo queries.
+
+%files -n plasma-runner-duckduckgo
+%_kde_libdir/kde4/krunner_duckduckgo.so
+%_kde_services/duckduckgo.desktop
 
 #-----------------------------------------------------------------------------
 
