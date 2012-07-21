@@ -426,7 +426,6 @@ Conflicts:	extragear-plasma < 4.0.82
 Live konsole profile viewer.
 
 %files -n plasma-applet-konsoleprofiles
-%{_kde_libdir}/kde4/plasma_applet_konsoleprofiles.so
 %{_kde_services}/plasma-applet-konsoleprofiles.desktop
 
 #-----------------------------------------------------------------------------
