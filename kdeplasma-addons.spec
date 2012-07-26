@@ -2,37 +2,32 @@
 %define _unpackaged_subdirs_terminate_build 0
 
 Name:		kdeplasma-addons
+Version:	4.8.97
+Release:	2
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
-Version: 4.8.97
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
-Release: 1
 Source:		ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
-BuildRequires:	kdebase4-devel >= 1:4.2.98
-BuildRequires:	kdepimlibs4-devel >= 4.2.98
-BuildRequires:	kdebase4-workspace-devel >= 2:4.2.98
-BuildRequires:	libkexiv2-devel
-BuildRequires:	qimageblitz-devel
+Patch0:		kdeplasma-addons-4.8.95-l10n-ru.patch
+BuildRequires:	kdebase4-devel
+BuildRequires:	kdepimlibs4-devel
+BuildRequires:	kdebase4-workspace-devel
 BuildRequires:	boost-devel
 BuildRequires:	lm_sensors-devel
-BuildRequires:	qimageblitz-devel
-BuildRequires:	python-devel
-BuildRequires:	eigen2
-BuildRequires:	qt4-qtdbus
-BuildRequires:	qalculate-devel
 BuildRequires:	marble-devel
+BuildRequires:	python-devel
+BuildRequires:	qt4-qtdbus
+BuildRequires:	pkgconfig(eigen2)
+BuildRequires:	pkgconfig(libkexiv2)
+BuildRequires:	pkgconfig(libqalculate)
+BuildRequires:	pkgconfig(qimageblitz)
+BuildRequires:	pkgconfig(QJson)
+BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(xi)
-BuildRequires:	qjson-devel
-BuildRequires:	qoauth-devel
 
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
-Obsoletes:	kdeplasma4 < 4.0.83
-Obsoletes:	kdeplayground4-plasma
-Obsoletes:	kdeplayground4-plasma-devel
-Obsoletes:	extragear-plasma < 4.0.82
-Obsoletes:	kdeplasmoids4 <= 4.0.98
 
 Suggests:	plasma-desktoptheme-default
 
@@ -97,6 +92,9 @@ Suggests:	plasma-runner-kopete
 Suggests:	plasma-runner-charrunner
 Suggests:	plasma-runner-datetime
 Suggests:	plasma-runner-events
+Suggests:	plasma-runner-duckduckgo
+Suggests:	plasma-runner-youtube
+Suggests:	plasma-runner-bing
 
 Suggests:	plasma-wallpaper-pattern
 Suggests:	plasma-wallpaper-weather
@@ -130,13 +128,11 @@ Plasma icontasks applet.
 
 #-----------------------------------------------------------------------------
 
-
 %package -n plasma-applet-filewatcher
 Summary:	Monitor applet for files
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-filewatcher
 Monitor applet for files.
@@ -167,7 +163,6 @@ Summary:	Plasma notes applets
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-notes
 Plasma notes applets.
@@ -183,7 +178,6 @@ Summary:	Show desktop contents
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-showdesktop
 Show desktop contents.
@@ -199,8 +193,7 @@ Summary:	Make your day happy with daily desktop comics applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Requires:	plasma-dataengine-comic = %{version}
-Conflicts:	extragear-plasma < 4.0.82
+Requires:	plasma-dataengine-comic = %{EVRD}
 
 %description -n plasma-applet-comic
 Make your day happy with daily desktop comics applet
@@ -219,9 +212,8 @@ Make your day happy with daily desktop comics applet
 Summary:	Live konqueror profile viewer
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
-Requires:	plasma-dataengine-konqprofiles >= %{version}
+Requires:	plasma-dataengine-konqprofiles = %{EVRD}
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-konqprofiles
 Live konqueror profile viewer.
@@ -237,7 +229,6 @@ Summary:	Plasma RSS Applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-rssnow
 Plasma RSS Applet
@@ -255,7 +246,6 @@ Summary:	Previewer Plasma Applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-previewer
 Previewer Plasma Applet
@@ -273,7 +263,6 @@ Summary:	bball Plasma Applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-bball
 bball Plasma Applet
@@ -291,7 +280,6 @@ Summary:	incomingmsg Plasma Applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-incomingmsg
 incomingmsg Plasma Applet
@@ -307,7 +295,6 @@ Summary:	Leave A Note
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-leavenote
 Leave notes for users while they are away
@@ -323,7 +310,6 @@ Summary:	life Plasma Applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-life
 life Plasma Applet
@@ -356,7 +342,6 @@ Summary:	Pastebin plasma Applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-pastebin
 Paste text/images to a remote server
@@ -365,7 +350,7 @@ Paste text/images to a remote server
 %{_kde_services}/plasma-applet-pastebin.desktop
 %{_kde_libdir}/kde4/plasma_applet_pastebin.so
 %{_kde_appsdir}/plasma_pastebin
-%{_kde_datadir}/config/pastebin.knsrc
+%{_kde_configdir}/pastebin.knsrc
 
 #-----------------------------------------------------------------------------
 
@@ -375,7 +360,6 @@ Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
 Requires:	plasma-dataengine-ocs
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-knowledgebase
 Widget that can query the knowledgebase of opendesktop.org
@@ -391,7 +375,6 @@ Summary:	A blackboard plasma applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-blackboard
 A blackboard plasma applet
@@ -407,7 +390,6 @@ Summary:	A plasmaboard plasma applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-plasmaboard
 A virtual, on-screen keyboard
@@ -423,9 +405,8 @@ A virtual, on-screen keyboard
 Summary:	Live konsole profile viewer
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
-Requires:	plasma-dataengine-konsoleprofiles >= %{version}
+Requires:	plasma-dataengine-konsoleprofiles = %{EVRD}
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-konsoleprofiles
 Live konsole profile viewer.
@@ -441,7 +422,6 @@ Summary:	Lunar calendar
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-luna
 Lunar calendar applet.
@@ -458,12 +438,6 @@ Summary:	Plasma lancelot applets
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
-Conflicts:	plasma-desktoptheme-elegance < 4.1.85-2
-Conflicts:	plasma-desktoptheme-slim-glow < 4.1.85-2
-Conflicts:	plasma-desktoptheme-silicon < 4.1.85-2
-Conflicts:	plasma-desktoptheme-aya < 4.1.85-2
-Conflicts:	plasma-desktoptheme-heron < 4.1.85-2
 
 %description -n plasma-applet-lancelot
 Plasma lancelot applets.
@@ -489,16 +463,12 @@ Plasma lancelot applets.
 %package -n %{liblancelot}
 Summary:	%{name} library
 Group:		System/Libraries
-Obsoletes:	%{_lib}lancelot1
+Obsoletes:	%{_lib}lancelot1 < %{EVRD}
 
 %description -n %{liblancelot}
 %{name} library.
 
-%post -n %{liblancelot} -p /sbin/ldconfig
-%postun -n %{liblancelot} -p /sbin/ldconfig
-
 %files -n %{liblancelot}
-%defattr(-,root,root,-)
 %{_kde_libdir}/liblancelot.so.*
 
 #-----------------------------------------------------------------------------
@@ -507,7 +477,6 @@ Obsoletes:	%{_lib}lancelot1
 Summary:	Plasma default desktopthemes
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-desktoptheme-default
 Plasma default desktopthemes.
@@ -522,10 +491,8 @@ Summary:	Microblog applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Requires:	plasma-dataengine-microblog = %{version}
-Conflicts:	extragear-plasma < 4.0.82
-Provides:	plasma-applet-twitter = %{version}-%{release}
-Obsoletes:	plasma-applet-twitter < 4.2.70
+Requires:	plasma-dataengine-microblog = %{EVRD}
+Provides:	plasma-applet-twitter = %{EVRD}
 
 %description -n plasma-applet-microblog
 Update and view your microblog status
@@ -533,6 +500,7 @@ Update and view your microblog status
 %files -n plasma-applet-microblog
 %{_kde_libdir}/kde4/plasma_applet_microblog.so
 %{_kde_services}/plasma-applet-microblog.desktop
+%{_kde_appsdir}/plasma/services/tweet.operations
 
 #-----------------------------------------------------------------------------
 
@@ -541,7 +509,6 @@ Summary:	SWoong notifier applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-nowplaying
 Song notifier applet
@@ -557,7 +524,6 @@ Summary:	Simplified way to see the hours
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-binaryclock
 Simplified way to see the hours.
@@ -573,7 +539,6 @@ Summary:	Dict applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-dict
 A dict applets.
@@ -590,7 +555,6 @@ Summary:	A lazy way to see the hours
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-fuzzy-clock
 A lazy way to see the hours.
@@ -606,7 +570,6 @@ Summary:	A basic pictures frame to desktop
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-frame
 A basic pictures frame to desktop.
@@ -623,7 +586,6 @@ Summary:	Plasma showdashboard applets
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-showdashboard
 Plasma showdashboard applets.
@@ -639,7 +601,6 @@ Summary:	Plasma calculator applets
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-calculator
 Plasma calculator applets.
@@ -655,7 +616,6 @@ Summary:	Plasma fifteenpuzzle applets
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-fifteenpuzzle
 Plasma fifteenpuzzle applets.
@@ -673,7 +633,6 @@ Summary:	Basic color picker
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-kolourpicker
 Basic color picker.
@@ -751,7 +710,6 @@ Summary:	Plasma comic dataengines
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-dataengine-comic
 Plasma comic dataengines.
@@ -761,38 +719,6 @@ Plasma comic dataengines.
 %{_kde_libdir}/kde4/plasma_engine_comic.*
 %{_kde_services}/plasma-comic-default.desktop
 
-#------------------------------------------------------------------------------
-
-%package -n plasma-dataengine-konsoleprofiles
-Summary: List and launch Konsole profiles
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-dataengine
-
-%description -n plasma-dataengine-konsoleprofiles
-List and launch Konsole profiles.
-
-%files -n plasma-dataengine-konsoleprofiles
-%_kde_libdir/kde4/plasma_engine_konsoleprofiles.so
-%_kde_appsdir/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
-%_kde_services/plasma-dataengine-konsoleprofiles.desktop
-
-#------------------------------------------------------------------------------
-
-%package -n plasma-dataengine-konqprofiles
-Summary: List and launch Konqueror profiles
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-dataengine
-
-%description -n plasma-dataengine-konqprofiles
-List and launch Konqueror profiles.
-
-%files -n plasma-dataengine-konqprofiles
-%_kde_libdir/kde4/plasma_engine_konqprofiles.so
-%_kde_appsdir/plasma/services/org.kde.plasma.dataengine.konqprofiles.operations
-%_kde_services/plasma-dataengine-konqprofiles.desktop
-
 #-----------------------------------------------------------------------------
 
 %package -n plasma-dataengine-microblog
@@ -800,8 +726,7 @@ Summary:	Plasma micrbolog dataengines
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
-Provides:	plasma-dataengine-twitter = %{version}-%{release}
-Obsoletes:	plasma-dataengine-twitter < 4.2.70
+Provides:	plasma-dataengine-twitter = %{EVRD}
 
 %description -n plasma-dataengine-microblog
 Plasma microblog dataengines.
@@ -809,7 +734,6 @@ Plasma microblog dataengines.
 %files -n plasma-dataengine-microblog
 %{_kde_libdir}/kde4/plasma_engine_microblog.so
 %{_kde_services}/plasma-dataengine-microblog.desktop
-%{_kde_appsdir}/plasma/services/tweet.operations
 
 #-----------------------------------------------------------------------------
 
@@ -818,8 +742,8 @@ Summary:	An engine to work with Remember the Milk
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
-Provides:	plasma-dataengine-rememberthemilk = %{version}-%{release}
-Requires:	plasma-dataengine-rtm = %{version}-%{release}
+Provides:	plasma-dataengine-rememberthemilk = %{EVRD}
+Provides:	plasma-dataengine-rtm = %{EVRD}
 
 %description -n plasma-dataengine-rtm
 An engine to work with Remember the Milk.
@@ -838,7 +762,7 @@ Summary:	Open Collaboration Services
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
-Requires:	plasma-dataengine-ocs = %{version}-%{release}
+Provides:	plasma-dataengine-ocs = %{EVRD}
 
 %description -n plasma-dataengine-ocs
 Open Collaboration Services.
@@ -854,7 +778,7 @@ Summary:	Picture of the Day
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
-Requires:	plasma-dataengine-potd = %{version}-%{release}
+Provides:	plasma-dataengine-potd = %{EVRD}
 
 %description -n plasma-dataengine-potd
 Data Engine for getting various online Pictures of The Day.
@@ -874,53 +798,37 @@ Data Engine for getting various online Pictures of The Day.
 %{_kde_services}/wcpotdprovider.desktop
 %{_kde_servicetypes}/plasma_potdprovider.desktop
 
-#------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 
-%package -n plasma-runner-youtube
-Summary: Matches YouTube queries
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-runner
+%package -n plasma-dataengine-konqprofiles
+Summary:	List and launch Konqueror profiles
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-dataengine
 
-Conflicts: kipi-plugins-youtube < 2.0.2-2
+%description -n plasma-dataengine-konqprofiles
+Data Engine to list and launch Konqueror profiles.
 
-%description -n plasma-runner-youtube
-Matches YouTube queries.
+%files -n plasma-dataengine-konqprofiles
+%{_kde_libdir}/kde4/plasma_engine_konqprofiles.so
+%{_kde_services}/plasma-dataengine-konqprofiles.desktop
+%{_kde_appsdir}/plasma/services/org.kde.plasma.dataengine.konqprofiles.operations
 
-%files -n plasma-runner-youtube
-%_kde_libdir/kde4/krunner_youtube.so
-%_kde_iconsdir/hicolor/*/actions/*
-%_kde_services/plasma-runner-youtube.desktop
+#-----------------------------------------------------------------------------
 
-#------------------------------------------------------------------------------
+%package -n plasma-dataengine-konsoleprofiles
+Summary:	List and launch Konsole profiles
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-dataengine
 
-%package -n plasma-runner-bing
-Summary: Matches Bing queries
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-runner
+%description -n plasma-dataengine-konsoleprofiles
+Data Engine to list and launch Konsole profiles.
 
-%description -n plasma-runner-bing
-Matches Bing queries.
-
-%files -n plasma-runner-bing
-%_kde_libdir/kde4/krunner_bing.so
-%_kde_services/plasma-runner-bing.desktop
-
-#------------------------------------------------------------------------------
-
-%package -n plasma-runner-duckduckgo
-Summary: Matches DuckDuckGo queries
-Group: Graphical desktop/KDE
-Requires: kdebase4-workspace
-Provides: plasma-runner
-
-%description -n plasma-runner-duckduckgo
-Matches DuckDuckGo queries.
-
-%files -n plasma-runner-duckduckgo
-%_kde_libdir/kde4/krunner_duckduckgo.so
-%_kde_services/duckduckgo.desktop
+%files -n plasma-dataengine-konsoleprofiles
+%{_kde_libdir}/kde4/plasma_engine_konsoleprofiles.so
+%{_kde_services}/plasma-dataengine-konsoleprofiles.desktop
+%{_kde_appsdir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
 
 #-----------------------------------------------------------------------------
 
@@ -929,7 +837,6 @@ Summary:	Plasma converter runners
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-converter
 Plasma converter runners.
@@ -945,7 +852,6 @@ Summary:	Plasma charrunner runners
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-charrunner
 Plasma charrunner runners.
@@ -955,7 +861,6 @@ Plasma charrunner runners.
 %{_kde_libdir}/kde4/krunner_charrunner.so
 %{_kde_services}/CharRunner_config.desktop
 %{_kde_services}/CharacterRunner.desktop
-
 
 #-----------------------------------------------------------------------------
 
@@ -979,7 +884,6 @@ Summary:	Plasma contacts runners
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-contacts
 Plasma contacts runners.
@@ -1012,7 +916,6 @@ Summary:	Plasma applet weatherstation
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-weatherstation
 Plasma applet weatherstation
@@ -1029,8 +932,6 @@ Summary:	Plasma applet news
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
-Conflicts:	plasma-applet-twitter < 4.3.0
 
 %description -n plasma-applet-news
 Plasma applet news
@@ -1047,7 +948,6 @@ Summary:	Plasma applet charselect
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-charselect
 Plasma applet charselect
@@ -1063,7 +963,6 @@ Summary:	Plasma applet paste
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-eyes
 Plasma applet eyes
@@ -1080,7 +979,6 @@ Summary:	Plasma applet paste
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-paste
 Plasma applet paste
@@ -1096,7 +994,6 @@ Summary:	Plasma applet timer
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-applet-timer
 Plasma applet timer
@@ -1120,10 +1017,10 @@ Communicate using the Social Desktop.
 %files -n plasma-applet-opendesktop
 %{_kde_libdir}/kde4/plasma_applet_opendesktop.so
 %{_kde_services}/plasma-applet-opendesktop.desktop
+%{_kde_services}/plasma-applet-opendesktop-activities.desktop
 %{_kde_libdir}/kde4/plasma_applet_opendesktop_activities.so
 %{_kde_appsdir}/plasma-applet-opendesktop-activities/plasma-applet-opendesktop-activities.notifyrc
 %{_kde_appsdir}/plasma/services/ocsPerson.operations
-%{_kde_datadir}/kde4/services/plasma-applet-opendesktop-activities.desktop
 %{_kde_appsdir}/plasma-applet-opendesktop
 
 #-----------------------------------------------------------------------------
@@ -1154,7 +1051,7 @@ A Qalculate plasma applet
 
 %files -n plasma-applet-qalculate
 %{_kde_libdir}/kde4/plasma_applet_qalculate.so
-%{_kde_datadir}/kde4/services/plasma-applet-qalculate.desktop
+%{_kde_services}/plasma-applet-qalculate.desktop
 %{_kde_iconsdir}/hicolor/*/apps/qalculate-applet.png
 
 #-----------------------------------------------------------------------------
@@ -1209,8 +1106,8 @@ Summary:	Remember The Milk Todo list applet
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
-Provides:	plasma-applet-rememberthemilk = %{version}-%{release}
-Requires:	plasma-dataengine-rtm = %{version}
+Provides:	plasma-applet-rememberthemilk = %{EVRD}
+Requires:	plasma-dataengine-rtm = %{EVRD}
 
 %description -n plasma-applet-rtm
 Remember The Milk Todo list applet.
@@ -1222,14 +1119,13 @@ Remember The Milk Todo list applet.
 #-----------------------------------------------------------------------------
 
 %package -n plasma-runner-konquerorsessions
-Summary:	Plasma applet places
+Summary:	Plasma runner places
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-konquerorsessions
-Plasma runner konquerorsessions
+Plasma runner konquerorsessions.
 
 %files -n plasma-runner-konquerorsessions
 %{_kde_services}/konquerorsessions.desktop
@@ -1238,14 +1134,13 @@ Plasma runner konquerorsessions
 #-----------------------------------------------------------------------------
 
 %package -n plasma-runner-katesessions
-Summary:	Plasma katesessions runner
+Summary:	Plasma runner katesessions
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-katesessions
-Plasma runner katesessions
+Plasma runner katesessions.
 
 %files -n plasma-runner-katesessions
 %{_kde_services}/katesessions.desktop
@@ -1258,10 +1153,9 @@ Summary:	Plasma runner konsolesessions
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-konsolesessions
-Plasma runner konsolesessions
+Plasma runner konsolesessions.
 
 %files -n plasma-runner-konsolesessions
 %{_kde_services}/konsolesessions.desktop
@@ -1274,10 +1168,9 @@ Summary:	Plasma runner browserhistory
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-browserhistory
-Plasma runner browserhistory
+Plasma runner browserhistory.
 
 %files -n plasma-runner-browserhistory
 %{_kde_libdir}/kde4/krunner_browserhistory.so
@@ -1290,10 +1183,9 @@ Summary:	Plasma runner spellchecker
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
-Conflicts:	extragear-plasma < 4.0.82
 
 %description -n plasma-runner-spellchecker
-Plasma runner spellchecker
+Plasma runner spellchecker.
 
 %files -n plasma-runner-spellchecker
 %{_kde_services}/plasma-runner-spellchecker.desktop
@@ -1310,13 +1202,13 @@ Requires:	kdebase4-workspace
 Provides:	plasma-runner
 
 %description -n plasma-runner-audioplayercontrol
-Plasma runner audioplayercontrol
+Plasma runner audioplayercontrol.
 
 %files -n plasma-runner-audioplayercontrol
 %{_kde_libdir}/kde4/kcm_krunner_audioplayercontrol.so
 %{_kde_libdir}/kde4/krunner_audioplayercontrol.so
-%{_kde_datadir}/kde4/services/plasma-runner-audioplayercontrol.desktop
-%{_kde_datadir}/kde4/services/plasma-runner-audioplayercontrol_config.desktop
+%{_kde_services}/plasma-runner-audioplayercontrol.desktop
+%{_kde_services}/plasma-runner-audioplayercontrol_config.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1327,28 +1219,75 @@ Requires:	kdebase4-workspace
 Provides:	plasma-runner
 
 %description -n plasma-runner-kopete
-Plasma runner kopete
+Plasma runner kopete.
 
 %files -n plasma-runner-kopete
 %{_kde_libdir}/kde4/krunner_kopete.so
-%{_kde_datadir}/kde4/services/plasma-runner-kopete.desktop
+%{_kde_services}/plasma-runner-kopete.desktop
 
 #-----------------------------------------------------------------------------
 
 %package -n plasma-runner-mediawiki
-Summary:	Plasma runner mediawiki
+Summary:	Plasma runner mediawiki (matches MediaWiki queries)
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-runner
 
 %description -n plasma-runner-mediawiki
-Plasma runner mediawiki
+Plasma runner mediawiki (matches MediaWiki queries).
 
 %files -n plasma-runner-mediawiki
 %{_kde_libdir}/kde4/krunner_mediawiki.so
-%{_kde_datadir}/kde4/services/plasma-runner-techbase.desktop
-%{_kde_datadir}/kde4/services/plasma-runner-wikipedia.desktop
-%{_kde_datadir}/kde4/services/plasma-runner-wikitravel.desktop
+%{_kde_services}/plasma-runner-techbase.desktop
+%{_kde_services}/plasma-runner-wikipedia.desktop
+%{_kde_services}/plasma-runner-wikitravel.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-duckduckgo
+Summary:	Plasma runner duckduckgo (matches DuckDuckGo queries)
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-runner
+
+%description -n plasma-runner-duckduckgo
+Plasma runner duckduckgo (matches DuckDuckGo queries).
+
+%files -n plasma-runner-duckduckgo
+%{_kde_libdir}/kde4/krunner_duckduckgo.so
+%{_kde_services}/duckduckgo.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-youtube
+Summary:	Plasma runner youtube (matches YouTube queries)
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-runner
+Conflicts:	kipi-plugins-youtube < 2.0.2-2
+
+%description -n plasma-runner-youtube
+Plasma runner youtube (matches YouTube queries).
+
+%files -n plasma-runner-youtube
+%{_kde_libdir}/kde4/krunner_youtube.so
+%{_kde_services}/plasma-runner-youtube.desktop
+%{_kde_iconsdir}/hicolor/*/actions/youtube.*
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-bing
+Summary:	Plasma runner bing (matches Bing queries)
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-runner
+
+%description -n plasma-runner-bing
+Plasma runner bing (matches Bing queries).
+
+%files -n plasma-runner-bing
+%{_kde_libdir}/kde4/krunner_bing.so
+%{_kde_services}/plasma-runner-bing.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1380,7 +1319,7 @@ Weather wallpaper.
 %files -n plasma-wallpaper-weather
 %{_kde_libdir}/kde4/plasma_wallpaper_weather.so
 %{_kde_services}/plasma-wallpaper-weather.desktop
-%{_kde_datadir}/config/plasmaweather.knsrc
+%{_kde_configdir}/plasmaweather.knsrc
 
 #-----------------------------------------------------------------------------
 
@@ -1497,14 +1436,13 @@ Group:		System/Libraries
 %package -n %{liblancelot_datamodels}
 Summary:	%{name} library
 Group:		System/Libraries
-Obsoletes:	%{_lib}lancelot-datamodels0 < %{version}
+Obsoletes:	%{_lib}lancelot-datamodels0 < %{EVRD}
 
 %description -n %{liblancelot_datamodels}
 %{name} library.
 
 %files -n %{liblancelot_datamodels}
-%{_kde_libdir}/liblancelot-datamodels.so.%{lancelot_datamodels_major}
-%{_kde_libdir}/liblancelot-datamodels.so.%{lancelot_datamodels_major}.*
+%{_kde_libdir}/liblancelot-datamodels.so.%{lancelot_datamodels_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -1547,7 +1485,7 @@ Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
 
 %description -n plasma-dataengine-kimpanel
-Engine of the kimpanel plasma applet
+Engine of the kimpanel plasma applet.
 
 %files -n plasma-dataengine-kimpanel
 %{_kde_libdir}/kde4/plasma_engine_kimpanel.so
@@ -1601,7 +1539,6 @@ Requires:	%{libplasmapotdprovidercore} = %{EVRD}
 Requires:	%{liblancelot} = %{EVRD}
 Requires:	plasma-applet-kimpanel = %{EVRD}
 Requires:	kdelibs4-devel
-Obsoletes:	extragear-plasma-devel
 
 %description devel
 This package contains header files needed if you wish to build applications
@@ -1619,6 +1556,7 @@ based on %{name}
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %cmake_kde4
