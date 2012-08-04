@@ -2,13 +2,13 @@
 %define _unpackaged_subdirs_terminate_build 0
 
 Name:		kdeplasma-addons
-Version:	4.8.97
-Release:	2
+Version: 4.9.0
+Release: 1
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
-Source:		ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
+Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
 Patch0:		kdeplasma-addons-4.8.95-l10n-ru.patch
 BuildRequires:	kdebase4-devel
 BuildRequires:	kdepimlibs4-devel
