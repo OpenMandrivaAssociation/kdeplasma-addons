@@ -93,7 +93,6 @@ Suggests:	plasma-runner-charrunner
 Suggests:	plasma-runner-datetime
 Suggests:	plasma-runner-events
 Suggests:	plasma-runner-youtube
-Suggests:	plasma-runner-bing
 
 Suggests:	plasma-wallpaper-pattern
 Suggests:	plasma-wallpaper-weather
@@ -1257,21 +1256,6 @@ Plasma runner youtube (matches YouTube queries).
 %{_kde_libdir}/kde4/krunner_youtube.so
 %{_kde_services}/plasma-runner-youtube.desktop
 %{_kde_iconsdir}/hicolor/*/actions/youtube.*
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-runner-bing
-Summary:	Plasma runner bing (matches Bing queries)
-Group:		Graphical desktop/KDE
-Requires:	kdebase4-workspace
-Provides:	plasma-runner
-
-%description -n plasma-runner-bing
-Plasma runner bing (matches Bing queries).
-
-%files -n plasma-runner-bing
-%{_kde_libdir}/kde4/krunner_bing.so
-%{_kde_services}/plasma-runner-bing.desktop
 
 #-----------------------------------------------------------------------------
 
