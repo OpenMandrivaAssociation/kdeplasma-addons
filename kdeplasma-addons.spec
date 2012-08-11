@@ -1254,7 +1254,7 @@ Provides:	plasma-runner
 Plasma runner duckduckgo (matches DuckDuckGo queries).
 
 %files -n plasma-runner-duckduckgo
-%{_kde_libdir}/kde4/krunner_duckduckgo.so
+#%{_kde_libdir}/kde4/krunner_duckduckgo.so
 %{_kde_services}/duckduckgo.desktop
 
 #-----------------------------------------------------------------------------
