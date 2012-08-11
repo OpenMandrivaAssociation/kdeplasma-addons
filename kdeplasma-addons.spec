@@ -92,7 +92,6 @@ Suggests:	plasma-runner-kopete
 Suggests:	plasma-runner-charrunner
 Suggests:	plasma-runner-datetime
 Suggests:	plasma-runner-events
-Suggests:	plasma-runner-duckduckgo
 Suggests:	plasma-runner-youtube
 Suggests:	plasma-runner-bing
 
@@ -1241,21 +1240,6 @@ Plasma runner mediawiki (matches MediaWiki queries).
 %{_kde_services}/plasma-runner-techbase.desktop
 %{_kde_services}/plasma-runner-wikipedia.desktop
 %{_kde_services}/plasma-runner-wikitravel.desktop
-
-#-----------------------------------------------------------------------------
-
-%package -n plasma-runner-duckduckgo
-Summary:	Plasma runner duckduckgo (matches DuckDuckGo queries)
-Group:		Graphical desktop/KDE
-Requires:	kdebase4-workspace
-Provides:	plasma-runner
-
-%description -n plasma-runner-duckduckgo
-Plasma runner duckduckgo (matches DuckDuckGo queries).
-
-%files -n plasma-runner-duckduckgo
-#%{_kde_libdir}/kde4/krunner_duckduckgo.so
-%{_kde_services}/duckduckgo.desktop
 
 #-----------------------------------------------------------------------------
 
