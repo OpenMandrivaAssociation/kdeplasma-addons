@@ -25,6 +25,7 @@ BuildRequires:	pkgconfig(qimageblitz)
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(xtst)
 
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
