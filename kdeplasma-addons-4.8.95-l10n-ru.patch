@@ -1,0 +1,49 @@
+diff -urN kdeplasma-addons-4.8.95/applets/icontasks/plasma-applet-icontasks.desktop kdeplasma-addons-4.8.95-patched/applets/icontasks/plasma-applet-icontasks.desktop
+--- kdeplasma-addons-4.8.95/applets/icontasks/plasma-applet-icontasks.desktop	2012-06-20 08:56:30.000000000 +1100
++++ kdeplasma-addons-4.8.95-patched/applets/icontasks/plasma-applet-icontasks.desktop	2012-06-30 20:56:38.773749762 +1100
+@@ -24,6 +24,7 @@
+ Name[pl]=Menadżer zadań tylko z ikonami
+ Name[pt]=Gestor de Tarefas com Ícones
+ Name[pt_BR]=Gerenciador de tarefas com ícones
++Name[ru]=Диспетчер задач с иконками
+ Name[sk]=Správca úloh len s ikonami
+ Name[sr]=менаџер задатака само са иконама
+ Name[sr@ijekavian]=менаџер задатака само са иконама
+@@ -62,6 +63,7 @@
+ Comment[pl]=Przełącz pomiędzy działającymi programami
+ Comment[pt]=Mudar de aplicações em execução
+ Comment[pt_BR]=Alterna entre os aplicativos em execução
++Comment[ru]=Переключение между запущенными приложениями
+ Comment[sk]=Prepínať medzi bežiacimi aplikáciami
+ Comment[sr]=Пребацивање између покренутих програма
+ Comment[sr@ijekavian]=Пребацивање између покренутих програма
+diff -urN kdeplasma-addons-4.8.95/applets/life/plasma-applet-life.desktop kdeplasma-addons-4.8.95-patched/applets/life/plasma-applet-life.desktop
+--- kdeplasma-addons-4.8.95/applets/life/plasma-applet-life.desktop	2012-05-23 11:35:39.000000000 +1100
++++ kdeplasma-addons-4.8.95-patched/applets/life/plasma-applet-life.desktop	2012-06-30 20:56:38.773749762 +1100
+@@ -80,6 +80,7 @@
+ Comment[pl]=Aplet "Gra w życie" Johna Conwaya
+ Comment[pt]='Applet' do Jogo da Vida da Conway
+ Comment[pt_BR]=Miniaplicativo do Jogo da Vida da Conway
++Comment[ru]=Апплет игры «Жизнь» (Life), созданной Джоном Конвеем
+ Comment[sk]=Applet Conwayova Hra života
+ Comment[sr]=Аплет Конвејеве игре живота
+ Comment[sr@ijekavian]=Аплет Конвејеве игре живота
+diff -urN kdeplasma-addons-4.8.95/dataengines/kimpanel/plasma-dataengine-kimpanel.desktop kdeplasma-addons-4.8.95-patched/dataengines/kimpanel/plasma-dataengine-kimpanel.desktop
+--- kdeplasma-addons-4.8.95/dataengines/kimpanel/plasma-dataengine-kimpanel.desktop	2012-06-20 08:56:30.000000000 +1100
++++ kdeplasma-addons-4.8.95-patched/dataengines/kimpanel/plasma-dataengine-kimpanel.desktop	2012-06-30 20:56:38.774749762 +1100
+@@ -22,6 +22,7 @@
+ Name[pl]=Silnik danych dla Kimpanel
+ Name[pt]=Motor de dados do Kimpanel
+ Name[pt_BR]=Mecanismo de dados para o Kimpanel
++Name[ru]=Машина данных для Kimpanel
+ Name[sk]=Dátový engine pre Kimpanel
+ Name[sr]=Датомотор К‑ИМ‑панела
+ Name[sr@ijekavian]=Датомотор К‑ИМ‑панела
+@@ -56,6 +57,7 @@
+ Comment[pl]=Silnik danych dla Kimpanel
+ Comment[pt]=Motor de dados do Kimpanel
+ Comment[pt_BR]=Mecanismo de dados para o Kimpanel
++Comment[ru]=Машина данных для Kimpanel
+ Comment[sk]=Dátový engine pre Kimpanel
+ Comment[sr]=Датомотор К‑ИМ‑панела
+ Comment[sr@ijekavian]=Датомотор К‑ИМ‑панела
