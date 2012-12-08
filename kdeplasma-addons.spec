@@ -2,14 +2,13 @@
 %define _unpackaged_subdirs_terminate_build 0
 
 Name:		kdeplasma-addons
-Version: 4.9.3
-Release: 1
+Version:	4.9.4
+Release:	1
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
-Patch0:		kdeplasma-addons-4.8.95-l10n-ru.patch
 BuildRequires:	kdebase4-devel
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	kdebase4-workspace-devel
@@ -25,7 +24,6 @@ BuildRequires:	pkgconfig(qimageblitz)
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(xi)
-BuildRequires:	pkgconfig(xtst)
 
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
@@ -1525,7 +1523,6 @@ based on %{name}
 
 %prep
 %setup -q
-#%patch0 -p1
 
 %build
 %cmake_kde4
@@ -1533,4 +1530,554 @@ based on %{name}
 
 %install
 %makeinstall_std -C build
+
+%changelog
+* Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.4-1
+- New version 4.9.4
+
+* Wed Nov 07 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.3-1
+- New version 4.9.3
+
+* Thu Oct 04 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.2-1
+- New version 4.9.2
+
+* Sat Sep 08 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.1-1
+- New version 4.9.1
+- Disable l10n-ru patch
+
+* Mon Aug 13 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.0-1
+- New version 4.9.0
+- plasma-runner-duckduckgo and plasma-runner-bing are removed in upstream 4.9
+
+* Wed Jul 18 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.8.97-1
+- New version 4.8.97
+- Make better usage of KDE4 path macros
+- Update some summaries and descriptions
+
+* Sat Jun 30 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.8.95-1
+- Update to 4.8.95
+- Adjust Requires, Conflicts, Obsoletes, BuildRequires
+- Update l10n patch
+- Add pkgconfig(qoauth) and pkgconfig(QJson) to BuildRequires
+- Update file lists as now some plasmoids are QML stuff
+- New subpackages:
+    - plasma-runner-duckduckgo
+    - plasma-runner-youtube
+    - plasma-runner-bing
+    - plasma-dataengine-konsoleprofiles
+    - plasma-dataengine-konqprofiles
+
+* Fri Jun 08 2012 Arkady L. Shane <arkady.shane@rosalab.ru> 4.8.4-1
+- update to 4.8.4
+
+* Thu May 10 2012 Arkady L. Shane <arkady.shane@rosalab.ru> 4.8.3-1
+- update to 4.8.3
+
+* Mon Apr 16 2012 Mikhail Kompaniets <mkompan@mezon.ru> 4.8.2-2
+- Russian localization for .desktop files
+
+* Sun Mar 11 2012 Arkady L. Shane <arkady.shane@rosalab.ru> 4.8.2-1
+- update to 4.8.2
+
+* Sun Mar 11 2012 Arkady L. Shane <arkady.shane@rosalab.ru> 4.8.1-1
+- update to 4.8.1
+
+* Sun Feb 26 2012 Andrey Bondrov <abondrov@mandriva.org> 4.8.0-2
++ Revision: 780809
+- Add pkgconfig(xi) to BuildRequires
+- Add libkexiv2-devel to BR, fix some descriptions, update spec aesthetics
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - New upstream tarball
+
+* Fri Jan 06 2012 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.7.97-1
++ Revision: 758052
+- New upstream tarball
+
+* Thu Dec 22 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.7.95-1
++ Revision: 744533
+- New upstream tarball
+
+* Fri Dec 16 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.7.90-2
++ Revision: 743072
+- Rebuild because of BS failure
+- Workaround a rpm5 bug
+- New version
+
+* Tue Dec 06 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.7.80-1
++ Revision: 738182
+- Fix file list
+- Fix file lists ( patch from olivier lahaye )
+- New upstream tarball 4.7.80
+
+* Thu Nov 17 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.7.41-1
++ Revision: 731365
+- New version 4.7.41
+- Remove branch switch
+
+* Mon Jun 13 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.6.4-1
++ Revision: 684417
+- New version 4.6.4
+
+* Fri May 13 2011 Funda Wang <fwang@mandriva.org> 4.6.3-1
++ Revision: 674039
+- new version 4.6.3
+
+* Tue Apr 05 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.6.2-1
++ Revision: 650780
+- Remove mkrel
+- New version 4.6.2
+
+* Sat Mar 12 2011 Funda Wang <fwang@mandriva.org> 4.6.1-1
++ Revision: 643922
+- move scim detection into backend subdir, as kimpanel itself has nothing
+  todo with scim, only scim backend need to be enabled or disabled.
+- scim is in contrib now, so disabling scim backend
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - New version 4.6.1
+
+* Mon Feb 07 2011 John Balcaen <mikala@mandriva.org> 4.6.0-2
++ Revision: 636674
+- Drop Requires for plasma-dataengine-pastebin for plasma-applet-pastebin package
+- Update some descriptions/summary
+
+* Mon Jan 31 2011 Funda Wang <fwang@mandriva.org> 4.6.0-1
++ Revision: 634511
+- update provides
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - New version KDE 4.6 Final
+
+* Sun Jan 09 2011 Funda Wang <fwang@mandriva.org> 4.5.95-1mdv2011.0
++ Revision: 630687
+- drop kdeobservatory, it needs qwt
+- update file list
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - New version KDE 4.6 RC2
+
+* Thu Dec 23 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.5.90-1mdv2011.0
++ Revision: 624109
+- New upstream tarball
+
+* Sun Dec 12 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.5.85-1mdv2011.0
++ Revision: 620593
+- Fix file list
+- New upstream tarball
+
+* Sat Nov 27 2010 Funda Wang <fwang@mandriva.org> 4.5.80-1mdv2011.0
++ Revision: 601666
+- new version 4.5.80 (aka 4.6 beta1)
+
+* Sat Nov 20 2010 Funda Wang <fwang@mandriva.org> 4.5.77-0.svn1198704.1mdv2011.0
++ Revision: 599288
+- update file list
+- new snapshot 4.5.77
+
+* Thu Nov 04 2010 Funda Wang <fwang@mandriva.org> 4.5.74-1mdv2011.0
++ Revision: 593217
+- fix file list
+- new snapshot 4.5.74
+
+* Mon Oct 11 2010 Funda Wang <fwang@mandriva.org> 4.5.71-1mdv2011.0
++ Revision: 584909
+- new snapshot
+
+* Thu Sep 16 2010 Funda Wang <fwang@mandriva.org> 4.5.68-1mdv2011.0
++ Revision: 579002
+- update file list
+- new snapshot 4.5.68
+
+* Tue Sep 07 2010 John Balcaen <mikala@mandriva.org> 4.5.67-1mdv2011.0
++ Revision: 576633
+- Add plasma-containments-grouping & his library
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - LOL
+    - Fix file list
+    - New version 4.5.67
+
+* Fri Aug 06 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.5.0-1mdv2011.0
++ Revision: 566583
+- New upstream tarball
+- Update to version 4.5.0
+
+* Thu Jul 29 2010 Funda Wang <fwang@mandriva.org> 4.4.95-1mdv2011.0
++ Revision: 562958
+- new version 4.4.95
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - KDE 4.5 RC3
+
+* Wed Jun 16 2010 Ahmad Samir <ahmadsamir@mandriva.org> 4.4.3-4mdv2010.1
++ Revision: 548181
+- add patch to fix audioplayercontrol icon fixes (mdv #59762)
+
+* Sun May 09 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.3-3mdv2010.1
++ Revision: 544118
+- Fix Requires
+
+* Thu May 06 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.3-2mdv2010.1
++ Revision: 542880
+- Bump release to psuh funda changes
+
+  + Funda Wang <fwang@mandriva.org>
+    - add back kdebase4-workspace requirement
+    - suggests backend for kimpanel
+    - split out impanel's scim backend for future addition of ibus and fcitx backend
+    - drop kdebase-workspace requirement of kimpanel, it is not required in fact
+
+* Tue May 04 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.3-1mdv2010.1
++ Revision: 542131
+- Update to version 4.4.3
+
+  + Funda Wang <fwang@mandriva.org>
+    - add missing requries for actural lib files
+
+* Sun Apr 04 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.2-2mdv2010.1
++ Revision: 531018
+- New subpackage plasma-applet-kimpanel
+
+* Sun Mar 28 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.2-1mdv2010.1
++ Revision: 528337
+- Update to version 4.4.2
+
+* Tue Mar 02 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.1-2mdv2010.1
++ Revision: 513424
+- Update to version 4.4.1
+
+* Tue Feb 09 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.4.0-2mdv2010.1
++ Revision: 502637
+- Update to version 4.4.0
+
+* Mon Feb 08 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.98-2mdv2010.1
++ Revision: 502211
+- Fix requires on subpackages
+
+* Mon Feb 01 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.98-1mdv2010.1
++ Revision: 498957
+- Update to version 4.3.98 aka "kde 4.4 RC3"
+- Fix Requires (Bug #57274)
+
+* Mon Jan 25 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.95-1mdv2010.1
++ Revision: 496132
+- Update to kde 4.4 Rc2
+
+* Sun Jan 10 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.90-1mdv2010.1
++ Revision: 488571
+- Update to kde 4.4 rc1
+
+* Mon Dec 21 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.85-1mdv2010.1
++ Revision: 480777
+- Update to kde 4.4 beta2
+- Update to kde 4.4 beta2
+
+  + John Balcaen <mikala@mandriva.org>
+    - Remove a Requires for plasma-applet-qalculate
+
+* Fri Dec 04 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.80-2mdv2010.1
++ Revision: 473435
+- Fix file list
+- Update to kde 4.4 Beta 1
+  New packages:
+        - plasma-applet-webslice
+        - plasma-applet-spellcheck
+        - plasma-runner-audioplayercontrol
+        - plasma-runner-mediawiki
+        - plasma-runner-kopete
+
+* Sat Nov 28 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.77-1mdv2010.1
++ Revision: 470836
+- Remove merged patch
+- Update to kde 4.3.77
+
+* Fri Nov 20 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.75-1mdv2010.1
++ Revision: 467598
+- Update to kde 4.3.75
+  Remove merged patch
+
+* Fri Nov 13 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.73-1mdv2010.1
++ Revision: 465803
+- Add qalculate-devel as buildrequires for the qalculate applet
+- Update to 4.3.73
+  Some news packages :
+                      - plasma-applet-knowledgebase
+                      - plasma-applet-blackboard
+                      - plasma-applet-plasmaboard
+                      - plasma-applet-qalculate
+                      - plasma-dataengine-pastebin
+- Add patch to fix the build of contact-runner
+- Add patch to fix the build of plasma-weather
+- Fix major of liblancelot
+
+* Thu Oct 15 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.2-3mdv2010.0
++ Revision: 457502
+- Add fixes for RTM
+- Fix conflicts
+
+* Sat Oct 10 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.3.2-2mdv2010.0
++ Revision: 456516
+- Add marble-common as requires
+
+* Tue Oct 06 2009 Helio Chissini de Castro <helio@mandriva.com> 4.3.2-1mdv2010.0
++ Revision: 454830
+- New upstream release 4.3.2.
+
+* Tue Sep 01 2009 Helio Chissini de Castro <helio@mandriva.com> 4.3.1-2mdv2010.0
++ Revision: 423223
+- New upstream release 4.3.1.
+
+* Tue Aug 04 2009 Helio Chissini de Castro <helio@mandriva.com> 4.3.0-2mdv2010.0
++ Revision: 409540
+- New upstream release 4.3.0.
+- Update to KDE 4.3 RC3
+
+* Sun Jul 12 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.96-1mdv2010.0
++ Revision: 394959
+- Update to Rc2
+
+* Sat Jun 27 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.95-1mdv2010.0
++ Revision: 389596
+- Update to kde 4.3 Rc1
+  Remove plasma-applet-bluemarble
+
+* Fri Jun 05 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.90-1mdv2010.0
++ Revision: 382948
+- Update to beta2
+
+* Fri May 29 2009 Funda Wang <fwang@mandriva.org> 4.2.88-2mdv2010.0
++ Revision: 381039
+- correct file list for previewer
+
+* Fri May 29 2009 Funda Wang <fwang@mandriva.org> 4.2.88-1mdv2010.0
++ Revision: 380825
+- fix file list
+- New version 4.2.88
+
+* Tue May 26 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.87-4mdv2010.0
++ Revision: 379780
+- Enable marble wallpaper
+  Clean specfile
+
+  + Funda Wang <fwang@mandriva.org>
+    - fix summary and requires
+
+* Mon May 25 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.87-3mdv2010.0
++ Revision: 379518
+- Add eigen2 as Buildrequires
+- Adapt kdesdk to new layout
+
+* Sat May 23 2009 Funda Wang <fwang@mandriva.org> 4.2.87-1mdv2010.0
++ Revision: 378897
+- New version 4.2.87
+
+* Mon May 11 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.85-2mdv2010.0
++ Revision: 374803
+- New upstream tarball for beta1
+
+* Sat May 09 2009 Funda Wang <fwang@mandriva.org> 4.2.85-1mdv2010.0
++ Revision: 373689
+- fix ocs soversion
+- add more plasmoids
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Update to kde 4.2.85
+
+* Tue May 05 2009 Funda Wang <fwang@mandriva.org> 4.2.71-0.svn961800.1mdv2010.0
++ Revision: 372079
+- drop patch from trunk
+- correct requires
+- New version 4.2.71
+- qt.patch, lancelot-cpuUsage.patch, lancelot-sortbyname.patch merged upstream
+- rediff lancelot-fix-NewDocument.patch, lancelot-fix-computertab.patch
+- twitter applet has been renamed to microblog
+
+  + Helio Chissini de Castro <helio@mandriva.com>
+    - Raise release to rebuild
+
+* Fri Mar 27 2009 Helio Chissini de Castro <helio@mandriva.com> 4.2.2-1mdv2009.1
++ Revision: 361716
+- Update with 4.2.2 try#1 packages
+
+* Sat Mar 21 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.1-3mdv2009.1
++ Revision: 360080
+- Fix Bbal applet
+
+* Wed Mar 04 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.1-2mdv2009.1
++ Revision: 348180
+- Add back patches lost on kde 4.2.1 migration
+
+* Sat Feb 28 2009 Helio Chissini de Castro <helio@mandriva.com> 4.2.1-1mdv2009.1
++ Revision: 346138
+- KDE 4.2.1 try#1 upstream release
+
+* Wed Feb 18 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.0-6mdv2009.1
++ Revision: 342421
+- Fix CPU Usage for lancelot
+
+* Tue Feb 17 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.0-5mdv2009.1
++ Revision: 341503
+- Fix lancelot with qt45
+
+* Mon Feb 16 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.0-4mdv2009.1
++ Revision: 340890
+- Rebuild against qt4.5
+
+* Mon Feb 09 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.0-3mdv2009.1
++ Revision: 338633
+- Update list of Suggests
+
+* Sun Feb 08 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.2.0-2mdv2009.1
++ Revision: 338532
+- Convert Requires into suggests
+
+* Wed Jan 28 2009 Helio Chissini de Castro <helio@mandriva.com> 4.2.0-1mdv2009.1
++ Revision: 334706
+- Update with official 4.2.0 upstream tarball
+
+* Thu Jan 15 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.96-3mdv2009.1
++ Revision: 330047
+- Fix more conflicts on lancelot
+- Fix conflicts
+
+* Fri Jan 09 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.96-1mdv2009.1
++ Revision: 327598
+- Remove old requires
+- Remove desktopthemes, they are in kdeartwork now
+
+  + Helio Chissini de Castro <helio@mandriva.com>
+    - Update with Release Candidate 1 - 4.1.96
+
+* Fri Dec 12 2008 Helio Chissini de Castro <helio@mandriva.com> 4.1.85-1mdv2009.1
++ Revision: 313712
+- Update with Beta 1 - 4.1.85
+
+* Thu Dec 11 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.82-1mdv2009.1
++ Revision: 313430
+- Update to kde 4.1.82
+
+* Mon Dec 01 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.81-1mdv2009.1
++ Revision: 308705
+- Update to kde 4.1.81
+
+* Sun Nov 23 2008 Funda Wang <fwang@mandriva.org> 4.1.80-1mdv2009.1
++ Revision: 305977
+- kdenetwork and kdepim is not needed
+- add kdegraphcis for kexiv
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Remove merged patch
+
+  + Helio Chissini de Castro <helio@mandriva.com>
+    - Update with Beta 1 - 4.1.80
+
+* Sat Nov 15 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.73-1mdv2009.1
++ Revision: 303410
+- Update to kde 4.1.73
+- Sort entries by name in lancelot (Bug #45537)
+  Add drakconf and rpmdrake in Computer tab in Lancelot (Bug #45538)
+  Fix use of OO.o desktop files on non 32bit arch (Bug #45539)
+
+* Sat Oct 25 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.71-1mdv2009.1
++ Revision: 297067
+- New version 4.1.71 ( several  new applets packages)
+
+* Wed Oct 22 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.70-1mdv2009.1
++ Revision: 296339
+- Update to kde 4.1.70
+  Fix File List
+
+* Thu Sep 25 2008 Helio Chissini de Castro <helio@mandriva.com> 4.1.2-1mdv2009.0
++ Revision: 288280
+- KDE 4.1.2 arriving.
+
+* Wed Sep 10 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.1-5mdv2009.0
++ Revision: 283626
+- Fix lancelot patch with upstream commit 859364
+- Fix patch headers
+
+* Fri Sep 05 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.1-3mdv2009.0
++ Revision: 281714
+- Sync with plasma branch
+
+* Tue Sep 02 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.1-2mdv2009.0
++ Revision: 278764
+- Update with latest lancelot from branch
+
+* Sun Aug 31 2008 Helio Chissini de Castro <helio@mandriva.com> 4.1.1-1mdv2009.0
++ Revision: 277843
+- Disable lancelot util maintainer fix new filelist
+- Upgrade to forthcoming 4.1.1 packages
+
+* Mon Aug 25 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.0-4mdv2009.0
++ Revision: 276015
+- Add python-devel as BuildRequire
+- Bump release
+- Use lancelot from branch
+- Fix Requires of lancelot ( to enable only for 2009.1 )
+
+* Mon Aug 04 2008 Helio Chissini de Castro <helio@mandriva.com> 4.1.0-2mdv2009.0
++ Revision: 263228
+- Update with current branch 4.1 patches
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Add kdepim4-devel as BR for lancelot
+    - Removed merged part of the patch
+
+* Sun Jul 27 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.1.0-1mdv2009.0
++ Revision: 250454
+- Bluemarble plasmoid have been disabled on upstream commit 834159
+- Fix Lib SOVERSION  ( need review before upstream commit )
+- Add patch0 to enable lancelot ( not activated by default )
+
+  + Helio Chissini de Castro <helio@mandriva.com>
+    - Update with Release Candidate 1 - 4.1.0
+
+* Thu Jul 10 2008 Helio Chissini de Castro <helio@mandriva.com> 4.0.98-2mdv2009.0
++ Revision: 233198
+- Update with Release Candidate 1 - 4.0.98
+- Update for rc since we're already changed the package naming
+- And we rename package again !!
+
+* Mon Jul 07 2008 Nicolas Lécureuil <nlecureuil@mandriva.com> 4.0.85-1mdv2009.0
++ Revision: 232546
+- New version kde 4.0.85
+
+* Wed Jul 02 2008 Helio Chissini de Castro <helio@mandriva.com> 4.0.84-2mdv2009.0
++ Revision: 230800
+- Update with current svn to fix some applets causing random kconfig crashes. The crash ususlly happens on the applet registration on plasma startup, leading to wrong assumption to where is crashing. .85 rc1 will be arrives on next week, so we're avoid put svn numbering on tarball
+
+* Fri Jun 27 2008 Helio Chissini de Castro <helio@mandriva.com> 4.0.84-1mdv2009.0
++ Revision: 229419
+- Update with new snapshot tarballs 4.0.84
+
+  + Anssi Hannula <anssi@mandriva.org>
+    - ensure major correctness
+
+* Tue Jun 24 2008 Anssi Hannula <anssi@mandriva.org> 4.0.83-2mdv2009.0
++ Revision: 228616
+- drop duplicate buildrequires
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - Fix conflicts for a better upgrade ( patch from colin )
+
+  + Helio Chissini de Castro <helio@mandriva.com>
+    - kdeplasmoids back with provides to kdeplasma4 and updated for 4.0.83 release
+    - Not until 4.2, i'm a little bit forwad :-(
+
+* Wed Jun 18 2008 Helio Chissini de Castro <helio@mandriva.com> 4.0.82-3mdv2009.0
++ Revision: 225412
+- Rebuild to fix task-kde4 issue
+
+* Mon Jun 16 2008 Helio Chissini de Castro <helio@mandriva.com> 4.0.82-2mdv2009.0
++ Revision: 220466
+- Enabled kdeplasma metapackage
+- Added proper obsoletes
+
+* Thu Jun 12 2008 Helio Chissini de Castro <helio@mandriva.com> 4.0.82-1mdv2009.0
++ Revision: 218615
+- Fixed buildrequires and obsoletes
+- Fullfill some descriptions
+- import kdeplasma4
 
