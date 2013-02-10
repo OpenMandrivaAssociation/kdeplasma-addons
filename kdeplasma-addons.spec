@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(qimageblitz)
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(xtst)
 
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
@@ -1578,6 +1579,8 @@ based on %{name}
 - Move some files from plasma-applet-comic to plasma-dataengine-comic
 - New subpackage plasma-runner-dictionary
 - New subpackage plasma-wallpaper-qml
+- Update files
+- Add pkgconfig(xtst) to BuildRequires
 
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.4-1
 - New version 4.9.4
