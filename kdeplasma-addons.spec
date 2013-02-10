@@ -26,6 +26,10 @@ BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xtst)
 
+# Possible features to add:
+#BuildRequires: pkgconfig(ibus-1.0)
+#BuildRequires:	pkgconfig(scim)
+
 Provides:	kdeplasma
 Provides:	kdeplasma4 = %{version}
 
