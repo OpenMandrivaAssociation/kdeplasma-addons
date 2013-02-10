@@ -2,7 +2,7 @@
 %define _unpackaged_subdirs_terminate_build 0
 
 Name:		kdeplasma-addons
-Version:	4.9.4
+Version:	4.10.0
 Release:	1
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Group:		Graphical desktop/KDE
@@ -78,8 +78,12 @@ Suggests:	plasma-applet-bookmarks
 Suggests:	plasma-applet-kimpanel
 Suggests:	plasma-applet-icontasks
 
+Suggests:	plasma-runner-charrunner
 Suggests:	plasma-runner-converter
 Suggests:	plasma-runner-contacts
+Suggests:	plasma-runner-datetime
+Suggests:	plasma-runner-dictionary
+Suggests:	plasma-runner-events
 Suggests:	plasma-runner-konquerorsessions
 Suggests:	plasma-runner-katesessions
 Suggests:	plasma-runner-konsolesessions
@@ -88,9 +92,6 @@ Suggests:	plasma-runner-spellchecker
 Suggests:	plasma-runner-audioplayercontrol
 Suggests:	plasma-runner-mediawiki
 Suggests:	plasma-runner-kopete
-Suggests:	plasma-runner-charrunner
-Suggests:	plasma-runner-datetime
-Suggests:	plasma-runner-events
 Suggests:	plasma-runner-youtube
 
 Suggests:	plasma-wallpaper-pattern
@@ -197,11 +198,11 @@ Make your day happy with daily desktop comics applet
 
 %files -n plasma-applet-comic
 %{_kde_libdir}/kde4/plasma_applet_comic.so
-%{_kde_services}/plasma-dataengine-comic.desktop
 %{_kde_configdir}/comic.knsrc
 %{_kde_services}/plasma-packagestructure-comic.desktop
 %{_kde_libdir}/kde4/plasma_packagestructure_comic.so
 %{_kde_servicetypes}/plasma_comicprovider.desktop
+%{_kde_appsdir}/plasma/packages/org.kde.comic
 
 #-----------------------------------------------------------------------------
 
@@ -603,7 +604,7 @@ Provides:	plasma-applet
 Plasma calculator applets.
 
 %files -n plasma-applet-calculator
-%{_kde_libdir}/kde4/plasma_applet_calculator.so
+%{_kde_appsdir}/plasma/plasmoids/calculator
 %{_kde_services}/plasma-applet-calculator.desktop
 
 #-----------------------------------------------------------------------------
@@ -707,6 +708,7 @@ Summary:	Plasma comic dataengines
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
+Conflicts:	plasma-applet-comic < 4.9.80
 
 %description -n plasma-dataengine-comic
 Plasma comic dataengines.
@@ -715,6 +717,7 @@ Plasma comic dataengines.
 %{_kde_libdir}/kde4/plasma_comic*
 %{_kde_libdir}/kde4/plasma_engine_comic.*
 %{_kde_services}/plasma-comic-default.desktop
+%{_kde_services}/plasma-dataengine-comic.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -873,6 +876,23 @@ Plasma datetime runners.
 %files -n plasma-runner-datetime
 %{_kde_libdir}/kde4/plasma_runner_datetime.so
 %{_kde_services}/plasma-runner-datetime.desktop
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-runner-dictionary
+Summary:	Plasma charrunner runners
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-runner
+
+%description -n plasma-runner-dictionary
+Plasma datetime runners.
+
+%files -n plasma-runner-dictionary
+%{_kde_libdir}/kde4/kcm_krunner_dictionary.so
+%{_kde_libdir}/kde4/krunner_dictionary.so
+%{_kde_services}/plasma-runner-dictionary.desktop
+%{_kde_services}/plasma-runner-dictionary_config.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1337,6 +1357,42 @@ Mandelbrot wallpaper.
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-wallpaper-qml
+Summary:	Animated Wallpaper
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-wallpaper
+
+%description -n plasma-wallpaper-qml
+Animated QML Wallpaper.
+
+%files -n plasma-wallpaper-qml
+%{_kde_libdir}/kde4/plasma_wallpaper_qml.so
+%{_kde_appsdir}/plasma/packages/org.kde.lcdweather/
+%{_kde_appsdir}/plasma/packages/org.kde.weather/
+%{_kde_appsdir}/plasma/wallpapers/org.kde.animals/
+%{_kde_appsdir}/plasma/wallpapers/org.kde.haenau/
+%{_kde_appsdir}/plasma/wallpapers/org.kde.hunyango/
+%{_kde_services}/plasma-wallpaper-qml.desktop 
+
+#-----------------------------------------------------------------------------
+
+%package -n plasma-wallpaper-potd
+Summary:	Potd wallpaper
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-wallpaper
+
+%description -n plasma-wallpaper-potd
+Potd wallpaper.
+
+%files -n plasma-wallpaper-potd
+%{_kde_libdir}/kde4/plasma_wallpaper_potd.so
+%{_kde_services}/plasma-wallpaper-potd.desktop
+
+
+#-----------------------------------------------------------------------------
+
 %define plasmacomicprovidercore_major 1
 %define libplasmacomicprovidercore %mklibname plasmacomicprovidercore %{plasmacomicprovidercore_major}
 
@@ -1461,21 +1517,6 @@ Engine of the kimpanel plasma applet.
 
 #-----------------------------------------------------------------------------
 
-%package -n plasma-wallpaper-potd
-Summary:	Potd wallpaper
-Group:		Graphical desktop/KDE
-Requires:	kdebase4-workspace
-Provides:	plasma-wallpaper
-
-%description -n plasma-wallpaper-potd
-Potd wallpaper.
-
-%files -n plasma-wallpaper-potd
-%{_kde_libdir}/kde4/plasma_wallpaper_potd.so
-%{_kde_services}/plasma-wallpaper-potd.desktop
-
-#-----------------------------------------------------------------------------
-
 %package -n plasma-containments-grouping
 Summary:	Containments that do widget grouping and gridding
 Group:		Graphical desktop/KDE
@@ -1532,6 +1573,12 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.0-1
+- New version 4.10.0
+- Move some files from plasma-applet-comic to plasma-dataengine-comic
+- New subpackage plasma-runner-dictionary
+- New subpackage plasma-wallpaper-qml
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.9.4-1
 - New version 4.9.4
 
