@@ -2,7 +2,7 @@
 %define _unpackaged_subdirs_terminate_build 0
 
 Name:		kdeplasma-addons
-Version:	4.10.0
+Version:	4.10.1
 Release:	1
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Group:		Graphical desktop/KDE
@@ -1578,6 +1578,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Sat Mar 09 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.1-1
+- New version 4.10.1
+
 * Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.0-1
 - New version 4.10.0
 - Move some files from plasma-applet-comic to plasma-dataengine-comic
