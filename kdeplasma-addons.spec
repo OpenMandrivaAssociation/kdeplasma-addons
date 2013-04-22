@@ -3,7 +3,7 @@
 
 Name:		kdeplasma-addons
 Version:	4.10.2
-Release:	1
+Release:	2
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -680,6 +680,7 @@ System Load Viewer.
 Summary:	Weather Forecast
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
+Conflicts:	plasma-wallpaper-qml < 4.10.2-2
 Provides:	plasma-applet
 
 %description -n plasma-applet-weather
@@ -689,6 +690,7 @@ Weather Forecast.
 %{_kde_libdir}/kde4/plasma_applet_weather.so
 %{_kde_services}/plasma-applet-weather.desktop
 %{_kde_appsdir}/desktoptheme/default/weather/wind-arrows.svgz
+%{_kde_appsdir}/plasma/packages/org.kde.weather/
 
 #-----------------------------------------------------------------------------
 
@@ -937,14 +939,16 @@ Plasma events runners.
 Summary:	Plasma applet weatherstation
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
+Conflicts:	plasma-wallpaper-qml < 4.10.2-2
 Provides:	plasma-applet
 
 %description -n plasma-applet-weatherstation
-Plasma applet weatherstation
+Plasma applet weatherstation.
 
 %files -n plasma-applet-weatherstation
 %{_kde_libdir}/kde4/plasma_applet_weatherstation.so
 %{_kde_appsdir}/desktoptheme/default/weatherstation
+%{_kde_appsdir}/plasma/packages/org.kde.lcdweather/
 %{_kde_services}/plasma-applet-weatherstation.desktop
 
 #-----------------------------------------------------------------------------
@@ -1373,12 +1377,10 @@ Animated QML Wallpaper.
 
 %files -n plasma-wallpaper-qml
 %{_kde_libdir}/kde4/plasma_wallpaper_qml.so
-%{_kde_appsdir}/plasma/packages/org.kde.lcdweather/
-%{_kde_appsdir}/plasma/packages/org.kde.weather/
 %{_kde_appsdir}/plasma/wallpapers/org.kde.animals/
 %{_kde_appsdir}/plasma/wallpapers/org.kde.haenau/
 %{_kde_appsdir}/plasma/wallpapers/org.kde.hunyango/
-%{_kde_services}/plasma-wallpaper-qml.desktop 
+%{_kde_services}/plasma-wallpaper-qml.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1578,6 +1580,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Mon Apr 22 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.2-2
+- Move org.kde.lcdweather and org.kde.weather dirs to proper packages
+
 * Wed Apr 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.2-1
 - New version 4.10.2
 
