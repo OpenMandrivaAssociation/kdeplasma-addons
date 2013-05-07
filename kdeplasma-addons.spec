@@ -2,8 +2,8 @@
 %define _unpackaged_subdirs_terminate_build 0
 
 Name:		kdeplasma-addons
-Version:	4.10.2
-Release:	2
+Version:	4.10.3
+Release:	1
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -1580,6 +1580,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Tue May 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.3-1
+- New version 4.10.3
+
 * Mon Apr 22 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.2-2
 - Move org.kde.lcdweather and org.kde.weather dirs to proper packages
 
