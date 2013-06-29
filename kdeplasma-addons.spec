@@ -4,9 +4,9 @@
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
 Version:	4.10.4
-Release:	1
-Group:		Graphical desktop/KDE
+Release:	2
 License:	GPL
+Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
 BuildRequires:	kdebase4-devel
@@ -198,6 +198,7 @@ Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-applet
 Requires:	plasma-dataengine-comic = %{EVRD}
+Conflicts:	plasma-dataengine-comic < 4.10.4-2
 
 %description -n plasma-applet-comic
 Make your day happy with daily desktop comics applet
@@ -205,9 +206,7 @@ Make your day happy with daily desktop comics applet
 %files -n plasma-applet-comic
 %{_kde_libdir}/kde4/plasma_applet_comic.so
 %{_kde_configdir}/comic.knsrc
-%{_kde_services}/plasma-packagestructure-comic.desktop
-%{_kde_libdir}/kde4/plasma_packagestructure_comic.so
-%{_kde_servicetypes}/plasma_comicprovider.desktop
+%{_kde_services}/plasma-comic-default.desktop
 %{_kde_appsdir}/plasma/packages/org.kde.comic
 
 #-----------------------------------------------------------------------------
@@ -716,16 +715,18 @@ Summary:	Plasma comic dataengines
 Group:		Graphical desktop/KDE
 Requires:	kdebase4-workspace
 Provides:	plasma-dataengine
-Conflicts:	plasma-applet-comic < 4.9.80
+Conflicts:	plasma-applet-comic < 4.10.4-2
 
 %description -n plasma-dataengine-comic
 Plasma comic dataengines.
 
 %files -n plasma-dataengine-comic
-%{_kde_libdir}/kde4/plasma_comic*
-%{_kde_libdir}/kde4/plasma_engine_comic.*
-%{_kde_services}/plasma-comic-default.desktop
+%{_kde_libdir}/kde4/plasma_comic_krossprovider.so
+%{_kde_libdir}/kde4/plasma_engine_comic.so
+%{_kde_libdir}/kde4/plasma_packagestructure_comic.so
 %{_kde_services}/plasma-dataengine-comic.desktop
+%{_kde_services}/plasma-packagestructure-comic.desktop
+%{_kde_servicetypes}/plasma_comicprovider.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -1581,6 +1582,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Sat Jun 29 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.4-2
+- Fix files in comic applet and dataengine
+
 * Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.4-1
 - New version 4.10.4
 - Suggest plasma-wallpaper-qml
