@@ -3,8 +3,8 @@
 
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
-Version:	4.10.4
-Release:	2
+Version:	4.10.5
+Release:	1
 License:	GPL
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
@@ -1582,6 +1582,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.5-1
+- New version 4.10.5
+
 * Sat Jun 29 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.4-2
 - Fix files in comic applet and dataengine
 
