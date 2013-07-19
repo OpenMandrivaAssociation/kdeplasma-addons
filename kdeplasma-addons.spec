@@ -1,10 +1,7 @@
-# workaround bug in rpm unpackaged subdir check
-%define _unpackaged_subdirs_terminate_build 0
-
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
 Version:	4.10.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
@@ -23,6 +20,7 @@ BuildRequires:	pkgconfig(libqalculate)
 BuildRequires:	pkgconfig(qimageblitz)
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(qoauth)
+BuildRequires:	pkgconfig(shared-desktop-ontologies)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xtst)
 
@@ -1582,6 +1580,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Fri Jul 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.5-2
+- Update BuildRequires
+
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.5-1
 - New version 4.10.5
 
