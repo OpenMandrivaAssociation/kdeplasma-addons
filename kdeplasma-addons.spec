@@ -33,77 +33,78 @@ Provides:	kdeplasma4 = %{version}
 
 Suggests:	plasma-desktoptheme-default
 
-Suggests:	plasma-applet-filewatcher
-Suggests:	plasma-applet-notes
-Suggests:	plasma-applet-showdesktop
-Suggests:	plasma-applet-comic
-Suggests:	plasma-applet-konqprofiles
-Suggests:	plasma-applet-rssnow
-Suggests:	plasma-applet-previewer
 Suggests:	plasma-applet-bball
+Suggests:	plasma-applet-binaryclock
+Suggests:	plasma-applet-blackboard
+Suggests:	plasma-applet-bookmarks
+Suggests:	plasma-applet-bubblemon
+Suggests:	plasma-applet-calculator
+Suggests:	plasma-applet-charselect
+Suggests:	plasma-applet-comic
+Suggests:	plasma-applet-dict
+Suggests:	plasma-applet-eyes
+Suggests:	plasma-applet-fifteenpuzzle
+Suggests:	plasma-applet-filewatcher
+Suggests:	plasma-applet-frame
+Suggests:	plasma-applet-fuzzy-clock
+Suggests:	plasma-applet-icontasks
 Suggests:	plasma-applet-incomingmsg
+Suggests:	plasma-applet-kimpanel
+Suggests:	plasma-applet-kolourpicker
+Suggests:	plasma-applet-konqprofiles
+Suggests:	plasma-applet-konsoleprofiles
+Suggests:	plasma-applet-knowledgebase
+Suggests:	plasma-applet-lancelot
 Suggests:	plasma-applet-leavenote
 Suggests:	plasma-applet-life
-Suggests:	plasma-applet-konsoleprofiles
 Suggests:	plasma-applet-luna
-Suggests:	plasma-applet-lancelot
-Suggests:	plasma-applet-microblog
-Suggests:	plasma-applet-nowplaying
-Suggests:	plasma-applet-binaryclock
-Suggests:	plasma-applet-dict
-Suggests:	plasma-applet-fuzzy-clock
-Suggests:	plasma-applet-frame
-Suggests:	plasma-applet-showdashboard
-Suggests:	plasma-applet-calculator
-Suggests:	plasma-applet-fifteenpuzzle
-Suggests:	plasma-applet-kolourpicker
-Suggests:	plasma-applet-unitconverter
-Suggests:	plasma-applet-systemloadviewer
-Suggests:	plasma-applet-weather
-Suggests:	plasma-applet-bubblemon
-Suggests:	plasma-applet-weatherstation
-Suggests:	plasma-applet-news
-Suggests:	plasma-applet-charselect
-Suggests:	plasma-applet-eyes
-Suggests:	plasma-applet-paste
-Suggests:	plasma-applet-timer
-Suggests:	plasma-applet-opendesktop
 Suggests:	plasma-applet-magnifique
 Suggests:	plasma-applet-mediaplayer
-Suggests:	plasma-applet-rtm
-Suggests:	plasma-applet-knowledgebase
-Suggests:	plasma-applet-blackboard
+Suggests:	plasma-applet-microblog
+Suggests:	plasma-applet-news
+Suggests:	plasma-applet-notes
+Suggests:	plasma-applet-nowplaying
+Suggests:	plasma-applet-opendesktop
+Suggests:	plasma-applet-paste
 Suggests:	plasma-applet-plasmaboard
+Suggests:	plasma-applet-previewer
 Suggests:	plasma-applet-qalculate
-Suggests:	plasma-applet-webslice
+Suggests:	plasma-applet-rssnow
+Suggests:	plasma-applet-rtm
+Suggests:	plasma-applet-showdashboard
+Suggests:	plasma-applet-showdesktop
 Suggests:	plasma-applet-spellcheck
-Suggests:	plasma-applet-bookmarks
-Suggests:	plasma-applet-kimpanel
-Suggests:	plasma-applet-icontasks
+Suggests:	plasma-applet-systemloadviewer
+Suggests:	plasma-applet-timer
+Suggests:	plasma-applet-unitconverter
+Suggests:	plasma-applet-weather
+Suggests:	plasma-applet-weatherstation
+Suggests:	plasma-applet-webslice
 
+Suggests:	plasma-runner-audioplayercontrol
+Suggests:	plasma-runner-browserhistory
 Suggests:	plasma-runner-charrunner
-Suggests:	plasma-runner-converter
 Suggests:	plasma-runner-contacts
+Suggests:	plasma-runner-converter
 Suggests:	plasma-runner-datetime
 Suggests:	plasma-runner-dictionary
 Suggests:	plasma-runner-events
-Suggests:	plasma-runner-konquerorsessions
 Suggests:	plasma-runner-katesessions
+Suggests:	plasma-runner-konquerorsessions
 Suggests:	plasma-runner-konsolesessions
-Suggests:	plasma-runner-browserhistory
-Suggests:	plasma-runner-spellchecker
-Suggests:	plasma-runner-audioplayercontrol
-Suggests:	plasma-runner-mediawiki
 Suggests:	plasma-runner-kopete
+Suggests:	plasma-runner-mediawiki
+Suggests:	plasma-runner-spellchecker
+Suggests:	plasma-runner-translator
 Suggests:	plasma-runner-youtube
 
-Suggests:	plasma-wallpaper-pattern
-Suggests:	plasma-wallpaper-weather
-Suggests:	plasma-wallpaper-virus
 Suggests:	plasma-wallpaper-mandelbrot
 Suggests:	plasma-wallpaper-marble
+Suggests:	plasma-wallpaper-pattern
 Suggests:	plasma-wallpaper-potd
 Suggests:	plasma-wallpaper-qml
+Suggests:	plasma-wallpaper-virus
+Suggests:	plasma-wallpaper-weather
 
 %description
 A compilation of plasma items (runners, applets, plasmoids) for KDE4.
@@ -1272,6 +1273,21 @@ Plasma runner mediawiki (matches MediaWiki queries).
 
 #-----------------------------------------------------------------------------
 
+%package -n plasma-runner-translator
+Summary:	Plasma translator runner
+Group:		Graphical desktop/KDE
+Requires:	kdebase4-workspace
+Provides:	plasma-runner
+
+%description -n plasma-runner-translator
+Provides translation via Google Translate.
+
+%files -n plasma-runner-translator
+%{_kde_libdir}/kde4/krunner_translator.so
+%{_kde_services}/plasma-runner-translator.desktop
+
+#-----------------------------------------------------------------------------
+
 %package -n plasma-runner-youtube
 Summary:	Plasma runner youtube (matches YouTube queries)
 Group:		Graphical desktop/KDE
@@ -1585,6 +1601,8 @@ based on %{name}
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.11.0-1
 - New version 4.11.0
 - Update files list
+- Sort Suggests
+- New subpackage plasma-runner-translator
 
 * Fri Jul 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.5-2
 - Update BuildRequires
