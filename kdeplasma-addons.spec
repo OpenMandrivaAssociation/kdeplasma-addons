@@ -794,6 +794,7 @@ Data Engine for getting various online Pictures of The Day.
 %{_kde_libdir}/kde4/plasma_potd_apodprovider.so
 %{_kde_libdir}/kde4/plasma_potd_epodprovider.so
 %{_kde_libdir}/kde4/plasma_potd_flickrprovider.so
+%{_kde_libdir}/kde4/plasma_potd_natgeoprovider.so
 %{_kde_libdir}/kde4/plasma_potd_oseiprovider.so
 %{_kde_libdir}/kde4/plasma_potd_wcpotdprovider.so
 %{_kde_libdir}/kde4/plasma_engine_potd.so
@@ -801,6 +802,7 @@ Data Engine for getting various online Pictures of The Day.
 %{_kde_services}/apodprovider.desktop
 %{_kde_services}/epodprovider.desktop
 %{_kde_services}/flickrprovider.desktop
+%{_kde_services}/natgeoprovider.desktop
 %{_kde_services}/oseiprovider.desktop
 %{_kde_services}/wcpotdprovider.desktop
 %{_kde_servicetypes}/plasma_potdprovider.desktop
@@ -1283,7 +1285,7 @@ Plasma runner youtube (matches YouTube queries).
 %files -n plasma-runner-youtube
 %{_kde_libdir}/kde4/krunner_youtube.so
 %{_kde_services}/plasma-runner-youtube.desktop
-%{_kde_iconsdir}/hicolor/*/actions/youtube.*
+%{_kde_iconsdir}/hicolor/*/actions/krunner_youtube.*
 
 #-----------------------------------------------------------------------------
 
@@ -1582,6 +1584,7 @@ based on %{name}
 %changelog
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.11.0-1
 - New version 4.11.0
+- Update files list
 
 * Fri Jul 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.10.5-2
 - Update BuildRequires
