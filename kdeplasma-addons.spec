@@ -1,6 +1,6 @@
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
-Version:	4.11.1
+Version:	4.11.2
 Release:	1
 License:	GPL
 Group:		Graphical desktop/KDE
@@ -1598,6 +1598,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.11.2-1
+- New version 4.11.2
+
 * Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.11.1-1
 - New version 4.11.1
 
