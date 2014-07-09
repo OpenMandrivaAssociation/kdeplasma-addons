@@ -1,7 +1,7 @@
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
 Version:	4.13.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
@@ -11,7 +11,7 @@ BuildRequires:	kdepimlibs4-devel
 BuildRequires:	kdebase4-workspace-devel
 BuildRequires:	boost-devel
 BuildRequires:	lm_sensors-devel
-BuildRequires:	marble-devel
+BuildRequires:	marble-devel >= %{version}
 BuildRequires:	python-devel
 BuildRequires:	qt4-qtdbus
 BuildRequires:	pkgconfig(eigen2)
