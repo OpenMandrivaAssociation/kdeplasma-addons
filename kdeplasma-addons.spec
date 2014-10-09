@@ -23,7 +23,7 @@ BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(shared-desktop-ontologies)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xtst)
-BuildRequires:	pkgconfig(qca2)
+BuildRequires:	qca2-devel-qt4
 # Possible features to add:
 #BuildRequires: pkgconfig(ibus-1.0)
 #BuildRequires:	pkgconfig(scim)
@@ -1591,6 +1591,8 @@ based on %{name}
 %setup -q
 
 %build
+# our qca pkg config is in a non standard path due to qt5/4 split
+export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
 %cmake_kde4
 %make
 
