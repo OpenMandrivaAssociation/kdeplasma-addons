@@ -23,7 +23,7 @@ BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(shared-desktop-ontologies)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xtst)
-
+BuildRequires:	pkgconfig(qca2)
 # Possible features to add:
 #BuildRequires: pkgconfig(ibus-1.0)
 #BuildRequires:	pkgconfig(scim)
