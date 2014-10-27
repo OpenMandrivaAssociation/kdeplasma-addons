@@ -1,15 +1,15 @@
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
 Version:	4.14.2
-Release:	1
-License:	GPL
+Release:	2
+License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
+BuildRequires:	boost-devel
 BuildRequires:	kdebase4-devel
 BuildRequires:	kdepimlibs4-devel
 BuildRequires:	kdebase4-workspace-devel
-BuildRequires:	boost-devel
 BuildRequires:	lm_sensors-devel
 BuildRequires:	marble-devel
 BuildRequires:	python-devel
@@ -17,7 +17,7 @@ BuildRequires:	qt4-qtdbus
 BuildRequires:	pkgconfig(eigen2)
 BuildRequires:	pkgconfig(libkexiv2)
 BuildRequires:	pkgconfig(libqalculate)
-BuildRequires:	pkgconfig(qimageblitz)
+BuildRequires:	pkgconfig(qimageblitz) < 5.0.0
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(qoauth)
 BuildRequires:	pkgconfig(shared-desktop-ontologies)
@@ -1598,6 +1598,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Mon Oct 27 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.2-2
+- Use pkgconfig(qimageblitz) < 5.0.0 to force Qt4 version
+
 * Wed Oct 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.2-1
 - New version 4.14.2
 
