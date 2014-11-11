@@ -1,7 +1,7 @@
 Summary:	A compilation of plasma items (runners, applets, plasmoids) for KDE4
 Name:		kdeplasma-addons
-Version:	4.14.2
-Release:	2
+Version:	4.14.3
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
@@ -1598,6 +1598,9 @@ based on %{name}
 %makeinstall_std -C build
 
 %changelog
+* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.3-1
+- New version 4.14.3
+
 * Mon Oct 27 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.2-2
 - Use pkgconfig(qimageblitz) < 5.0.0 to force Qt4 version
 
