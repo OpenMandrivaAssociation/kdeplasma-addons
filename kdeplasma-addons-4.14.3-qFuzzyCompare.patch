@@ -1,5 +1,5 @@
 diff --git a/applets/systemloadviewer/systemloadviewer.cpp b/applets/systemloadviewer/systemloadviewer.cpp
-index bff0b34..a3fe65a 100644
+index bff0b34..4784360 100644
 --- a/applets/systemloadviewer/systemloadviewer.cpp
 +++ b/applets/systemloadviewer/systemloadviewer.cpp
 @@ -468,7 +468,7 @@ void SystemLoadViewer::dataUpdated(const QString& source, const Plasma::DataEngi
@@ -7,7 +7,7 @@ index bff0b34..a3fe65a 100644
  
          m_swaptotal = m_swapfree + m_swapused;
 -        if(qFuzzyCompare(m_swaptotal+1, 1.0)) {
-+        if(qFuzzyCompare(m_swaptotal+qreal(1), qreal(1.0))) {
++	if(qFuzzyCompare(qreal(m_swaptotal+1.0), qreal(1.0))) {
              if(m_swapAvailable) {
                  m_swapAvailable = false;
                  updateConstraints(Plasma::SizeConstraint);
