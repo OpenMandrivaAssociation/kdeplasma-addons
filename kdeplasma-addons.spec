@@ -5,7 +5,8 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
-Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdeplasma-addons-%{version}.tar.xz
+Patch0:		kdeplasma-addons-4.14.3-qFuzzyCompare.patch
 BuildRequires:	boost-devel
 BuildRequires:	kdebase4-devel
 BuildRequires:	kdepimlibs4-devel
@@ -1589,6 +1590,7 @@ based on %{name}
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %cmake_kde4
