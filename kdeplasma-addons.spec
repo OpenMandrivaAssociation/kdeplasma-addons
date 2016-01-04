@@ -5,7 +5,7 @@
 
 Name: kdeplasma-addons
 Version: 5.5.2
-Release: 2
+Release: 3
 Source0: http://download.kde.org/plasma/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -45,6 +45,82 @@ BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(xcb-keysyms)
 BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
+%rename kdeplasma-addons5
+Obsoletes: kdeplasma-addons < 4.14.3-4
+Provides: kdeplasma-addons = 4.14.3-4
+Provides: kdeplasma
+Provides: kdeplasma4 = %{version}
+Obsoletes: plasma-desktoptheme-default < 4.14.3-4
+Obsoletes: plasma-applet-bball < 4.14.3-4
+Obsoletes: plasma-applet-binaryclock < 4.14.3-4
+Obsoletes: plasma-applet-blackboard < 4.14.3-4
+Obsoletes: plasma-applet-bookmarks < 4.14.3-4
+Obsoletes: plasma-applet-bubblemon < 4.14.3-4
+Obsoletes: plasma-applet-calculator < 4.14.3-4
+Obsoletes: plasma-applet-charselect < 4.14.3-4
+Obsoletes: plasma-applet-comic < 4.14.3-4
+Obsoletes: plasma-applet-dict < 4.14.3-4
+Obsoletes: plasma-applet-eyes < 4.14.3-4
+Obsoletes: plasma-applet-fifteenpuzzle < 4.14.3-4
+Obsoletes: plasma-applet-filewatcher < 4.14.3-4
+Obsoletes: plasma-applet-frame < 4.14.3-4
+Obsoletes: plasma-applet-fuzzy-clock < 4.14.3-4
+Obsoletes: plasma-applet-icontasks < 4.14.3-4
+Obsoletes: plasma-applet-incomingmsg < 4.14.3-4
+Obsoletes: plasma-applet-kimpanel < 4.14.3-4
+Obsoletes: plasma-applet-kolourpicker < 4.14.3-4
+Obsoletes: plasma-applet-konqprofiles < 4.14.3-4
+Obsoletes: plasma-applet-konsoleprofiles < 4.14.3-4
+Obsoletes: plasma-applet-knowledgebase < 4.14.3-4
+Obsoletes: plasma-applet-lancelot < 4.14.3-4
+Obsoletes: plasma-applet-leavenote < 4.14.3-4
+Obsoletes: plasma-applet-life < 4.14.3-4
+Obsoletes: plasma-applet-luna < 4.14.3-4
+Obsoletes: plasma-applet-magnifique < 4.14.3-4
+Obsoletes: plasma-applet-mediaplayer < 4.14.3-4
+Obsoletes: plasma-applet-microblog < 4.14.3-4
+Obsoletes: plasma-applet-news < 4.14.3-4
+Obsoletes: plasma-applet-notes < 4.14.3-4
+Obsoletes: plasma-applet-nowplaying < 4.14.3-4
+Obsoletes: plasma-applet-opendesktop < 4.14.3-4
+Obsoletes: plasma-applet-paste < 4.14.3-4
+Obsoletes: plasma-applet-plasmaboard < 4.14.3-4
+Obsoletes: plasma-applet-previewer < 4.14.3-4
+Obsoletes: plasma-applet-qalculate < 4.14.3-4
+Obsoletes: plasma-applet-rssnow < 4.14.3-4
+Obsoletes: plasma-applet-rtm < 4.14.3-4
+Obsoletes: plasma-applet-showdashboard < 4.14.3-4
+Obsoletes: plasma-applet-showdesktop < 4.14.3-4
+Obsoletes: plasma-applet-spellcheck < 4.14.3-4
+Obsoletes: plasma-applet-systemloadviewer < 4.14.3-4
+Obsoletes: plasma-applet-timer < 4.14.3-4
+Obsoletes: plasma-applet-unitconverter < 4.14.3-4
+Obsoletes: plasma-applet-weather < 4.14.3-4
+Obsoletes: plasma-applet-weatherstation < 4.14.3-4
+Obsoletes: plasma-applet-webslice < 4.14.3-4
+Obsoletes: plasma-runner-audioplayercontrol < 4.14.3-4
+Obsoletes: plasma-runner-browserhistory < 4.14.3-4
+Obsoletes: plasma-runner-charrunner < 4.14.3-4
+Obsoletes: plasma-runner-contacts < 4.14.3-4
+Obsoletes: plasma-runner-converter < 4.14.3-4
+Obsoletes: plasma-runner-datetime < 4.14.3-4
+Obsoletes: plasma-runner-dictionary < 4.14.3-4
+Obsoletes: plasma-runner-events < 4.14.3-4
+Obsoletes: plasma-runner-katesessions < 4.14.3-4
+Obsoletes: plasma-runner-konquerorsessions < 4.14.3-4
+Obsoletes: plasma-runner-konsolesessions < 4.14.3-4
+Obsoletes: plasma-runner-kopete < 4.14.3-4
+Obsoletes: plasma-runner-mediawiki < 4.14.3-4
+Obsoletes: plasma-runner-spellchecker < 4.14.3-4
+Obsoletes: plasma-runner-translator < 4.14.3-4
+Obsoletes: plasma-runner-youtube < 4.14.3-4
+Obsoletes: plasma-wallpaper-mandelbrot < 4.14.3-4
+Obsoletes: plasma-wallpaper-marble < 4.14.3-4
+Obsoletes: plasma-wallpaper-pattern < 4.14.3-4
+Obsoletes: plasma-wallpaper-potd < 4.14.3-4
+Obsoletes: plasma-wallpaper-qml < 4.14.3-4
+Obsoletes: plasma-wallpaper-virus < 4.14.3-4
+Obsoletes: plasma-wallpaper-weather < 4.14.3-4
 
 %description
 KDE 5 Plasma Add-Ons.
@@ -52,7 +128,7 @@ KDE 5 Plasma Add-Ons.
 %libpackage plasmacomicprovidercore 1
 
 %prep
-%setup -qn
+%setup -q
 %apply_patches
 
 %cmake_kde5
