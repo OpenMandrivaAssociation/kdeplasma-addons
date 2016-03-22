@@ -4,7 +4,7 @@
 %define plasmaver %(echo %{version} |cut -d. -f1-3)
 
 Name: kdeplasma-addons
-Version: 5.5.5
+Version: 5.6.0
 Release: 1
 Source0: http://download.kde.org/plasma/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
