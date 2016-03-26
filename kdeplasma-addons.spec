@@ -131,14 +131,14 @@ KDE 5 Plasma Add-Ons.
 
 %libpackage plasmacomicprovidercore 1
 
-%package -n %{libwather}
+%package -n %{libweather}
 Summary:	Main library for Plasma weather
 Group:		System/Libraries
 
-%description -n %{libwather}
+%description -n %{libweather}
 Plasma weather library.
 
-%files -n %{libwather}
+%files -n %{libweather}
 %{_libdir}/libplasmaweather.so.%{libweather_major}
 %{_libdir}/libplasmaweather.so.2.*
 
