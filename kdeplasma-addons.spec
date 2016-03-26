@@ -120,6 +120,7 @@ Obsoletes: plasma-wallpaper-potd < 4.14.3-4
 Obsoletes: plasma-wallpaper-qml < 4.14.3-4
 Obsoletes: plasma-wallpaper-virus < 4.14.3-4
 Obsoletes: plasma-wallpaper-weather < 4.14.3-4
+Conflicts: plasma-desktop < 5.6
 
 %description
 KDE 5 Plasma Add-Ons.
