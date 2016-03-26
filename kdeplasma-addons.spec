@@ -30,8 +30,6 @@ BuildRequires: cmake(KF5KrossUi)
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Activities)
 BuildRequires: cmake(LibTaskManager)
-BuildRequires: pkgconfig(scim)
-BuildRequires: pkgconfig(ibus-1.0)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
@@ -146,7 +144,7 @@ KDE 5 Plasma Add-Ons.
 %find_lang liblancelot-datamodels
 %find_lang libplasma_groupingcontainment
 %find_lang libplasmaweather
-for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.kimpanel org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher weather weatherstation webslice; do
+for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher weather weatherstation webslice; do
 	%find_lang plasma_applet_$i
 done
 %find_lang plasma_packagestructure_comic
@@ -160,7 +158,6 @@ cat *.lang >all.lang
 %{_libdir}/qt5/plugins/kcm_krunner_dictionary.so
 %{_libdir}/qt5/plugins/krunner_converter.so
 %{_libdir}/qt5/plugins/krunner_dictionary.so
-%{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_kimpanel.so
 %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_comic.so
 %{_libdir}/qt5/plugins/krunner_datetime.so
 %{_libdir}/qt5/plugins/kcm_krunner_spellcheck.so
@@ -168,18 +165,13 @@ cat *.lang >all.lang
 %{_libdir}/qt5/plugins/plasma_comic_krossprovider.so
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
-%{_libdir}/libexec/kimpanel-ibus-panel
-%{_libdir}/libexec/kimpanel-scim-panel
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
-%{_libdir}/qt5/qml/org/kde/plasma/private/kimpanel
 %{_libdir}/qt5/qml/org/kde/plasma/private/notes
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.calculator.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.fuzzyclock.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.kimpanel.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.notes.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.systemloadviewer.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.timer.desktop
-%{_datadir}/kservices5/plasma-dataengine-kimpanel.desktop
 %{_datadir}/kservices5/plasma-dataengine-konsoleprofiles.desktop
 %{_datadir}/kservices5/plasma-runner-converter.desktop
 %{_datadir}/kservices5/plasma-runner-dictionary.desktop
@@ -193,11 +185,9 @@ cat *.lang >all.lang
 %{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
-%{_datadir}/plasma/plasmoids/org.kde.plasma.kimpanel
 %{_datadir}/plasma/plasmoids/org.kde.plasma.comic
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
-%{_datadir}/plasma/services/kimpanel.operations
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
 %{_datadir}/plasma/plasmoids/org.kde.plasma.systemloadviewer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
