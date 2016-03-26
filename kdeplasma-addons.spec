@@ -139,7 +139,7 @@ Group:		System/Libraries
 Plasma weather library.
 
 %files -n %{libwather}
-%{_libdir}/libplasmaweather.so.%{libwather_major}
+%{_libdir}/libplasmaweather.so.%{libweather_major}
 %{_libdir}/libplasmaweather.so.2.*
 
 %prep
