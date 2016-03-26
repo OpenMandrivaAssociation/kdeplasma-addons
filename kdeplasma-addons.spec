@@ -127,6 +127,8 @@ KDE 5 Plasma Add-Ons.
 
 %libpackage plasmacomicprovidercore 1
 
+%libpackage plasmaweather 2
+
 %prep
 %setup -q
 %apply_patches
@@ -145,7 +147,7 @@ KDE 5 Plasma Add-Ons.
 %find_lang liblancelot-datamodels
 %find_lang libplasma_groupingcontainment
 %find_lang libplasmaweather
-for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher weatherstation webslice; do
+for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather weatherstation webslice; do
 	%find_lang plasma_applet_$i
 done
 %find_lang plasma_packagestructure_comic
@@ -165,6 +167,7 @@ cat *.lang >all.lang
 %{_libdir}/qt5/plugins/krunner_spellcheck.so
 %{_libdir}/qt5/plugins/plasma_comic_krossprovider.so
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
+%{_libdir}/qt5/plugins/plasma/applets/plasma_applet_weather.so
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/notes
@@ -194,6 +197,7 @@ cat *.lang >all.lang
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/icons/quota.svg
+%{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
 %{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
@@ -203,6 +207,8 @@ cat *.lang >all.lang
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
+%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
+%{_datadir}/plasma/plasmoids/org.kde.plasma.weather
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/kwin/tabbox
@@ -219,6 +225,8 @@ cat *.lang >all.lang
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.diskquota.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.quicklaunch.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.userswitcher.desktop
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma.mediaframe.desktop
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma.weather.desktop
 %{_datadir}/kservices5/kwin/kwin4_desktop_switcher_previews.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_big_icons.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_compact.desktop
@@ -235,5 +243,9 @@ cat *.lang >all.lang
 %{_libdir}/qt5/qml/org/kde/plasma/private/showdesktop
 %{_libdir}/qt5/qml/org/kde/plasma/private/fifteenpuzzle
 %{_libdir}/qt5/qml/org/kde/plasma/private/timer
+%{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/libmediaframeplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/qmldir
+%{_libdir}/qt5/qml/org/kde/plasma/private/weather/libweatherplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
 %{_libdir}/qt5/plugins/kcm_krunner_audioplayercontrol.so
 %{_libdir}/qt5/plugins/krunner_audioplayercontrol.so
