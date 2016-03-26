@@ -8,12 +8,12 @@
 
 Name: kdeplasma-addons
 Version: 5.6.0
-Release: 2
+Release: 3
 Source0: http://download.kde.org/plasma/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
 License: GPL
-Group: System/Libraries
+Group: Graphical desktop/KDE
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(KF5DNSSD)
 BuildRequires: cmake(KF5KDELibs4Support)
