@@ -3,6 +3,9 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define plasmaver %(echo %{version} |cut -d. -f1-3)
 
+%define libweather_major 1
+%define libweather %mklibname plasmaweather %{libweather_major}
+
 Name: kdeplasma-addons
 Version: 5.6.0
 Release: 1
@@ -121,13 +124,23 @@ Obsoletes: plasma-wallpaper-qml < 4.14.3-4
 Obsoletes: plasma-wallpaper-virus < 4.14.3-4
 Obsoletes: plasma-wallpaper-weather < 4.14.3-4
 Conflicts: plasma-desktop < 5.6
+Requires: %{libweather} = %{EVRD}
 
 %description
 KDE 5 Plasma Add-Ons.
 
 %libpackage plasmacomicprovidercore 1
 
-%libpackage plasmaweather 2
+%package -n %{libwather}
+Summary:	Main library for Plasma weather
+Group:		System/Libraries
+
+%description -n %{libwather}
+Plasma weather library.
+
+%files -n %{libwather}
+%{_libdir}/libplasmaweather.so.%{libwather_major}
+%{_libdir}/libplasmaweather.so.2.*
 
 %prep
 %setup -q
@@ -147,12 +160,14 @@ KDE 5 Plasma Add-Ons.
 %find_lang liblancelot-datamodels
 %find_lang libplasma_groupingcontainment
 %find_lang libplasmaweather
-for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather weatherstation webslice; do
-	%find_lang plasma_applet_$i
+
+for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe weatherstation webslice; do
+    %find_lang plasma_applet_$i
 done
+
 %find_lang plasma_packagestructure_comic
 for i in CharacterRunner audioplayercontrol browserhistory contacts converterrunner datetime events katesessions konquerorsessions konsolesessions kopete krunner_dictionary mediawiki spellcheckrunner translator youtube; do
-	%find_lang plasma_runner_$i
+    %find_lang plasma_runner_$i
 done
 cat *.lang >all.lang
 
