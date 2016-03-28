@@ -8,7 +8,7 @@
 
 Name: kdeplasma-addons
 Version: 5.6.0
-Release: 3
+Release: 4
 Source0: http://download.kde.org/plasma/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -49,7 +49,7 @@ BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
 %rename kdeplasma-addons5
 Obsoletes: kdeplasma-addons < 4.14.3-4
-Provides: kdeplasma-addons = 4.14.3-4
+Provides: kdeplasma-addons = %{EVRD}
 Provides: kdeplasma
 Provides: kdeplasma4 = %{version}
 Obsoletes: plasma-desktoptheme-default < 4.14.3-4
