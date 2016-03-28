@@ -48,8 +48,6 @@ BuildRequires: pkgconfig(xcb-keysyms)
 BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
 %rename kdeplasma-addons5
-Obsoletes: kdeplasma-addons < 4.14.3-4
-Provides: kdeplasma-addons = %{EVRD}
 Provides: kdeplasma
 Provides: kdeplasma4 = %{version}
 Obsoletes: plasma-desktoptheme-default < 4.14.3-4
