@@ -8,7 +8,7 @@
 
 Name: kdeplasma-addons
 Version: 5.6.3
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -122,6 +122,8 @@ Obsoletes: plasma-wallpaper-qml < 4.14.3-4
 Obsoletes: plasma-wallpaper-virus < 4.14.3-4
 Obsoletes: plasma-wallpaper-weather < 4.14.3-4
 Requires: %{libweather} = %{EVRD}
+# (tpg) fix bug https://issues.openmandriva.org/show_bug.cgi?id=1616
+Requires: qt5-qtwebkit
 
 %description
 KDE 5 Plasma Add-Ons.
