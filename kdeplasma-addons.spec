@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.6.5
+Version: 5.7.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -153,20 +153,20 @@ Plasma weather library.
 %install
 %ninja_install -C build
 
-%find_lang konqprofiles
-%find_lang konsoleprofiles
-%find_lang lancelot
-%find_lang liblancelot-datamodels
-%find_lang libplasma_groupingcontainment
-%find_lang libplasmaweather
+%find_lang konqprofiles || touch konqprofiles.lang
+%find_lang konsoleprofiles || touch konsoleprofiles.lang
+%find_lang lancelot || touch lancelot.lang
+%find_lang liblancelot-datamodels || touch liblancelot-datamodels.lang
+%find_lang libplasma_groupingcontainment || touch libplasma_groupingcontainment.lang
+%find_lang libplasmaweather || touch libplasmaweather.lang
 
 for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe weatherstation webslice; do
-    %find_lang plasma_applet_$i
+    %find_lang plasma_applet_$i || touch plasma_applet_$i.lang
 done
 
-%find_lang plasma_packagestructure_comic
+%find_lang plasma_packagestructure_comic || touch plasma_packagestructure_comic.lang
 for i in CharacterRunner audioplayercontrol browserhistory contacts converterrunner datetime events katesessions konquerorsessions konsolesessions kopete krunner_dictionary mediawiki spellcheckrunner translator youtube; do
-    %find_lang plasma_runner_$i
+    %find_lang plasma_runner_$i || touch plasma_runner_$i.lang
 done
 cat *.lang >all.lang
 
