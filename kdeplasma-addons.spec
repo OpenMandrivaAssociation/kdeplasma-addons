@@ -160,7 +160,7 @@ Plasma weather library.
 %find_lang libplasma_groupingcontainment || touch libplasma_groupingcontainment.lang
 %find_lang libplasmaweather || touch libplasmaweather.lang
 
-for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe weatherstation webslice; do
+for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe org.kde.plasma.minimizeall weatherstation webslice; do
     %find_lang plasma_applet_$i || touch plasma_applet_$i.lang
 done
 
@@ -185,6 +185,7 @@ cat *.lang >all.lang
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
 %{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/notes
+%{_datadir}/metainfo/*.xml
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.calculator.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.fuzzyclock.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.notes.desktop
@@ -207,14 +208,9 @@ cat *.lang >all.lang
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
+%{_datadir}/plasma/plasmoids/org.kde.plasma.minimizeall
 %{_datadir}/plasma/plasmoids/org.kde.plasma.systemloadviewer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
-%{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
-%{_datadir}/plasma/desktoptheme/default/icons/quota.svg
-%{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
-%{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
-%{_datadir}/plasma/wallpapers/org.kde.haenau
-%{_datadir}/plasma/wallpapers/org.kde.hunyango
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %{_datadir}/plasma/plasmoids/org.kde.plasma.showdesktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
@@ -225,6 +221,13 @@ cat *.lang >all.lang
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
+%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
+%{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
+%{_datadir}/plasma/desktoptheme/default/icons/quota.svg
+%{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
+%{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
+%{_datadir}/plasma/wallpapers/org.kde.haenau
+%{_datadir}/plasma/wallpapers/org.kde.hunyango
 %{_datadir}/kwin/tabbox
 %{_datadir}/kwin/desktoptabbox
 %{_datadir}/kservices5/plasma-runner-audioplayercontrol.desktop
@@ -241,6 +244,8 @@ cat *.lang >all.lang
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.userswitcher.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.mediaframe.desktop
 %{_datadir}/kservices5/plasma-applet-org.kde.plasma.weather.desktop
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma.quickshare.desktop
+%{_datadir}/kservices5/plasma-applet-org.kde.plasma.minimizeall.desktop
 %{_datadir}/kservices5/kwin/kwin4_desktop_switcher_previews.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_big_icons.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_compact.desktop
@@ -250,7 +255,6 @@ cat *.lang >all.lang
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
 %{_datadir}/icons/hicolor/scalable/apps/fifteenpuzzle.svgz
-%{_libdir}/qt5/qml/org/kde/plasma/private/activitypager
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota
 %{_libdir}/qt5/qml/org/kde/plasma/private/quicklaunch
@@ -261,5 +265,9 @@ cat *.lang >all.lang
 %{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/qmldir
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/libweatherplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
+%{_libdir}/qt5/qml/org/kde/plasma/private/minimizeall/qmldir
+%{_libdir}/qt5/qml/org/kde/plasma/private/minimizeall/libminimizeallplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/purpose/qmldir
+%{_libdir}/qt5/qml/org/kde/plasma/private/purpose/libpurposeplugin.so
 %{_libdir}/qt5/plugins/kcm_krunner_audioplayercontrol.so
 %{_libdir}/qt5/plugins/krunner_audioplayercontrol.so
