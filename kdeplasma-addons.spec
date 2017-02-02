@@ -129,6 +129,7 @@ Requires: qt5-qtwebkit
 KDE 5 Plasma Add-Ons.
 
 %libpackage plasmacomicprovidercore 1
+%libpackage plasmapotdprovidercore 1
 
 %package -n %{libweather}
 Summary:	Main library for Plasma weather
@@ -160,7 +161,7 @@ Plasma weather library.
 %find_lang libplasma_groupingcontainment || touch libplasma_groupingcontainment.lang
 %find_lang libplasmaweather || touch libplasmaweather.lang
 
-for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe org.kde.plasma.minimizeall weatherstation webslice; do
+for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe org.kde.plasma.minimizeall weatherstation webslice org.kde.plasma.private.grouping; do
     %find_lang plasma_applet_$i || touch plasma_applet_$i.lang
 done
 
@@ -172,35 +173,14 @@ cat *.lang >all.lang
 
 %files -f all.lang
 %{_sysconfdir}/xdg/comic.knsrc
-%{_libdir}/qt5/plugins/kcm_krunner_dictionary.so
-%{_libdir}/qt5/plugins/krunner_converter.so
-%{_libdir}/qt5/plugins/krunner_dictionary.so
-%{_libdir}/qt5/plugins/plasma/applets/plasma_applet_comic.so
-%{_libdir}/qt5/plugins/krunner_datetime.so
-%{_libdir}/qt5/plugins/kcm_krunner_spellcheck.so
-%{_libdir}/qt5/plugins/krunner_spellcheck.so
-%{_libdir}/qt5/plugins/plasma_comic_krossprovider.so
+%{_libdir}/qt5/plugins/*.so
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
-%{_libdir}/qt5/plugins/plasma/applets/plasma_applet_weather.so
-%{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_comic.so
-%{_libdir}/qt5/plugins/plasma/dataengine/plasma_engine_konsoleprofiles.so
+%{_libdir}/qt5/plugins/plasma/applets/*.so
+%{_libdir}/qt5/plugins/plasma/dataengine/*.so
+%{_libdir}/qt5/plugins/potd
 %{_libdir}/qt5/qml/org/kde/plasma/private/notes
 %{_datadir}/metainfo/*.xml
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.calculator.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.fuzzyclock.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.notes.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.systemloadviewer.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.timer.desktop
-%{_datadir}/kservices5/plasma-dataengine-konsoleprofiles.desktop
-%{_datadir}/kservices5/plasma-runner-converter.desktop
-%{_datadir}/kservices5/plasma-runner-dictionary.desktop
-%{_datadir}/kservices5/plasma-runner-dictionary_config.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.haenau.desktop
-%{_datadir}/kservices5/plasma-wallpaper-org.kde.hunyango.desktop
-%{_datadir}/kservices5/plasma-runner-spellchecker*.desktop
-%{_datadir}/kservices5/plasma-runner-datetime.desktop
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.comic.desktop
-%{_datadir}/kservices5/plasma-dataengine-comic.desktop
+%{_datadir}/kservices5/*.desktop
 %{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
@@ -222,12 +202,15 @@ cat *.lang >all.lang
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
+%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
+%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/icons/quota.svg
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
 %{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
+%{_datadir}/plasma/wallpapers/org.kde.potd
 %{_datadir}/kwin/tabbox
 %{_datadir}/kwin/desktoptabbox
 %{_datadir}/kservices5/plasma-runner-audioplayercontrol.desktop
