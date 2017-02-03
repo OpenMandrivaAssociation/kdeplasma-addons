@@ -154,6 +154,9 @@ Plasma weather library.
 %install
 %ninja_install -C build
 
+# (tpg) not needed
+rm -rf %{buildroot}%{_libdir}/libplasmapotdprovidercore.so
+
 %find_lang konqprofiles || touch konqprofiles.lang
 %find_lang konsoleprofiles || touch konsoleprofiles.lang
 %find_lang lancelot || touch lancelot.lang
