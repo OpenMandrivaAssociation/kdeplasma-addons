@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.9.5
+Version: 5.10.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -157,24 +157,9 @@ Plasma weather library.
 # (tpg) not needed
 rm -rf %{buildroot}%{_libdir}/libplasmapotdprovidercore.so
 
-%find_lang konqprofiles || touch konqprofiles.lang
-%find_lang konsoleprofiles || touch konsoleprofiles.lang
-%find_lang lancelot || touch lancelot.lang
-%find_lang liblancelot-datamodels || touch liblancelot-datamodels.lang
-%find_lang libplasma_groupingcontainment || touch libplasma_groupingcontainment.lang
-%find_lang libplasmaweather || touch libplasmaweather.lang
+%find_lang %{name} --all-name --with-html
 
-for i in CharSelectApplet org.kde.plasma.activitypager binaryclock bookmarks bubblemon org.kde.plasma.colorpicker org.kde.plasma.diskquota fileWatcher frame groupingpanel incomingmsg knowledgebase leavenote life luna magnifique microblog news org.kde.plasma.calculator org.kde.plasma.comic org.kde.plasma.fuzzyclock org.kde.plasma.notes org.kde.plasma.quickshare org.kde.plasma.systemloadviewer org.kde.plasma.timer org.kde.plasma.showdesktop org.kde.plasma.fifteenpuzzle plasmaboard previewer qalculate qstardict org.kde.plasma.quicklaunch rssnow spellcheck unitconverter org.kde.plasma.userswitcher org.kde.plasma.weather org.kde.plasma.mediaframe org.kde.plasma.minimizeall weatherstation webslice org.kde.plasma.private.grouping; do
-    %find_lang plasma_applet_$i || touch plasma_applet_$i.lang
-done
-
-%find_lang plasma_packagestructure_comic || touch plasma_packagestructure_comic.lang
-for i in CharacterRunner audioplayercontrol browserhistory contacts converterrunner datetime events katesessions konquerorsessions konsolesessions kopete krunner_dictionary mediawiki spellcheckrunner translator youtube; do
-    %find_lang plasma_runner_$i || touch plasma_runner_$i.lang
-done
-cat *.lang >all.lang
-
-%files -f all.lang
+%files -f %{name}.lang
 %{_sysconfdir}/xdg/comic.knsrc
 %{_libdir}/qt5/plugins/*.so
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
@@ -185,6 +170,7 @@ cat *.lang >all.lang
 %{_datadir}/metainfo/*.xml
 %{_datadir}/kservices5/*.desktop
 %{_datadir}/kservicetypes5/plasma_comicprovider.desktop
+%{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.comic
