@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.12.3
+Version: 5.12.90
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -41,6 +41,7 @@ BuildRequires: pkgconfig(Qt5Network)
 BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(Qt5WebEngine)
 BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
@@ -121,7 +122,7 @@ Obsoletes: plasma-wallpaper-potd < 4.14.3-4
 Obsoletes: plasma-wallpaper-qml < 4.14.3-4
 Obsoletes: plasma-wallpaper-virus < 4.14.3-4
 Obsoletes: plasma-wallpaper-weather < 4.14.3-4
-Requires: %{libweather} = %{EVRD}
+Obsoletes: %{libweather} < %{EVRD}
 # (tpg) fix bug https://issues.openmandriva.org/show_bug.cgi?id=1616
 Requires: qt5-qtwebkit
 
@@ -130,16 +131,6 @@ KDE 5 Plasma Add-Ons.
 
 %libpackage plasmacomicprovidercore 1
 %libpackage plasmapotdprovidercore 1
-
-%package -n %{libweather}
-Summary:	Main library for Plasma weather
-Group:		System/Libraries
-
-%description -n %{libweather}
-Plasma weather library.
-
-%files -n %{libweather}
-%{_libdir}/libplasmaweatherprivate.so
 
 %prep
 %setup -q
@@ -154,7 +145,9 @@ Plasma weather library.
 %ninja_install -C build
 
 # (tpg) not needed
-rm -rf %{buildroot}%{_libdir}/libplasmapotdprovidercore.so
+rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
+	%{buildroot}%{_includedir} \
+	%{buildroot}%{_libdir}/cmake/PlasmaPotdProvider
 
 %find_lang %{name} --all-name --with-html
 
@@ -165,10 +158,13 @@ rm -rf %{buildroot}%{_libdir}/libplasmapotdprovidercore.so
 %{_libdir}/qt5/plugins/plasma/applets/*.so
 %{_libdir}/qt5/plugins/plasma/dataengine/*.so
 %{_libdir}/qt5/plugins/potd
+%{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents.so
+%{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents
 %{_libdir}/qt5/qml/org/kde/plasma/private/notes
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict
 %{_datadir}/icons/hicolor/scalable/apps/accessories-dictionary.svgz
 %{_datadir}/metainfo/*.xml
+%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservices5/*.desktop
 %{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
@@ -182,6 +178,7 @@ rm -rf %{buildroot}%{_libdir}/libplasmapotdprovidercore.so
 %{_datadir}/plasma/plasmoids/org.kde.plasma.minimizeall
 %{_datadir}/plasma/plasmoids/org.kde.plasma.systemloadviewer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
+%{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %{_datadir}/plasma/plasmoids/org.kde.plasma.showdesktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
@@ -223,7 +220,6 @@ rm -rf %{buildroot}%{_libdir}/libplasmapotdprovidercore.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/qmldir
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/libweatherplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
-%{_libdir}/qt5/qml/org/kde/plasma/private/minimizeall/qmldir
-%{_libdir}/qt5/qml/org/kde/plasma/private/minimizeall/libminimizeallplugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/purpose/qmldir
 %{_libdir}/qt5/qml/org/kde/plasma/private/purpose/libpurposeplugin.so
+%{_libdir}/qt5/qml/org/kde/plasmacalendar
