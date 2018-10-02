@@ -8,7 +8,7 @@
 
 Name: kdeplasma-addons
 Version: 5.13.90
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -34,6 +34,7 @@ BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5Activities)
 BuildRequires: cmake(KF5Declarative)
 BuildRequires: cmake(KF5Holidays)
+BuildRequires: cmake(KF5Purpose)
 BuildRequires: cmake(LibTaskManager)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(Qt5Core)
@@ -126,7 +127,7 @@ Obsoletes: plasma-wallpaper-virus < 4.14.3-4
 Obsoletes: plasma-wallpaper-weather < 4.14.3-4
 Obsoletes: %{libweather} < %{EVRD}
 # (tpg) fix bug https://issues.openmandriva.org/show_bug.cgi?id=1616
-Requires: qt5-qtwebkit
+Requires: qt5-qtwebengine
 
 %description
 KDE 5 Plasma Add-Ons.
@@ -135,8 +136,7 @@ KDE 5 Plasma Add-Ons.
 %libpackage plasmapotdprovidercore 1
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %cmake_kde5
 
