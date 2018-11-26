@@ -1,4 +1,5 @@
 removed_sources:
   kdeplasma-addons-5.12.3.tar.xz: 194332e2312c3ca179293e314dc6cd560897a632
-sources:
   kdeplasma-addons-5.12.6.tar.xz: cd98d6afe3d6ec5e761c24ecd0512c6281202099
+sources:
+  kdeplasma-addons-5.12.7.tar.xz: 3035c87a7430ae4ae11bb0c1772eaecd160af8f8
