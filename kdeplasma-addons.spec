@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.15.5
+Version: 5.16.3
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -154,7 +154,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %find_lang %{name} --all-name --with-html
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/comic.knsrc
+%{_datadir}/knsrcfiles/comic.knsrc
 %{_libdir}/qt5/plugins/*.so
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
 %{_libdir}/qt5/plugins/plasma/applets/*.so
@@ -177,12 +177,10 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
-%{_datadir}/plasma/plasmoids/org.kde.plasma.minimizeall
 %{_datadir}/plasma/plasmoids/org.kde.plasma.systemloadviewer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
-%{_datadir}/plasma/plasmoids/org.kde.plasma.showdesktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
 %{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
@@ -215,7 +213,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota
 %{_libdir}/qt5/qml/org/kde/plasma/private/quicklaunch
-%{_libdir}/qt5/qml/org/kde/plasma/private/showdesktop
 %{_libdir}/qt5/qml/org/kde/plasma/private/fifteenpuzzle
 %{_libdir}/qt5/qml/org/kde/plasma/private/timer
 %{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/libmediaframeplugin.so
