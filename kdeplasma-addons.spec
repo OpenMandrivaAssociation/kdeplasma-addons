@@ -7,8 +7,8 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.17.5
-Release: 2
+Version: 5.18.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -168,6 +168,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/metainfo/*.xml
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservices5/*.desktop
+%{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
 %{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
 %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
@@ -191,6 +192,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
+%{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
@@ -214,10 +216,8 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/qml/org/kde/plasma/private/quicklaunch
 %{_libdir}/qt5/qml/org/kde/plasma/private/fifteenpuzzle
 %{_libdir}/qt5/qml/org/kde/plasma/private/timer
-%{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/libmediaframeplugin.so
-%{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe/qmldir
-%{_libdir}/qt5/qml/org/kde/plasma/private/weather/libweatherplugin.so
-%{_libdir}/qt5/qml/org/kde/plasma/private/weather/qmldir
-%{_libdir}/qt5/qml/org/kde/plasma/private/purpose/qmldir
-%{_libdir}/qt5/qml/org/kde/plasma/private/purpose/libpurposeplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/mediaframe
+%{_libdir}/qt5/qml/org/kde/plasma/private/weather
+%{_libdir}/qt5/qml/org/kde/plasma/private/nightcolorcontrol
+%{_libdir}/qt5/qml/org/kde/plasma/private/purpose
 %{_libdir}/qt5/qml/org/kde/plasmacalendar
