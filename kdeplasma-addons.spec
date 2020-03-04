@@ -8,7 +8,7 @@
 
 Name: kdeplasma-addons
 Version: 5.18.2
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
