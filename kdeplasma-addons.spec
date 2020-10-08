@@ -7,8 +7,8 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.19.90
-Release: 2
+Version: 5.20.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
