@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.20.5
+Version: 5.21.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -181,7 +181,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
-%{_datadir}/plasma/plasmoids/org.kde.plasma.systemloadviewer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.timer
 %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
