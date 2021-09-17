@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.22.5
+Version: 5.22.90
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -158,8 +158,9 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 
 %files -f %{name}.lang
 %{_datadir}/knsrcfiles/comic.knsrc
+%{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
+%{_datadir}/qlogging-categories5/plasma_comic.categories
 %{_libdir}/qt5/plugins/*.so
-%{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_packagestructure_comic.so
 %{_libdir}/qt5/plugins/plasma/applets/*.so
 %{_libdir}/qt5/plugins/plasma/dataengine/*.so
 %{_libdir}/qt5/plugins/potd
@@ -172,7 +173,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservices5/*.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
-%{_datadir}/kservicetypes5/plasma_comicprovider.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
 %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
