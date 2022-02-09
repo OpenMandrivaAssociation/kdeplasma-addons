@@ -7,8 +7,8 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.23.5
-Release: 2
+Version: 5.24.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -160,7 +160,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/knsrcfiles/comic.knsrc
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
 %{_datadir}/qlogging-categories5/plasma_comic.categories
-%{_libdir}/qt5/plugins/*.so
 %{_libdir}/qt5/plugins/plasma/applets/*.so
 %{_libdir}/qt5/plugins/plasma/dataengine/*.so
 %{_libdir}/qt5/plugins/potd
@@ -212,6 +211,8 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_small_icons.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
+%{_datadir}/kservices5/kwin/kwin4_window_switcher_coverswitch.desktop
+%{_datadir}/kservices5/kwin/kwin4_window_switcher_flipswitch.desktop
 %{_datadir}/icons/hicolor/scalable/apps/fifteenpuzzle.svgz
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota
@@ -230,3 +231,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_katesessions.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_konsoleprofiles.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_spellcheck.so
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
