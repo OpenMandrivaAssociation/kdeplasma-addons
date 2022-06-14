@@ -7,8 +7,8 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.24.5
-Release: 2
+Version: 5.25.0
+Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -135,7 +135,6 @@ Requires: qt5-qtwebengine
 %description
 KDE 5 Plasma Add-Ons.
 
-%libpackage plasmacomicprovidercore 1
 %libpackage plasmapotdprovidercore 1
 
 %prep
@@ -169,7 +168,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict
 %{_datadir}/icons/hicolor/scalable/apps/accessories-dictionary.svgz
 %{_datadir}/metainfo/*.xml
-%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservices5/*.desktop
 %{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
@@ -234,3 +232,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
+%{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd
+%{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
+%{_datadir}/kservicetypes5/plasma-comic.desktop
