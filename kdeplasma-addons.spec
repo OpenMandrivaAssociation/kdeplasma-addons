@@ -7,8 +7,8 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.25.5
-Release: 2
+Version: 5.25.90
+Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
 URL: http://kde.org/
@@ -160,7 +160,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/plugins/kpackage/packagestructure/plasma_comic.so
 %{_datadir}/qlogging-categories5/plasma_comic.categories
 %{_libdir}/qt5/plugins/plasma/applets/*.so
-%{_libdir}/qt5/plugins/plasma/dataengine/*.so
 %{_libdir}/qt5/plugins/potd
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents.so
 %{_libdir}/qt5/plugins/plasmacalendarplugins/astronomicalevents
@@ -168,8 +167,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/qml/org/kde/plasma/private/dict
 %{_datadir}/icons/hicolor/scalable/apps/accessories-dictionary.svgz
 %{_datadir}/metainfo/*.xml
-%{_datadir}/kservices5/*.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnail_grid.desktop
 %{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
 %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
@@ -182,7 +179,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.keyboardindicator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
-%{_datadir}/plasma/plasmoids/org.kde.plasma.activitypager
 %{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
 %{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
 %{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
@@ -195,22 +191,11 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
-%{_datadir}/plasma/services/org.kde.plasma.dataengine.konsoleprofiles.operations
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
 %{_datadir}/plasma/wallpapers/org.kde.potd
 %{_datadir}/kwin/tabbox
 %{_datadir}/kwin/desktoptabbox
-%{_datadir}/kservices5/kwin/kwin4_desktop_switcher_previews.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_big_icons.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_compact.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_informative.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_present_windows.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_small_icons.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_text.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_thumbnails.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_coverswitch.desktop
-%{_datadir}/kservices5/kwin/kwin4_window_switcher_flipswitch.desktop
 %{_datadir}/icons/hicolor/scalable/apps/fifteenpuzzle.svgz
 %{_libdir}/qt5/qml/org/kde/plasma/private/colorpicker
 %{_libdir}/qt5/qml/org/kde/plasma/private/diskquota
@@ -233,5 +218,10 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
 %{_libdir}/qt5/qml/org/kde/plasma/wallpapers/potd
-%{_datadir}/kdevfiletemplates/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/kservicetypes5/plasma-comic.desktop
+%{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar.so
+%{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar
+%{_libdir}/qt5/qml/org/kde/plasma/private/profiles/libprofiles_qml_plugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/profiles/qmldir
+%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
+%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
