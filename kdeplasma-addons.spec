@@ -54,6 +54,7 @@ BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(xcb-keysyms)
 BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
+BuildRequires: cmake(KF5NetworkManagerQt)
 %rename kdeplasma-addons5
 Provides: kdeplasma
 Provides: kdeplasma4 = %{version}
@@ -151,7 +152,8 @@ KDE 5 Plasma Add-Ons.
 # (tpg) not needed
 rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 	%{buildroot}%{_includedir} \
-	%{buildroot}%{_libdir}/cmake/PlasmaPotdProvider
+	%{buildroot}%{_libdir}/cmake/PlasmaPotdProvider \
+	%{buildroot}%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 
 %find_lang %{name} --all-name --with-html
 
@@ -223,5 +225,4 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/plugins/plasmacalendarplugins/alternatecalendar
 %{_libdir}/qt5/qml/org/kde/plasma/private/profiles/libprofiles_qml_plugin.so
 %{_libdir}/qt5/qml/org/kde/plasma/private/profiles/qmldir
-%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
