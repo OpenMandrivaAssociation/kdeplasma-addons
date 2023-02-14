@@ -7,7 +7,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 5.26.5
+Version: 5.27.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: KDE 5 Plasma Add-Ons
@@ -211,11 +211,11 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/qt5/qml/org/kde/plasmacalendar
 %{_libdir}/qt5/plugins/kf5/krunner/unitconverter.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_charrunner.so
-%{_libdir}/qt5/plugins/kf5/krunner/krunner_datetime.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_dictionary.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_katesessions.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_konsoleprofiles.so
 %{_libdir}/qt5/plugins/kf5/krunner/krunner_spellcheck.so
+%{_libdir}/qt5/plugins/kf5/krunner/org.kde.datetime.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_charrunner.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_dictionary.so
 %{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_spellcheck.so
