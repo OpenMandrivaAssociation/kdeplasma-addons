@@ -8,7 +8,7 @@
 %define libweather_major 1
 %define libweather %mklibname plasmaweather %{libweather_major}
 
-Name: kdeplasma-addons
+Name: plasma6-kdeplasma-addons
 Version: 5.240.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
