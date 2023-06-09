@@ -3,7 +3,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define plasmaver %(echo %{version} |cut -d. -f1-3)
 
-%define git 20230606
+%define git 20230610
 
 %define libweather_major 1
 %define libweather %mklibname plasmaweather %{libweather_major}
@@ -93,8 +93,8 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %find_lang %{name} --all-name --with-html
 
 %files -f %{name}.lang
+%{_datadir}/qlogging-categories6/kdeplasma-addons.categories
 %{_datadir}/knsrcfiles/comic.knsrc
-%{_datadir}/qlogging-categories6/plasma_comic.categories
 %{_qtdir}/plugins/plasma/applets/*.so
 %{_qtdir}/plugins/potd
 %{_qtdir}/plugins/plasmacalendarplugins/astronomicalevents.so
