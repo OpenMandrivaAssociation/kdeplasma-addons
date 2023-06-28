@@ -35,7 +35,7 @@ BuildRequires: cmake(KF5Activities)
 BuildRequires: cmake(KF5Declarative)
 BuildRequires: cmake(KF5Holidays)
 BuildRequires: cmake(KF5Purpose)
-BuildRequires: cmake(LibTaskManager)
+BuildRequires: cmake(LibTaskManager) < 5.27.50
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
