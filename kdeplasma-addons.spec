@@ -22,7 +22,7 @@ BuildRequires: cmake(KF5CoreAddons)
 BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5ConfigWidgets)
 BuildRequires: cmake(KF5IconThemes)
-BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5KIO) < 5.27.50
 BuildRequires: cmake(KF5KHtml)
 BuildRequires: cmake(KF5Solid)
 BuildRequires: cmake(KF5KCMUtils)
