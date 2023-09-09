@@ -3,7 +3,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define plasmaver %(echo %{version} |cut -d. -f1-3)
 
-%define git 20230902
+%define git 20230909
 
 %define libweather_major 1
 %define libweather %mklibname plasmaweather %{libweather_major}
@@ -156,8 +156,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_qtdir}/qml/org/kde/plasma/wallpapers/potd
 %{_qtdir}/plugins/plasmacalendarplugins/alternatecalendar.so
 %{_qtdir}/plugins/plasmacalendarplugins/alternatecalendar
-%{_qtdir}/qml/org/kde/plasma/private/profiles/libprofiles_qml_plugin.so
-%{_qtdir}/qml/org/kde/plasma/private/profiles/qmldir
+%{_qtdir}/qml/org/kde/plasma/private/profiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
 %{_qtdir}/plugins/kf6/packagestructure/plasma_comic.so
 %{_datadir}/knotifications6/plasma_applet_timer.notifyrc
