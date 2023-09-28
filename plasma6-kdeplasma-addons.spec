@@ -10,7 +10,7 @@
 
 Name: plasma6-kdeplasma-addons
 Version: 5.240.0
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/master/kdeplasma-addons-master.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
 %else
@@ -67,9 +67,7 @@ BuildRequires: plasma6-xdg-desktop-portal-kde
 Obsoletes: %{libweather} < %{EVRD}
 
 %description
-KDE 5 Plasma Add-Ons.
-
-%libpackage plasmapotdprovidercore 2
+KDE 6 Plasma Add-Ons.
 
 %prep
 %autosetup -p1 -n kdeplasma-addons-%{?git:master}%{!?git:%{version}}
@@ -94,6 +92,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %find_lang %{name} --all-name --with-html
 
 %files -f %{name}.lang
+%{_libdir}/libplasmapotdprovidercore.so*
 %{_datadir}/qlogging-categories6/kdeplasma-addons.categories
 %{_datadir}/knsrcfiles/comic.knsrc
 %{_qtdir}/plugins/plasma/applets/*.so
