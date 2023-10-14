@@ -3,14 +3,14 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define plasmaver %(echo %{version} |cut -d. -f1-3)
 
-%define git 20230927
+%define git 20231014
 
 %define libweather_major 1
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: plasma6-kdeplasma-addons
 Version: 5.240.0
-Release: %{?git:0.%{git}.}2
+Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/master/kdeplasma-addons-master.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
 %else
