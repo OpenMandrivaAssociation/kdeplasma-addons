@@ -3,7 +3,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define plasmaver %(echo %{version} |cut -d. -f1-3)
 
-%define git 20231023
+%define git 20231104
 
 %define libweather_major 1
 %define libweather %mklibname plasmaweather %{libweather_major}
@@ -121,7 +121,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.weather
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
-%{_datadir}/plasma/plasmoids/org.kde.plasma.quickshare
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
 %{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
@@ -130,6 +129,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/wallpapers/org.kde.haenau
 %{_datadir}/plasma/wallpapers/org.kde.hunyango
 %{_datadir}/plasma/wallpapers/org.kde.potd
+%{_datadir}/kwin/effects/cube
 %{_datadir}/kwin/tabbox
 %{_datadir}/icons/hicolor/scalable/apps/fifteenpuzzle.svgz
 %{_qtdir}/qml/org/kde/plasma/private/colorpicker
@@ -140,7 +140,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_qtdir}/qml/org/kde/plasma/private/mediaframe
 %{_qtdir}/qml/org/kde/plasma/private/weather
 %{_qtdir}/qml/org/kde/plasma/private/nightcolorcontrol
-%{_qtdir}/qml/org/kde/plasma/private/purpose
 %{_qtdir}/qml/org/kde/plasmacalendar
 %{_qtdir}/plugins/kf6/krunner/unitconverter.so
 %{_qtdir}/plugins/kf6/krunner/krunner_charrunner.so
@@ -152,6 +151,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_qtdir}/plugins/kf6/krunner/kcms/kcm_krunner_charrunner.so
 %{_qtdir}/plugins/kf6/krunner/kcms/kcm_krunner_dictionary.so
 %{_qtdir}/plugins/kf6/krunner/kcms/kcm_krunner_spellcheck.so
+%{_qtdir}/plugins/kwin/effects/configs/kwin_cube_config.so
 %{_qtdir}/qml/org/kde/plasma/wallpapers/potd
 %{_qtdir}/plugins/plasmacalendarplugins/alternatecalendar.so
 %{_qtdir}/plugins/plasmacalendarplugins/alternatecalendar
