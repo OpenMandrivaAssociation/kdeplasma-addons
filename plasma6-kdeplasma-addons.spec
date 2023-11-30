@@ -9,8 +9,8 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: plasma6-kdeplasma-addons
-Version: 5.27.80
-Release: %{?git:0.%{git}.}2
+Version: 5.90.0
+Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/master/kdeplasma-addons-master.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
 %else
@@ -30,10 +30,10 @@ BuildRequires: cmake(KF6IconThemes)
 BuildRequires: cmake(KF6KIO)
 BuildRequires: cmake(KF6Solid)
 BuildRequires: cmake(KF6KCMUtils)
-BuildRequires: cmake(KF6Plasma)
+BuildRequires: cmake(Plasma) >= 5.90.0
 BuildRequires: cmake(KF6Runner)
 BuildRequires: cmake(KF6NewStuff)
-BuildRequires: cmake(KF6Activities)
+BuildRequires: cmake(PlasmaActivities)
 BuildRequires: cmake(KF6Declarative)
 BuildRequires: cmake(KF6Holidays)
 BuildRequires: cmake(KF6Purpose)
@@ -122,7 +122,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
-%{_datadir}/plasma/plasmoids/org.kde.plasma.nightcolorcontrol
 %{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
@@ -139,7 +138,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_qtdir}/qml/org/kde/plasma/private/timer
 %{_qtdir}/qml/org/kde/plasma/private/mediaframe
 %{_qtdir}/qml/org/kde/plasma/private/weather
-%{_qtdir}/qml/org/kde/plasma/private/nightcolorcontrol
 %{_qtdir}/qml/org/kde/plasmacalendar
 %{_qtdir}/plugins/kf6/krunner/unitconverter.so
 %{_qtdir}/plugins/kf6/krunner/krunner_charrunner.so
