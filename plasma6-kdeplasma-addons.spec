@@ -63,7 +63,6 @@ BuildRequires: pkgconfig(xcb-keysyms)
 BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
 BuildRequires: cmake(KF6NetworkManagerQt)
-BuildRequires: plasma6-xdg-desktop-portal-kde
 Obsoletes: %{libweather} < %{EVRD}
 
 %description
