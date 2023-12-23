@@ -9,7 +9,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: plasma6-kdeplasma-addons
-Version: 5.90.0
+Version: 5.91.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/master/kdeplasma-addons-master.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
