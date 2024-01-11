@@ -9,7 +9,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: plasma6-kdeplasma-addons
-Version: 5.91.0
+Version: 5.92.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/master/kdeplasma-addons-master.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
@@ -39,7 +39,7 @@ BuildRequires: cmake(KF6Declarative)
 BuildRequires: cmake(KF6Holidays)
 BuildRequires: cmake(KF6Purpose)
 BuildRequires: cmake(KF6Notifications)
-BuildRequires: cmake(KF6Plasma5Support)
+BuildRequires: cmake(Plasma5Support)
 BuildRequires: cmake(KF6Sonnet)
 BuildRequires: cmake(KF6UnitConversion)
 #BuildRequires: cmake(LibTaskManager)
