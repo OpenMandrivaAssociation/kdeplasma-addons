@@ -11,7 +11,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: plasma6-kdeplasma-addons
-Version: 6.0.5
+Version: 6.1.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/kdeplasma-addons-%{gitbranchd}.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
@@ -159,3 +159,9 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
 %{_qtdir}/plugins/kf6/packagestructure/plasma_comic.so
 %{_datadir}/knotifications6/plasma_applet_timer.notifyrc
+%{_libdir}/libexec/kf6/kauth/kameleonhelper
+%{_qtdir}/plugins/kf6/kded/kameleon.so
+%{_qtdir}/qml/org/kde/plasma/private/alternatecalendarconfig
+%{_datadir}/dbus-1/system-services/org.kde.kameleonhelper.service
+%{_datadir}/dbus-1/system.d/org.kde.kameleonhelper.conf
+%{_datadir}/polkit-1/actions/org.kde.kameleonhelper.policy
