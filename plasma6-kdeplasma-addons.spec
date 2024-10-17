@@ -19,7 +19,7 @@ Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/k
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/kdeplasma-addons-%{version}.tar.xz
 %endif
 Summary: KDE 6 Plasma Add-Ons
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake(ECM)
