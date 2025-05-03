@@ -10,9 +10,9 @@
 %define libweather_major 1
 %define libweather %mklibname plasmaweather %{libweather_major}
 
-Name: plasma6-kdeplasma-addons
+Name: kdeplasma-addons
 Version: 6.3.4
-Release: %{?git:0.%{git}.}2
+Release: %{?git:0.%{git}.}3
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/kdeplasma-addons-%{gitbranchd}.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
 %else
@@ -68,31 +68,21 @@ BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
 BuildRequires: cmake(KF6NetworkManagerQt)
 Obsoletes: %{libweather} < %{EVRD}
+# Renamed after 6.0 2025-05-03
+%rename plasma6-kdeplasma-addons
+BuildSystem: cmake
+BuildOption: -DBUILD_QCH:BOOL=ON
+BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 KDE 6 Plasma Add-Ons.
 
-%prep
-%autosetup -p1 -n kdeplasma-addons-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-
+%install -a
 # (tpg) not needed
 rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 	%{buildroot}%{_includedir} \
 	%{buildroot}%{_libdir}/cmake/PlasmaPotdProvider \
 	%{buildroot}%{_datadir}/kdevappwizard/templates/plasmapotdprovider.tar.bz2
-
-%find_lang %{name} --all-name --with-html
 
 %files -f %{name}.lang
 %{_libdir}/libplasmapotdprovidercore.so*
