@@ -11,7 +11,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 6.3.5
+Version: 6.4.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/kdeplasma-addons-%{gitbranchd}.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
@@ -100,7 +100,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.binaryclock
 %{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
 %{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
-%{_datadir}/plasma/plasmoids/org.kde.plasma.comic
 %{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
 %{_datadir}/plasma/plasmoids/org.kde.plasma.notes
@@ -115,7 +114,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/plasmoids/org.kde.plasma.quicklaunch
 %{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
 %{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
-%{_datadir}/plasma/plasmoids/org.kde.plasma.private.grouping
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
 %{_datadir}/plasma/wallpapers/org.kde.haenau
@@ -156,3 +154,5 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/dbus-1/system-services/org.kde.kameleonhelper.service
 %{_datadir}/dbus-1/system.d/org.kde.kameleonhelper.conf
 %{_datadir}/polkit-1/actions/org.kde.kameleonhelper.policy
+%{_qtdir}/plugins/kf6/krunner/krunner_colors.so
+%{_datadir}/qlogging-categories6/kdeplasma-addons.renamecategories
