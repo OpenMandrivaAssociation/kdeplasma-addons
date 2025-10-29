@@ -32,6 +32,7 @@ BuildRequires: cmake(KF6IconThemes)
 BuildRequires: cmake(KF6KIO)
 BuildRequires: cmake(KF6Solid)
 BuildRequires: cmake(KF6KCMUtils)
+BuildRequires: cmake(KF6Svg)
 BuildRequires: cmake(Plasma) >= 5.90.0
 BuildRequires: cmake(PlasmaQuick)
 BuildRequires: cmake(KF6Runner)
