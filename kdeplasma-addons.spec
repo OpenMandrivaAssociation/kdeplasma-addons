@@ -11,7 +11,7 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 6.5.5
+Version: 6.6.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/kdeplasma-addons-%{gitbranchd}.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
@@ -93,22 +93,9 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_qtdir}/plugins/potd
 %{_qtdir}/plugins/plasmacalendarplugins/astronomicalevents.so
 %{_qtdir}/plugins/plasmacalendarplugins/astronomicalevents
-%{_qtdir}/qml/org/kde/plasma/private/notes
 %{_qtdir}/qml/org/kde/plasma/private/dict
 %{_datadir}/icons/hicolor/scalable/apps/accessories-dictionary.svgz
-%{_datadir}/plasma/plasmoids/org.kde.plasma_applet_dict
-%{_datadir}/plasma/plasmoids/org.kde.plasma.calculator
-%{_datadir}/plasma/plasmoids/org.kde.plasma.fuzzyclock
-%{_datadir}/plasma/plasmoids/org.kde.plasma.konsoleprofiles
 %{_datadir}/plasma/plasmoids/org.kde.plasma.kickerdash
-%{_datadir}/plasma/plasmoids/org.kde.plasma.notes
-%{_datadir}/plasma/plasmoids/org.kde.plasma.webbrowser
-%{_datadir}/plasma/plasmoids/org.kde.plasma.fifteenpuzzle
-%{_datadir}/plasma/plasmoids/org.kde.plasma.colorpicker
-%{_datadir}/plasma/plasmoids/org.kde.plasma.diskquota
-%{_datadir}/plasma/plasmoids/org.kde.plasma.mediaframe
-%{_datadir}/plasma/plasmoids/org.kde.plasma.userswitcher
-%{_datadir}/plasma/plasmoids/org.kde.plasma.grouping
 %{_datadir}/plasma/desktoptheme/default/widgets/timer.svgz
 %{_datadir}/plasma/desktoptheme/default/weather/wind-arrows.svgz
 %{_datadir}/plasma/wallpapers/org.kde.haenau
@@ -116,11 +103,7 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/plasma/wallpapers/org.kde.potd
 %{_datadir}/kwin/effects/cube
 %{_datadir}/kwin/tabbox
-%{_datadir}/icons/hicolor/scalable/apps/fifteenpuzzle.svgz
-%{_qtdir}/qml/org/kde/plasma/private/colorpicker
-%{_qtdir}/qml/org/kde/plasma/private/diskquota
 %{_qtdir}/qml/org/kde/plasma/private/fifteenpuzzle
-%{_qtdir}/qml/org/kde/plasma/private/mediaframe
 %{_qtdir}/qml/org/kde/plasmacalendar
 %{_qtdir}/plugins/kf6/krunner/unitconverter.so
 %{_qtdir}/plugins/kf6/krunner/krunner_charrunner.so
@@ -137,7 +120,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_qtdir}/plugins/plasmacalendarplugins/alternatecalendar.so
 %{_qtdir}/plugins/plasmacalendarplugins/alternatecalendar
 %{_qtdir}/qml/org/kde/plasma/private/profiles
-%{_datadir}/plasma/plasmoids/org.kde.plasma.addons.katesessions
 %{_qtdir}/plugins/kf6/packagestructure/plasma_comic.so
 %{_datadir}/knotifications6/plasma_applet_timer.notifyrc
 %{_libdir}/libexec/kf6/kauth/kameleonhelper
@@ -152,3 +134,6 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_libdir}/libplasmaweatherion.so*
 %{_qtdir}/plugins/plasma/weather_ions
 %{_datadir}/plasma/weather/noaa_station_list.xml
+%{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/contents/code/main.js
+%{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/metadata.json
+%{_datadir}/plasma/wallpapers/org.kde.tiled
