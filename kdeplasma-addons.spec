@@ -11,13 +11,15 @@
 %define libweather %mklibname plasmaweather %{libweather_major}
 
 Name: kdeplasma-addons
-Version: 6.6.5
+Version: 6.7.1
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/kdeplasma-addons-%{gitbranchd}.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/kdeplasma-addons-%{version}.tar.xz
 %endif
+# G****ing rust
+Source1: kameleon-qmk-helper-vendor.tar.xz
 Summary: KDE 6 Plasma Add-Ons
 URL: https://kde.org/
 License: GPL
@@ -46,6 +48,7 @@ BuildRequires: cmake(Plasma5Support)
 BuildRequires: cmake(KF6Sonnet)
 BuildRequires: cmake(KF6UnitConversion)
 BuildRequires: cmake(KF6Auth)
+BuildRequires: cmake(Corrosion)
 #BuildRequires: cmake(LibTaskManager)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: cmake(Qt6)
@@ -77,6 +80,19 @@ BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 KDE 6 Plasma Add-Ons.
+
+%prep -a
+cd kdeds/kameleon/qmk/kameleon-qmk-helper
+tar xf %{S:1}
+mkdir .cargo
+cat >>.cargo/config.toml <<'EOF'
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
+EOF
 
 %install -a
 # (tpg) not needed
@@ -137,3 +153,8 @@ rm -rf	%{buildroot}%{_libdir}/libplasmapotdprovidercore.so \
 %{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/contents/code/main.js
 %{_datadir}/kwin/scripts/virtualdesktopsonlyonprimary/metadata.json
 %{_datadir}/plasma/wallpapers/org.kde.tiled
+%{_libdir}/cmake/PlasmaWeather
+%{_libdir}/libexec/kf6/kameleon-qmk-helper
+%{_datadir}/dbus-1/system-services/org.kde.kameleon.qmk.helper.service
+%{_datadir}/dbus-1/system.d/org.kde.kameleon.qmk.helper.conf
+%{_datadir}/polkit-1/actions/org.kde.kameleon.qmk.helper.policy
