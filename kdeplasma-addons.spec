@@ -71,6 +71,9 @@ BuildRequires: pkgconfig(xcb-keysyms)
 BuildRequires: pkgconfig(xcb-xkb)
 BuildRequires: pkgconfig(xft)
 BuildRequires: cmake(KF6NetworkManagerQt)
+# FIXME Needs some de-rusting
+BuildRequires: rust
+BuildRequires: pkgconfig(libudev)
 Obsoletes: %{libweather} < %{EVRD}
 # Renamed after 6.0 2025-05-03
 %rename plasma6-kdeplasma-addons
