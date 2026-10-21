@@ -12,7 +12,7 @@
 
 Name: kdeplasma-addons
 Version: 6.8.1
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kdeplasma-addons/-/archive/%{gitbranch}/kdeplasma-addons-%{gitbranchd}.tar.bz2#/kdeplasma-addons-%{git}.tar.bz2
 %else
@@ -20,6 +20,8 @@ Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/kdeplasma-addons-
 %endif
 # G****ing rust
 Source1: kameleon-qmk-helper-vendor.tar.xz
+# Color picking needs compositing on X11. Wayland stays enabled.
+Patch0: kdeplasma-addons-6.8.1-x11-colorpicker.patch
 Summary: KDE 6 Plasma Add-Ons
 URL: https://kde.org/
 License: GPL

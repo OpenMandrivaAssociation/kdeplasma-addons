@@ -1,0 +1,54 @@
+diff -ruN a/applets/colorpicker/qml/CompactRepresentation.qml b/applets/colorpicker/qml/CompactRepresentation.qml
+--- a/applets/colorpicker/qml/CompactRepresentation.qml	2026-10-20 11:03:48.000000000 +0200
++++ b/applets/colorpicker/qml/CompactRepresentation.qml	2026-10-21 23:45:41.412970714 +0200
+@@ -81,6 +81,7 @@
+             property Item loadingIndicator: null
+ 
+             display: PlasmaComponents3.AbstractButton.IconOnly
++            enabled: KWindowSystem.KWindowSystem.isPlatformWayland || KWindowSystem.KX11Extras.compositingActive
+             text: i18nc("@info:tooltip", "Pick color")
+ 
+             onClicked: root.pickColor()
+diff -ruN a/applets/colorpicker/qml/main.qml b/applets/colorpicker/qml/main.qml
+--- a/applets/colorpicker/qml/main.qml	2026-10-20 11:03:48.000000000 +0200
++++ b/applets/colorpicker/qml/main.qml	2026-10-21 23:45:41.458635380 +0200
+@@ -14,6 +14,9 @@
+ import org.kde.plasma.components as PlasmaComponents3
+ import org.kde.plasma.extras as PlasmaExtras
+ import org.kde.kirigami as Kirigami
++import org.kde.kcmutils as KCMUtils
++import org.kde.config as KConfig
++import org.kde.kwindowsystem
+ 
+ PlasmoidItem {
+     id: root
+@@ -175,9 +178,12 @@
+                 opacity: 0
+                 iconName: "edit-none"
+ 
+-                text: i18nc("@info:usagetip", "No colors")
++                readonly property bool compositingActive: KWindowSystem.isPlatformWayland || KX11Extras.compositingActive
+ 
+-                helpfulAction: pickColorAction
++                text: compositingActive ? i18nc("@info:usagetip", "No colors") : i18nc("@info:status when color picking is unavailable", "Color picking unavailable when compositing is disabled")
++                explanation: compositingActive ? "" : i18nc("@info:status when color pick is unavailable", "Compositing has been manually disabled or blocked by a running application")
++
++                helpfulAction: compositingActive ? pickColorAction : enableCompositingAction
+ 
+                 QQC2.Action {
+                     id: pickColorAction
+@@ -186,6 +192,14 @@
+                     onTriggered: root.pickColor()
+                 }
+ 
++                QQC2.Action {
++                    id: enableCompositingAction
++                    enabled: KConfig.KAuthorized.authorizeControlModule("kwincompositing")
++                    icon.name: "settings-configure"
++                    text: i18nc("@action:button open kwincompositing KCM", "Configure Compositing")
++                    onTriggered: KCMUtils.KCMLauncher.openSystemSettings("kwincompositing")
++                }
++
+                 NumberAnimation {
+                     duration: Kirigami.Units.longDuration
+                     easing.type: Easing.OutCubic
